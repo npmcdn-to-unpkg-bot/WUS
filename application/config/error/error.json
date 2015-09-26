@@ -1,0 +1,32 @@
+{
+    "101": {
+        "type": "ERR_SECURITY_ERROR",
+        "detail": "A security error occured"
+    },
+    "102": {
+        "type": "ERR_JSON_SYNTAXE",
+        "detail": "cannot load JSON file, please check syntaxe"
+    },
+    "103": {
+        "type": "ERR_INVALID_SUBDOMAIN",
+        "detail": "Invalid subdomain"
+    },
+    "104": {
+        "type": "ERR_API_REQUIRE_SSL",
+        "detail": "You must call the API in https mode (ssl)"
+    },
+    "105": {
+        "type": "ERR_DATABASE_ERROR",
+        "detail": "Impossible to connect to database"
+    },
+    "106": {
+        "type": "METHOD_REQUIRE_QUERY_TYPE",
+        "detail": "Method must define the query type (mysql, mongo...)"
+    },
+
+    "201": {
+        "type": "WRONG_LOGIN",
+        "detail": "invalide email or passord"
+    }
+    
+}

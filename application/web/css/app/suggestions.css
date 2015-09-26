@@ -1,0 +1,40 @@
+@media all and (min-width: 1400px)
+{
+	content div.informations div.suggestions
+	{
+		background-color: #FFFFFF;
+		color: #000000;
+		padding: 5px;
+		text-align: left;
+		border: 1px #D9D6D7 solid;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+	content div.informations div.suggestions div.title
+	{
+		height: 20px;
+		font-weight: bold;
+	}
+
+	content div.informations div.suggestions div.data
+	{
+	}
+}
+
+@media all and (device-width: 320px)
+{
+    content div.informations div.suggestions
+	{
+		display: none;
+	}
+
+	content div.informations div.suggestions div.title
+	{
+		display: none;
+	}
+
+	content div.informations div.suggestions div.data
+	{
+	}
+}

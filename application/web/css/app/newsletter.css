@@ -1,0 +1,55 @@
+@media all and (min-width: 1400px)
+{
+	content div.informations div.newsletter
+	{
+		background-color: #000000;
+		color: #FFFFFF;
+		padding: 5px;
+		text-align: left;
+		border: 1px #D9D6D7 solid;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+	content div.informations div.newsletter div.title
+	{
+		height: 20px;
+		font-weight: bold;
+	}
+
+	content div.informations div.newsletter div.data
+	{
+	}
+
+	content div.informations div.newsletter div.data input[type=text]
+	{
+		width: 90%;
+		padding: 2px;
+		border: solid 1px #FFFFFF;
+		transition: border 0.3s;
+		background-color: #000000;
+		color: #FFFFFF;
+	}
+}
+
+@media all and (device-width: 320px)
+{
+	content div.informations div.newsletter
+	{
+		display: none;
+	}
+
+	content div.informations div.newsletter div.title
+	{
+		display: none;
+	}
+
+	content div.informations div.newsletter div.data
+	{
+	}
+
+	content div.informations div.newsletter div.data input[type=text]
+	{
+		display: none;
+	}
+}

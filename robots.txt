@@ -1,0 +1,39 @@
+User-agent: *
+# On empêche l&#039;indexation des dossiers sensibles
+Disallow: /application/admin
+Disallow: /application/common
+Disallow: /application/core
+Disallow: /application/css
+Disallow: /application/font
+Disallow: /application/js
+Disallow: /application/library
+Disallow: /application/logs
+Disallow: /application/mercanet
+Disallow: /application/rootes
+Disallow: /application/src
+
+Disallow: /application/ressources/clients
+Disallow: /application/ressources/icons
+Disallow: /application/ressources/templates
+
+Disallow: /application/web/ajax
+Disallow: /application/web/html
+Disallow: /application/web/js
+Disallow: /application/web/php
+Disallow: /application/web/popup
+
+# On empêche l&#039;indexation des fichiers sensibles
+User-agent: Googlebot
+Disallow: /*.php$
+Disallow: /*.js$
+Disallow: /*.inc$
+Disallow: /*.css$
+Disallow: /*.gz$
+Disallow: /*.swf$
+Disallow: /*.wmv$
+Disallow: /*.cgi$
+Disallow: /*.xhtml$
+# Autoriser Google Image
+User-agent: Googlebot-Image
+Disallow:
+Allow: /*

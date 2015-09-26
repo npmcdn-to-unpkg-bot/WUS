@@ -1,0 +1,64 @@
+<?php 
+    
+    require_once(dirname(__FILE__) . "/php/class.bar.php");
+
+    global $app;
+    global $bdd;
+    global $_TABLES;
+
+    /*$content_html = '<!DOCTYPE html>
+                        <html>
+                            <head>
+                                <meta charset="utf-8" />
+                                <?php $this->loadCSS(); ?>
+                            </head>
+                            <body>
+                                <page>
+                                    <header class="bar">
+                                        <div class="bar-home">%%home%%</div>
+                                        <div class="bar-user">%%user%%</div>
+                                        <div class="bar-social">%%social%%</div>
+                                    </header>
+                                    <content>
+                                        <div class="div-iframe">%%iframe%%</div>
+                                    </content>  
+                                    <footer>
+                                        <div class="copyright">%%copyright%%</div>
+                                    </footer>
+                                </page>
+
+                                <!--<?php $this->loadJS(); ?>-->
+
+                                <noscript>
+                                    <div id="noscript-content">
+                                        <div id="noscript">Veuillez activer le Javascript de votre navigateur Web.
+                                        </div>
+                                    </div>
+                                </noscript>
+
+                            </body>
+                        </html>';*/
+
+    $to = $app->router()->getCurrentRoute()->getParams()['to'];
+    $guid = str_replace('/', '', explode('#', $to)[0]);
+
+    if(!is_null($bdd) && !is_null($_TABLES)) {
+        $bar = new Bar($bdd, $_TABLES);
+        $item = $bar->getItem($guid);
+
+        if(!is_null($item)) {
+            //echo("<div style='display: block; width: 100%'>BAR DE WUS</div><br/><br/>");
+            $iframe = "<iframe style='display: block; width: 100%; border: none; margin: auto' scrolling='no' src=" . $item->url . "></iframe>";
+            $content_html = str_replace('%%iframe%%', $iframe, $content_html);
+            echo($content_html);
+        }
+        else {
+            // 404
+            echo "404 Not Found";
+        }
+    }
+    else {
+        error_log("BDD ERROR : " . $bdd);
+        error_log("TABLES ERROR : " . $_TABLES);
+    }
+?>

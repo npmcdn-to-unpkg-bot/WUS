@@ -1,0 +1,144 @@
+header.bar 
+{
+	height: 50px;
+	background-color: #000000;
+	color: #FFFFFF;
+}
+
+header.bar div.site
+{
+	margin-left: 15%;
+}
+
+header.bar div.menu
+{
+	margin-left: 15%;
+}
+
+header.bar div.logo
+{
+	margin-left: 2%;
+}
+
+header.bar div.social
+{
+	margin-left: 15%;
+}
+
+header.bar div.site, header.bar div.menu, header.bar div.logo, header div.social
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+header.bar div.site div.logo_site,
+header.bar div.site div.informations_site
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+header.bar div.site div.logo_site img
+{
+	display: inline-block;
+	vertical-align: middle;
+	max-height: 40px;
+	max-width: 40px;
+}
+
+header.bar div.site div.informations_site div.title,
+header.bar div.site div.informations_site div.button
+{
+	display: block;
+	width: 100%;
+	vertical-align: middle;
+}
+
+header.bar div.site div.informations_site div.title
+{
+	color: #FFFFFF;
+	font-family: Arial;
+	font-weight: bold;
+	text-align: left;
+	text-transform: uppercase;
+}
+
+header.bar div.site div.informations_site div.button a
+{
+	display: block;
+    width: 70px;
+    height: 21px;
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: -236px -26px;
+}
+
+header.bar div.menu #menu
+{
+	display: block;
+    margin: auto;
+    width: 60px;
+    height: 50px;
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: -815px -10px;
+}
+
+header.bar div.logo #logo
+{
+	display: block;
+    margin: auto;
+    width: 180px;
+    height: 50px;
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: -420px -10px;
+}
+
+header.bar div.social div.title,
+header.bar div.social div.link
+{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+header.bar div.social div.title a#share_text
+{
+	display: inline-block;
+	vertical-align: middle;
+	color: #FFFFFF;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: Arial;
+	font-size: 12px;
+}
+
+header.bar div.social div.link a#share
+{
+	display: inline-block;
+	vertical-align: middle;
+    width: 46px;
+    height: 46px;
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: -31px -14px;
+}
+
+content div.div-iframe
+{
+	width: 100%;
+	height: 100%;
+}
+
+content div.div-iframe iframe
+{ 
+	height: 100%; 
+	width: 100%; 
+	border: none; 
+	margin: auto;
+}
+
+html, body
+{
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+}

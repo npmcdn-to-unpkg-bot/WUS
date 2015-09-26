@@ -1,0 +1,68 @@
+
+<div class="website-page">
+
+	<fieldset class="left">
+		<legend> Websites </legend>
+		
+		<table id="dt_websites" ></table>
+	</fieldset>
+
+	<fieldset class="right">
+		<legend> Nouveau Website </legend>
+
+		<div class="informations-website-new">
+			
+			<fieldset>
+
+				<legend>Informations</legend>
+
+				<label for="website" class="label_form">Website (nom) : </label>
+				<input type="text" id="website" name="website"/>
+
+				<br/><br/>
+
+				<label for="url" class="label_form">Url : </label>
+				<input type="text" id="url" name="url"/>
+
+				<br/><br/>
+
+				<label for="logo" class="label_form">Logo : </label>
+				<input id="logo" name="logo" type="text" disabled/>
+				<br/>
+				<div id="multiplefileuploader_logo">Upload</div>
+
+				<br/><br/>
+
+				<label for="scrap" class="label_form">Scrap : </label>
+				<input type="checkbox" id="scrap" name="scrap"/>
+
+			</fieldset>
+
+		</div>
+
+		<div class="configuration-website-new">
+
+			<fieldset>
+
+    		<legend>Fichier de configuration</legend>
+
+				<?php include 'template-configuration-json.html'; ?>
+
+			</fieldset>
+		</div>
+
+		<div class="action-website-new">
+
+			<fieldset>
+
+				<legend>Actions</legend>
+
+				<input type="button" id="create_website" class='create' value="Ajouter"/>
+				<input type="button" id="reset_website" class='reset' value="Reset"/>
+
+			</fieldset>
+		</div>
+		
+	</fieldset>	
+
+</div>

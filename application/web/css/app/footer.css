@@ -1,0 +1,50 @@
+@media all and (min-width: 1400px)
+{
+	footer
+	{
+		text-align: center;
+		height: 50px;
+		line-height: 46px;
+		background-color: #ABABAB;
+	}
+
+	footer div
+	{
+		display: inline-block;
+		vertical-align: middle;
+		height: 50px;
+	}
+
+	footer div.copyright
+	{
+		width: 100%;
+	}
+
+	footer div.copyright *
+	{
+		height: 50px;
+	}
+}
+
+@media all and (device-width: 320px)
+{
+    footer
+	{
+		display: none;
+	}
+
+	footer div
+	{
+		display: none;
+	}
+
+	footer div.copyright
+	{
+		display: none;
+	}
+
+	footer div.copyright *
+	{
+		display: none;
+	}
+}

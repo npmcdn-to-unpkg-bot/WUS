@@ -1,0 +1,42 @@
+{
+    "container" : "main[id=main]",
+    "item" : {
+        "container" : "article",
+        "url" : {
+            "html" : "div[class=entry-content] a[class=img]",
+            "element" : "href"
+            },
+        "title" : {
+            "html" : "div[class=entry-content] h2 a",
+            "element" : "text"
+            },
+        "width_image" : {
+            "html" : "div[class=entry-content] img",
+            "element" : "width"
+            },
+        "height_image" : {
+            "html" : "div[class=entry-content] img",
+            "element" : "height"
+            },
+        "image" : {
+            "html" : "div[class=entry-content] img",
+            "element" : "src"
+            },
+        "alt_image" : {
+            "html" : "div[class=entry-content] img",
+            "element" : "alt"
+            },
+        "description" : {
+            "html" : "",
+            "element" : ""
+            },
+        "date_publication" : {
+            "html" : "div[class=entry-content] span[class=posted]",
+            "element" : "text"
+            },
+        "author" : {
+            "html" : "",
+            "element" : ""
+            }
+    }
+}

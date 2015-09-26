@@ -1,0 +1,306 @@
+@media all and (min-width: 1400px)
+{
+	content div.articles div.caroussel
+	{
+		background-color: #FFFFFF;
+		color: #000000;
+		padding: 5px;
+		text-align: left;
+		border: 1px #D9D6D7 solid;
+		margin-bottom: 5px;
+		height: 230px;
+		position: relative;
+
+	}
+
+	content div.articles div.caroussel caroussel div.clear
+	{
+	    clear: both;
+	}
+
+	content div.articles div.caroussel caroussel vignette
+	{
+		width: inherit;
+	    position: absolute;
+
+	    height: 230px;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.image, content div.articles div.caroussel caroussel vignette div.data
+	{
+		display: inline-block;
+		vertical-align: middle;
+		height: 230px;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.image
+	{
+		position: relative;
+		width: 500px;
+		height: 230px;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.image a
+	{
+		position: absolute;
+		top: 0;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.image a img
+	{
+		width: 100% !important;
+		height: 100% !important;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.image a#link
+	{
+		z-index: 1;
+		left: 0;
+		height: 100%;
+		width: 100%;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.image a#share
+	{
+		z-index: 2;
+		right: 1px;
+		display: block;
+	    width: 46px;
+	    height: 46px;
+	    background: url("../image/icone.png") 0 0 no-repeat;
+	    background-position: -31px -14px;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data
+	{
+		width: 38%;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data h2.title
+	{
+		text-align: center;
+		width: 80%;
+		margin: auto;
+		text-transform: uppercase;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data h2.title a
+	{
+		text-decoration: none;
+		font-weight: bold;
+		color: #000000;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data p.description
+	{
+		display: block;
+		text-align: left;
+		font-size: 12px;
+		color: #000000;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data a.read
+	{
+		display: block;
+		text-decoration: none;
+		text-align: left;
+		color: #000000;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data div.action
+	{
+		text-align: center;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data div.action div.precedent,
+	content div.articles div.caroussel caroussel vignette div.data div.action div.site,
+	content div.articles div.caroussel caroussel vignette div.data div.action div.suivant 
+	{
+		display: inline-block;
+		vertical-align: middle;
+		height: 70px;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data div.action div.precedent a
+	{
+		display: block;
+	    width: 40px;
+	    height: 70px;
+	    background: url("../image/icone.png") 0 0 no-repeat;
+	    background-position: -160px -1px;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data div.action div.site div.logo_site,
+	content div.articles div.caroussel caroussel vignette div.data div.action div.site div.informations_site
+	{
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data div.action div.site div.logo_site img
+	{
+		display: block;
+		max-height: 70px;
+		max-width: 70px;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data div.action div.site div.informations_site div.title,
+	content div.articles div.caroussel caroussel vignette div.data div.action div.site div.informations_site div.button
+	{
+		display: block;
+		width: 100%;
+		vertical-align: middle;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data div.action div.site div.informations_site div.title
+	{
+		color: #000000;
+		font-weight: bold;
+		text-align: left;
+		text-transform: uppercase;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data div.action div.site div.informations_site div.button a
+	{
+		display: block;
+	    width: 70px;
+	    height: 21px;
+	    background: url("../image/icone.png") 0 0 no-repeat;
+	    background-position: -236px -26px;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data div.action div.suivant a
+	{
+		display: block;
+	    width: 40px;
+	    height: 70px;
+	    background: url("../image/icone.png") 0 0 no-repeat;
+	    background-position: -115px -1px;
+	}
+}
+
+@media all and (device-width: 320px)
+{
+    content div.articles div.caroussel
+	{
+		display: none;
+	}
+
+	content div.articles div.caroussel caroussel div.clear
+	{
+	    display: none;
+	}
+
+	content div.articles div.caroussel caroussel vignette
+	{
+		display: none;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.image, content div.articles div.caroussel caroussel vignette div.data
+	{
+		display: none;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.image
+	{
+		display: none;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.image a
+	{
+		display: none;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.image a img
+	{
+		display: none;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.image a#link
+	{
+		display: none;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.image a#share
+	{
+		display: none;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data
+	{
+		display: none;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data h2.title
+	{
+		display: none;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data h2.title a
+	{
+		display: none;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data p.description
+	{
+		display: none;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data a.read
+	{
+		display: none;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data div.action
+	{
+		display: none;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data div.action div.precedent,
+	content div.articles div.caroussel caroussel vignette div.data div.action div.site,
+	content div.articles div.caroussel caroussel vignette div.data div.action div.suivant 
+	{
+		display: none;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data div.action div.precedent a
+	{
+		display: none;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data div.action div.site div.logo_site,
+	content div.articles div.caroussel caroussel vignette div.data div.action div.site div.informations_site
+	{
+		display: none;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data div.action div.site div.logo_site img
+	{
+		display: none;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data div.action div.site div.informations_site div.title,
+	content div.articles div.caroussel caroussel vignette div.data div.action div.site div.informations_site div.button
+	{
+		display: none;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data div.action div.site div.informations_site div.title
+	{
+		display: none;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data div.action div.site div.informations_site div.button a
+	{
+		display: none;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data div.action div.suivant a
+	{
+		display: none;
+	}
+}

@@ -1,0 +1,34 @@
+@media all and (min-width: 1400px)
+{
+	content div.options div.connexion
+	{
+		background-color: #FFFFFF;
+		color: #000000;
+		padding: 5px;
+		text-align: left;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+	content div.options div.connexion div.link a
+	{
+		display: block;
+		text-decoration: none;
+		font-weight: bold;
+		color: #000000;
+		padding-left: 10px;
+	}
+}
+
+@media all and (device-width: 320px)
+{
+    content div.options div.connexion
+	{
+		display: none;
+	}
+
+	content div.options div.connexion div.link a
+	{
+		display: none;
+	}
+}

@@ -1,0 +1,30 @@
+{
+    "favicon" : "",
+    "meta": {
+        "title" : "",
+        "keywords"   : "",
+        "description": ""
+    },
+    "og": {
+        "title" : "",
+        "type" : "website",
+        "image" : "",
+        "url" : "",
+        "description" : "",
+        "video" : "",
+        "locale" : "fr_FR",
+        "site_name" : ""
+    },
+    "php": [
+        ]
+    ,
+    "js": [
+            "/application/js/library/jquery.js",
+            "/application/js/library/jquery-ui.min.js",
+            "/application/admin/js/app/login.js",
+            "/application/admin/js/app/logout.js"
+        ]
+    ,
+    "css": [
+        ]
+}

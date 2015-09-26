@@ -1,0 +1,28 @@
+{
+    "favicon" : "",
+    "meta": {
+        "title" : "",
+        "keywords"   : "",
+        "description": ""
+    },
+    "og": {
+        "title" : "",
+        "type" : "website",
+        "image" : "",
+        "url" : "",
+        "description" : "",
+        "video" : "",
+        "locale" : "fr_FR",
+        "site_name" : ""
+    },
+    "php": [
+        ]
+    ,
+    "js": [
+        ]
+    ,
+    "css": [
+            "/application/web/css/app/bar.css",
+            "/application/web/css/app/footer.css"            
+        ]
+}

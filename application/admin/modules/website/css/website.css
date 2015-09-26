@@ -1,0 +1,21 @@
+.informations-website-new {
+	display: inline-block;
+	vertical-align: top;
+	width: 20%;
+}
+
+.configuration-website-new {
+	display: inline-block;
+	vertical-align: top;
+	width: 60%;
+}
+
+.configuration-website-new tab {
+	margin-left: 60px;
+}
+
+.action-website-new {
+	display: inline-block;
+	vertical-align: top;
+	width: 19%;
+}

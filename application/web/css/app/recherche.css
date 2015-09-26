@@ -1,0 +1,64 @@
+@media all and (min-width: 1400px)
+{
+    content div.options div.recherche
+    {
+    	background-color: #FFFFFF;
+    	color: #000000;
+    	padding: 5px;
+    	text-align: left;
+    	border: 1px #D9D6D7 solid;
+    	margin-top: 5px;
+    	margin-bottom: 5px;
+    }
+
+    content div.options div.recherche div.link, content div.options div.recherche div.data
+    {
+    	display: inline-block;
+    	vertical-align: middle;
+    	height: 26px;
+    }
+
+    content div.options div.recherche div.link a
+    {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background: url("../image/icone.png") 0 0 no-repeat;
+        background-position: 0px -23px;
+    }
+
+    content div.options div.recherche div.data input[type=text]
+    {
+    	display: block;
+        width: 75%;
+        height: 22px;
+        padding: 0px 5px 0px 5px;
+        border: solid 2px #000000;
+        transition: border 0.3s;
+        background-color: #FFFFFF;
+        color: #000000;
+    }
+}
+
+@media all and (device-width: 320px)
+{
+    content div.options div.recherche
+    {
+        display: none;
+    }
+
+    content div.options div.recherche div.link, content div.options div.recherche div.data
+    {
+        display: none;
+    }
+
+    content div.options div.recherche div.link a
+    {
+        display: none;
+    }
+
+    content div.options div.recherche div.data input[type=text]
+    {
+        display: none;
+    }
+}
