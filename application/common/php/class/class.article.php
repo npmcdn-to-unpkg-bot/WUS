@@ -21,10 +21,10 @@
 			{
 				$sql = "SELECT I.*, W.website, W.logo
 						FROM " . $this->_TABLES['public']['Website'] . " W
-						LEFT JOIN " . $this->_TABLES['public']['Category'] . " C
-						ON W.id = C.website_id
+						LEFT JOIN " . $this->_TABLES['public']['WebsiteCategory'] . " WC
+						ON W.id = WC.website_id
 						LEFT JOIN " . $this->_TABLES['public']['Item'] . " I
-						ON C.id = I.category_id
+						ON WC.id = I.website_category_id
 						LEFT JOIN " . $this->_TABLES['public']['TypeItem'] . " TI
 						ON I.type_item_id = TI.id
 						WHERE TI.type = :type
@@ -54,7 +54,7 @@
 			$temp = json_decode($data, true);
 
 			$type_item_id = null;
-			$category_id = $temp['category_id'];
+			$website_category_id = $temp['website_category_id'];
 			$guid = $temp['guid'];
 			$url = $temp['url'];
 			$title = $temp['title'];
@@ -96,7 +96,7 @@
 			{
 				$sql = "INSERT INTO " . $this->_TABLES['public']['Item'] . " 
 						(type_item_id,
-						category_id,
+						website_category_id,
 						guid,
 						url,
 						title,
@@ -109,7 +109,7 @@
 						author)
 						VALUES
 						(:type_item_id,
-						:category_id,
+						:website_category_id,
 						:guid,
 						:url,
 						:title,
@@ -122,7 +122,7 @@
 						:author)";
 				$req = $this->bdd->prepare($sql);
 				$req->bindValue('type_item_id', $type_item_id, PDO::PARAM_INT);
-				$req->bindValue('category_id', $category_id, PDO::PARAM_INT);
+				$req->bindValue('website_category_id', $website_category_id, PDO::PARAM_INT);
 				$req->bindValue('guid', $guid, PDO::PARAM_STR);
 				$req->bindValue('url', $url, PDO::PARAM_STR);
 				$req->bindValue('title', $title, PDO::PARAM_STR);

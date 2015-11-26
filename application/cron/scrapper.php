@@ -3,7 +3,7 @@
 	// Author : Quentin BELOT
 
     require_once(dirname(dirname(__FILE__)) . "/common/php/class/class.website.php");
-    require_once(dirname(dirname(__FILE__)) . "/common/php/class/class.category.php");
+    require_once(dirname(dirname(__FILE__)) . "/common/php/class/class.website_category.php");
     require_once(dirname(dirname(__FILE__)) . "/common/php/class/class.article.php");
 	require_once(dirname(dirname(__FILE__)) . "/common/php/tools/simple_html_dom.php");
 
@@ -24,8 +24,8 @@
         if(!is_null($websites)) {
 
         	foreach ($websites as $key_website => $value_website) {
-        		$category = new Category($bdd, $_TABLES);
-        		$categories = $category->getCategories($value_website->id);
+        		$website_category = new WebsiteCategory($bdd, $_TABLES);
+        		$website_categories = $website_category->getWebsiteCategories($value_website->id);
 
         		$url = $value_website->url;
         		$file = $value_website->file;
@@ -44,13 +44,13 @@
 		            echo "Website File Not Found \n";
 		        }
 
-        		if(!is_null($categories)) {
+        		if(!is_null($website_categories)) {
 
-        			foreach ($categories as $key_category => $value_category) {
+        			foreach ($website_categories as $key_website_category => $value_website_category) {
 		        		$article = new Article($bdd, $_TABLES);
 
-                        if($value_category->use_url) {
-		        			$url .= $value_category->url;
+                        if($value_website_category->use_url) {
+		        			$url .= $value_website_category->url;
 		        		}
 
 		        		$html = file_get_html($url);
@@ -59,7 +59,7 @@
 
                             foreach ($html->find($config->container . ' ' . $config->item->container) as $value) {
 
-                                $temp['category_id'] = $value_category->id;
+                                $temp['category_id'] = $value_website_category->id;
                                 $temp['guid'] = substr(md5(microtime(TRUE) * 100000), 0, 5);
                                 $temp['url'] = getElement($value->find($config->item->url->html, 0), $config->item->url->element);
                                 $temp['title'] = getElement($value->find($config->item->title->html, 0), $config->item->title->element);
@@ -81,7 +81,7 @@
 		        	}
         		}
         		else {
-		            echo "Categories Not Found For " . $url . "\n";
+		            echo "Website Categories Not Found For " . $url . "\n";
 		        }
         	}
         }

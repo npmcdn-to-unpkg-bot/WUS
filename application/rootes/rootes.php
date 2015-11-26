@@ -27,4 +27,19 @@ $app->get('/admin/modules/website', function () {
     include(dirname(dirname(__FILE__)) . "/admin/modules/website/index.php");
 });
 
+$app->get('/admin/modules/website_category', function () {
+    //load page config and html content
+    include(dirname(dirname(__FILE__)) . "/admin/modules/website_category/index.php");
+});
+
+$app->get('/admin/modules/category', function () {
+    //load page config and html content
+    include(dirname(dirname(__FILE__)) . "/admin/modules/category/index.php");
+});
+
+$app->get('/admin/modules/category_preference', function () {
+    //load page config and html content
+    include(dirname(dirname(__FILE__)) . "/admin/modules/category_preference/index.php");
+});
+
 ?>

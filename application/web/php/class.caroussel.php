@@ -22,10 +22,10 @@
 			{
 				$sql = "SELECT I.*, W.website, W.logo
 						FROM " . $this->_TABLES['public']['Website'] . " W
-						LEFT JOIN " . $this->_TABLES['public']['Category'] . " C
-						ON W.id = C.website_id
+						LEFT JOIN " . $this->_TABLES['public']['WebsiteCategory'] . " WC
+						ON W.id = WC.website_id
 						LEFT JOIN " . $this->_TABLES['public']['Item'] . " I
-						ON C.id = I.category_id
+						ON WC.id = I.website_category_id
 						LEFT JOIN " . $this->_TABLES['public']['TypeItem'] . " TI
 						ON I.type_item_id = TI.id
 						WHERE TI.type = :type

@@ -14,16 +14,13 @@
 			$this->_TABLES = $_TABLES;
 		}
 
-		public function getCategories($website_id) {
+		public function getAllCategories() {
 
 			try 
 			{
 				$sql = "SELECT * 
-						FROM " . $this->_TABLES['public']['Category'] . "
-						WHERE website_id = :website_id
-						ORDER BY category ASC";
+						FROM " . $this->_TABLES['public']['Category'];
 				$req = $this->bdd->prepare($sql);
-				$req->bindValue('website_id', $website_id, PDO::PARAM_INT);
 				$req->execute();
 				$categories = $req->fetchAll(PDO::FETCH_OBJ);
 			}
@@ -39,6 +36,62 @@
 			}
 			else {
 				return null;
+			}
+		}
+
+		public function deleteCategory($id) {
+
+			try 
+			{
+				$sql = "DELETE 
+						FROM " . $this->_TABLES['public']['Category'] . "
+						WHERE id = :id";
+				$req = $this->bdd->prepare($sql);
+				$req->bindValue('id', $id, PDO::PARAM_INT);
+				$req->execute();
+			}
+			catch (PDOException $e)
+			{
+			    error_log($sql);
+			    error_log($e->getMessage());
+			    die();
+			}
+		}
+
+		public function editCategory($id, $category) {
+
+			try 
+			{
+				$sql = "UPDATE " . $this->_TABLES['public']['Category'] . " 	
+						SET category = :category
+						WHERE id = :id";
+				$req = $this->bdd->prepare($sql);
+				$req->bindValue('id', $id, PDO::PARAM_INT);
+				$req->bindValue('category', $category, PDO::PARAM_STR);
+				$req->execute();
+			}
+			catch (PDOException $e)
+			{
+			    error_log($sql);
+			    error_log($e->getMessage());
+			    die();
+			}
+		}
+
+		public function createCategory($category) {
+
+			try 
+			{
+				$sql = "INSERT INTO " . $this->_TABLES['public']['Category'] . " (category) VALUES (:category)";
+				$req = $this->bdd->prepare($sql);
+				$req->bindValue('category', $category, PDO::PARAM_STR);
+				$req->execute();
+			}
+			catch (PDOException $e)
+			{
+			    error_log($sql);
+			    error_log($e->getMessage());
+			    die();
 			}
 		}
 	}
