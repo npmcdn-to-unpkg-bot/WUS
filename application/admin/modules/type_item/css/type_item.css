@@ -1,0 +1,11 @@
+.informations-type-item-new {
+	display: inline-block;
+	vertical-align: top;
+	width: 50%;
+}
+
+.action-type-item-new {
+	display: inline-block;
+	vertical-align: top;
+	width: 49%;
+}

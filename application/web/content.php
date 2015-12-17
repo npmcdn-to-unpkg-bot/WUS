@@ -18,7 +18,7 @@
 				<label class="title">MES PREFERENCES</label>
 			</div>
 			<div class="data">
-				<br/><br/><br/>
+				<?php include('categories.php'); ?>
 			</div>
 			<div class="button">
 				<a href="#" id="preferences_valider"></a>
@@ -33,7 +33,7 @@
 			<?php include('caroussel.php'); ?>
 		</div>
 		<div class="timeline">
-			<?php include('article.php'); ?>
+			<?php include('timeline.php'); ?>
 		</div>
 	</div>
 	<div class="informations">
@@ -73,9 +73,4 @@
 			<label id='copyright'>What's Up Agency <?php echo(date('Y')); ?></label>
 		</div>
 	</div>
-
-
-
-
-	<!--<?php include('article.php'); ?>-->
 </content>

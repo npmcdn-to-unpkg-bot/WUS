@@ -19,7 +19,7 @@
 			try 
 			{
 				$sql = "SELECT * 
-						FROM " . $this->_TABLES['public']['SystemPreference'];
+						FROM " . $this->_TABLES['system']['Preference'];
 				$req = $this->bdd->prepare($sql);
 				$req->execute();
 				$system_preference = $req->fetch(PDO::FETCH_OBJ);
@@ -39,24 +39,24 @@
 			}
 		}
 
-		public function editSystemPreference($url_facebook, $url_instagram, $url_twitter, $url_rss, $url_sitemap, $counter_caroussel) {
+		public function editSystemPreference($url_facebook, $url_instagram, $url_twitter, $url_rss, $url_sitemap, $counter_carrousel) {
 
 			try 
 			{
-				$sql = "UPDATE " . $this->_TABLES['public']['SystemPreference'] . " 	
+				$sql = "UPDATE " . $this->_TABLES['system']['Preference'] . " 	
 						SET url_facebook = :url_facebook,
 						url_instagram = :url_instagram,
 						url_twitter = :url_twitter,
 						url_rss = :url_rss,
 						url_sitemap = :url_sitemap,
-						counter_caroussel = :counter_caroussel";
+						counter_carrousel = :counter_carrousel";
 				$req = $this->bdd->prepare($sql);
 				$req->bindValue('url_facebook', $url_facebook, PDO::PARAM_STR);
 				$req->bindValue('url_instagram', $url_instagram, PDO::PARAM_STR);
 				$req->bindValue('url_twitter', $url_twitter, PDO::PARAM_STR);
 				$req->bindValue('url_rss', $url_rss, PDO::PARAM_STR);
 				$req->bindValue('url_sitemap', $url_sitemap, PDO::PARAM_STR);
-				$req->bindValue('counter_caroussel', $counter_caroussel, PDO::PARAM_INT);
+				$req->bindValue('counter_carrousel', $counter_carrousel, PDO::PARAM_INT);
 				$req->execute();
 			}
 			catch (PDOException $e)

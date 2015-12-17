@@ -39,3 +39,7 @@ $(".suivant a").on('click', function() {
     	$('#caroussel_' + new_counter).toggle('slide', {direction: 'right'}, 'slow');
     }
 });
+
+/*setInterval(function() {
+    $(".precedent a").click();
+}, 3000);*/

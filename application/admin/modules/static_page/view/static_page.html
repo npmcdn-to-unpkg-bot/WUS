@@ -1,0 +1,60 @@
+
+<div class="static-page-page">
+
+	<fieldset class="left">
+		<legend> Static Pages </legend>
+		
+		<table id="dt_static_pages" ></table>
+	</fieldset>
+
+	<fieldset class="right">
+		<legend> Nouvelle Static Page </legend>
+
+		<div class="informations-static-page-new">
+			
+			<fieldset>
+
+				<legend>Informations</legend>
+
+				<label for="title" class="label_form">Title (nom) : </label>
+				<input type="text" id="title" name="title"/>
+
+				<br/><br/>
+
+				<label for="url" class="label_form">Url : </label>
+				<input type="text" id="url" name="url"/>
+
+				<br/><br/>
+
+				<label for="path" class="label_form">Path : </label>
+				<input type="text" id="path" name="path"/>
+
+				<br/><br/>
+
+				<label for="content" class="label_form">Content : </label>
+				<textarea id="content" name="content"></textarea>
+				<script>
+	                // Replace the <textarea id="editor1"> with a CKEditor
+	                // instance, using default configuration.
+	                CKEDITOR.replace('content');
+	            </script>
+
+			</fieldset>
+
+		</div>
+
+		<div class="action-category-new">
+
+			<fieldset>
+
+				<legend>Actions</legend>
+
+				<input type="button" id="create_category" class='create' value="Ajouter"/>
+				<input type="button" id="reset_category" class='reset' value="Reset"/>
+
+			</fieldset>
+		</div>
+		
+	</fieldset>	
+
+</div>

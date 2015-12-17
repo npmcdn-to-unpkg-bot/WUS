@@ -105,9 +105,6 @@ function editWebsiteCategory(button) {
 	var url = $(button).parent().parent().find('.input_dt_url').val();
 	var use_url = ($(button).parent().parent().find('.input_dt_use_url').prop('checked') == true ? 1 : 0);
 
-	console.log('category id : ' + category_id);
-	console.log('website id : ' + website_id);
-
 	$.ajax({
 		url : '/application/admin/modules/website_category/php/controller/website_category.controller.php', // La ressource ciblée
 		type : 'POST', // Le type de la requête HTTP

@@ -21,7 +21,9 @@
     "js": [
             "/application/js/library/jquery.js",
             "/application/js/library/jquery-ui.min.js",
-            "/application/web/js/app/caroussel.js"
+            "/application/web/js/app/caroussel.js",
+            "/application/web/js/app/category.js",
+            "/application/web/js/app/timeline.js"
         ]
     ,
     "css": [

@@ -1,0 +1,92 @@
+
+<div class="item-page">
+
+	<fieldset class="left">
+		<legend> Items </legend>
+		
+		<table id="dt_items" ></table>
+	</fieldset>
+
+	<fieldset class="right">
+		<legend> Nouvelle Item </legend>
+
+		<div class="informations-item-new">
+			
+			<fieldset>
+
+				<legend>Informations</legend>
+
+				<label for="type-item-select" class="label_form">Select a type item : </label>
+				<select id="type-item-select" name="type-item-select"></select>
+
+				<br/><br/>
+
+				<label for="website-category-select" class="label_form">Select a website category : </label>
+				<select id="website-category-select" name="website-category-select"></select>
+
+				<br/><br/>
+
+				<label for="url" class="label_form">Url : </label>
+				<input type="text" id="url" name="url"/>
+
+				<br/><br/>
+
+				<label for="title" class="label_form">Title : </label>
+				<input type="text" id="title" name="title"/>
+
+				<br/><br/>
+
+				<label for="width_image" class="label_form">Width Image (px) : </label>
+				<input type="text" id="width_image" name="width_image"/>
+
+				<br/><br/>
+
+				<label for="height_image" class="label_form">Height Image (px) : </label>
+				<input type="text" id="height_image" name="height_image"/>
+
+				<br/><br/>
+
+				<label for="image" class="label_form">Image : </label>
+				<input id="image" name="image" type="text" disabled/>
+				<br/>
+				<div id="multiplefileuploader_image">Upload</div>
+
+				<br/><br/>
+
+				<label for="alt_image" class="label_form">Alt Image : </label>
+				<input type="text" id="alt_image" name="alt_image"/>
+
+				<br/><br/>
+
+				<label for="description" class="label_form">Description : </label>
+				<input type="text" id="description" name="description"/>
+
+				<br/><br/>
+
+				<label for="date_publication" class="label_form">Date Publication : </label>
+				<input type="text" id="date_publication" name="date_publication"/>
+
+				<br/><br/>
+
+				<label for="author" class="label_form">Author : </label>
+				<input type="text" id="author" name="author"/>
+
+			</fieldset>
+
+		</div>
+
+		<div class="action-item-new">
+
+			<fieldset>
+
+				<legend>Actions</legend>
+
+				<input type="button" id="create_item" class='create' value="Ajouter"/>
+				<input type="button" id="reset_item" class='reset' value="Reset"/>
+
+			</fieldset>
+		</div>
+		
+	</fieldset>	
+
+</div>

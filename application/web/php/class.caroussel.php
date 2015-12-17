@@ -1,4 +1,6 @@
 <?php
+
+	require_once(dirname(dirname(dirname(__FILE__))) . "/common/php/class/class.system_preference.php");
 	/**
 	* 
 	*/
@@ -14,6 +16,14 @@
 			$this->bdd = $bdd;
 
 			$this->_TABLES = $_TABLES;
+
+			$objSystemPreference = new SystemPreference($bdd, $_TABLES);
+        	$system_preference = $objSystemPreference->getSystemPreference();
+
+        	if(!is_null($system_preference)) {
+
+	            $this->limit = ((int)($system_preference->counter_carrousel));
+	        }
 		}
 
 		public function getCaroussel() {

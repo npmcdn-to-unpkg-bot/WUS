@@ -5,6 +5,8 @@ $ouput = null;
 if(isset($_POST["type"]) && isset($_POST["action"]))
 {
 	if(($_POST["type"] == "logo") && ($_POST["action"] == "set")) $output_dir = (dirname(dirname(dirname(dirname(__FILE__)))) . "/ressources/logo/");
+	if(($_POST["type"] == "collaboration") && ($_POST["action"] == "set")) $output_dir = (dirname(dirname(dirname(dirname(__FILE__)))) . "/ressources/collaboration/");
+	if(($_POST["type"] == "item") && ($_POST["action"] == "set")) $output_dir = (dirname(dirname(dirname(dirname(__FILE__)))) . "/ressources/item/");
 }
 
 error_log('Path 2 : ' . $output_dir);

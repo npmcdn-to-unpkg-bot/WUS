@@ -1,0 +1,11 @@
+.informations-user-new {
+	display: inline-block;
+	vertical-align: top;
+	width: 50%;
+}
+
+.action-user-new {
+	display: inline-block;
+	vertical-align: top;
+	width: 49%;
+}
