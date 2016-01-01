@@ -23,7 +23,8 @@
             "/application/js/library/jquery-ui.min.js",
             "/application/web/js/app/caroussel.js",
             "/application/web/js/app/category.js",
-            "/application/web/js/app/timeline.js"
+            "/application/web/js/app/timeline.js",
+            "/application/web/js/app/login.js"
         ]
     ,
     "css": [
@@ -40,6 +41,7 @@
             "/application/web/css/app/legale.css",
             "/application/web/css/app/copyright.css",
             "/application/web/css/app/article.css",
-            "/application/web/css/app/footer.css"
+            "/application/web/css/app/footer.css",
+            "/application/web/css/app/login.css"
         ]
 }

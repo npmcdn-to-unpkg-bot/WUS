@@ -22,7 +22,10 @@
 			// Effectuer la requete des articles en fonction des category
 
 			if(isset($_COOKIE['category_preference'])) {
-				$category_preference = $_COOKIE['category_preference'];
+
+				$category_preference = json_decode(stripcslashes($_COOKIE['category_preference']), true);
+
+				$ids = join(',', $category_preference);
 
 				try 
 				{
@@ -34,11 +37,10 @@
 							ON WC.id = I.website_category_id
 							LEFT JOIN " . $this->_TABLES['public']['TypeItem'] . " TI
 							ON I.type_item_id = TI.id
-							WHERE TI.type = :type AND WC.category_id IN :category_preference
-							ORDER BY date_publication DESC";
+							WHERE TI.type = :type AND WC.category_id IN ($ids)
+							ORDER BY I.date_publication DESC";
 					$req = $this->bdd->prepare($sql);
 					$req->bindValue('type', $this->type_item_article, PDO::PARAM_STR);
-					$req->bindValue('category_preference', $category_preference, PDO::PARAM_STR);
 					$req->execute();
 					$articles = $req->fetchAll(PDO::FETCH_OBJ);
 				}
@@ -48,6 +50,8 @@
 				    error_log($e->getMessage());
 				    die();
 				}
+
+				error_log(count($articles));
 			} else {
 				try 
 				{
@@ -60,7 +64,7 @@
 							LEFT JOIN " . $this->_TABLES['public']['TypeItem'] . " TI
 							ON I.type_item_id = TI.id
 							WHERE TI.type = :type
-							ORDER BY date_publication DESC";
+							ORDER BY I.date_publication DESC";
 					$req = $this->bdd->prepare($sql);
 					$req->bindValue('type', $this->type_item_article, PDO::PARAM_STR);
 					$req->execute();

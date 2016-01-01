@@ -59,7 +59,7 @@
 
                             foreach ($html->find($config->container . ' ' . $config->item->container) as $value) {
 
-                                $temp['category_id'] = $value_website_category->id;
+                                $temp['website_category_id'] = $value_website_category->id;
                                 $temp['guid'] = substr(md5(microtime(TRUE) * 100000), 0, 5);
                                 $temp['url'] = getElement($value->find($config->item->url->html, 0), $config->item->url->element);
                                 $temp['title'] = getElement($value->find($config->item->title->html, 0), $config->item->title->element);
@@ -72,6 +72,8 @@
                                 $temp['author'] = getElement($value->find($config->item->author->html, 0), $config->item->author->element);
 
                                 $data = json_encode($temp);
+
+                                echo $data;
 
                                 $article->setArticle($data);
 
@@ -149,7 +151,7 @@
                                             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
             return $bdd;
         }
-        catch(Exception $e) {
+        catch(PDOException $e) {
             
             echo $e->getMessage() . "\n";
 

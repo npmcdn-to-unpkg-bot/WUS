@@ -1,6 +1,8 @@
 <?php
 
+require_once(dirname(dirname(dirname(__FILE__))) . '/core/system/ajax.php');
 require_once(dirname(dirname(__FILE__)) . "/php/class.timeline.php");
+require_once(dirname(dirname(dirname(__FILE__))) . "/core/system/template.php");
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -46,11 +48,11 @@ function loadTimeline() {
                     ));
             }
 
-            echo $content;
+            return $content;
         }
         else {
             // 404
-            echo "404 Not Found";
+            return "404 Not Found";
         }
     }
     else {

@@ -2,7 +2,18 @@
 	<div class="options">
 		<div class="connexion">
 			<div class="link">
-				<a href="#" id="connexion">CONNEXION</a>
+				<?php 
+					if (session_status() == PHP_SESSION_NONE) {
+					    session_start();
+					}
+
+					if(isset($_SESSION['user_auth']) && $_SESSION['user_auth'] == '1') {
+						echo('<a href="#logout-box" id="deconnexion">DECONNEXION</a>');
+					} else {
+						echo('<a href="#login-box" id="connexion">CONNEXION</a>');
+					}
+				?>				
+				<?php include('html/login.html'); ?>
 			</div>
 		</div>
 		<div class="recherche">
@@ -20,12 +31,21 @@
 			<div class="data">
 				<?php include('categories.php'); ?>
 			</div>
-			<div class="button">
-				<a href="#" id="preferences_valider"></a>
-			</div>
-			<div class="link">
-				<a href="#" id="preferences_enregistrer">Enregistrer mes préférences</a>
-			</div>
+
+			<?php 
+				if (session_status() == PHP_SESSION_NONE) {
+				    session_start();
+				}
+				
+				if(isset($_SESSION['user_auth']) && $_SESSION['user_auth'] == '1') {
+					echo('<div class="button">
+								<a href="#" id="preferences_valider" class="preferences_enregistrer"></a>
+							</div>
+							<div class="link">
+								<a href="#" id="preferences_enregistrer" class="preferences_enregistrer">Enregistrer mes préférences</a>
+							</div>');
+				}
+			?>
 		</div>
 	</div>
 	<div class="articles">
