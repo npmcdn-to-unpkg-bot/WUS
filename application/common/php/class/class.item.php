@@ -14,6 +14,36 @@
 			$this->_TABLES = $_TABLES;
 		}
 
+		// Custom
+
+		public function getItemExistByUrl($url) {
+
+			try 
+			{
+				$sql = "SELECT * 
+						FROM " . $this->_TABLES['public']['Item'] . " WHERE url = :url";
+				$req = $this->bdd->prepare($sql);
+				$req->bindValue('url', $url, PDO::PARAM_STR);
+				$req->execute();
+				$items = $req->fetchAll(PDO::FETCH_OBJ);
+			}
+			catch (PDOException $e)
+			{
+			    error_log($sql);
+			    error_log($e->getMessage());
+			    die();
+			}
+
+			if($items && count($items) > 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+
+		// General
+
 		public function getAllItems() {
 
 			try 

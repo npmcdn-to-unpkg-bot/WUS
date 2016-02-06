@@ -4,6 +4,7 @@
 
     require_once(dirname(dirname(__FILE__)) . "/common/php/class/class.website.php");
     require_once(dirname(dirname(__FILE__)) . "/common/php/class/class.website_category.php");
+    require_once(dirname(dirname(__FILE__)) . "/common/php/class/class.item.php");
     require_once(dirname(dirname(__FILE__)) . "/common/php/class/class.article.php");
 	require_once(dirname(dirname(__FILE__)) . "/common/php/tools/simple_html_dom.php");
 
@@ -53,33 +54,39 @@
 		        			$url .= $value_website_category->url;
 		        		}
 
-		        		$html = file_get_html($url);
+                        $objItem = new Item($bdd, $_TABLES);
+                        $exist = $objItem->getItemExistByUrl($url);
 
-		        		if(!is_null($html)) {
+                        if(!$exist) {
 
-                            foreach ($html->find($config->container . ' ' . $config->item->container) as $value) {
+                            $html = file_get_html($url);
 
-                                $temp['website_category_id'] = $value_website_category->id;
-                                $temp['guid'] = substr(md5(microtime(TRUE) * 100000), 0, 5);
-                                $temp['url'] = getElement($value->find($config->item->url->html, 0), $config->item->url->element);
-                                $temp['title'] = getElement($value->find($config->item->title->html, 0), $config->item->title->element);
-                                $temp['width_image'] = getElement($value->find($config->item->width_image->html, 0), $config->item->width_image->element);
-                                $temp['height_image'] = getElement($value->find($config->item->height_image->html, 0), $config->item->height_image->element);
-                                $temp['image'] = getElement($value->find($config->item->image->html, 0), $config->item->image->element);
-                                $temp['alt_image'] = getElement($value->find($config->item->alt_image->html, 0), $config->item->alt_image->element);
-                                $temp['description'] = getElement($value->find($config->item->description->html, 0), $config->item->description->element);
-                                $temp['date_publication'] = getElement($value->find($config->item->date_publication->html, 0), $config->item->date_publication->element);
-                                $temp['author'] = getElement($value->find($config->item->author->html, 0), $config->item->author->element);
+                            if(!is_null($html)) {
 
-                                $data = json_encode($temp);
+                                foreach ($html->find($config->container . ' ' . $config->item->container) as $value) {
 
-                                echo $data;
+                                    $temp['website_category_id'] = $value_website_category->id;
+                                    $temp['guid'] = substr(md5(microtime(TRUE) * 100000), 0, 5);
+                                    $temp['url'] = getElement($value->find($config->item->url->html, 0), $config->item->url->element);
+                                    $temp['title'] = getElement($value->find($config->item->title->html, 0), $config->item->title->element);
+                                    $temp['width_image'] = getElement($value->find($config->item->width_image->html, 0), $config->item->width_image->element);
+                                    $temp['height_image'] = getElement($value->find($config->item->height_image->html, 0), $config->item->height_image->element);
+                                    $temp['image'] = getElement($value->find($config->item->image->html, 0), $config->item->image->element);
+                                    $temp['alt_image'] = getElement($value->find($config->item->alt_image->html, 0), $config->item->alt_image->element);
+                                    $temp['description'] = getElement($value->find($config->item->description->html, 0), $config->item->description->element);
+                                    $temp['date_publication'] = getElement($value->find($config->item->date_publication->html, 0), $config->item->date_publication->element);
+                                    $temp['author'] = getElement($value->find($config->item->author->html, 0), $config->item->author->element);
 
-                                $article->setArticle($data);
+                                    $data = json_encode($temp);
 
-                                //die('Scrap one article \n');
+                                    echo $data;
+
+                                    $article->setArticle($data);
+
+                                    //die('Scrap one article \n');
+                                }
                             }
-		        		}
+                        }
 		        	}
         		}
         		else {

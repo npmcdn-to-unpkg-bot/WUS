@@ -1,5 +1,9 @@
 <?php 
     
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+
     require_once(dirname(__FILE__) . "/php/class.caroussel.php");
 
     global $bdd;
@@ -18,6 +22,16 @@
             $viewCaroussel = new Template(dirname(__FILE__) . '/html/caroussel.html');
 
             foreach ($articles_caroussel as $key => $value) {
+
+                $temp_subscription = '';
+
+                if(isset($_SESSION['user_auth']) && $_SESSION['user_auth'] == '1' && isset($_SESSION['user_subscription'])) {
+                    if(in_array($value->website_id, $_SESSION['user_subscription'])) {
+                        $temp_subscription = "<a href='#' class='unsubscription' website_id='%%website_id%%'></a>";
+                    } else {
+                        $temp_subscription = "<a href='#' class='subscription' website_id='%%website_id%%'></a>";
+                    }
+                }
 
                 $display = '';
 
@@ -39,7 +53,9 @@
                     "description" => $value->description,
                     "logo_site" => $value->logo,
                     "alt_logo_site" => $value->website,
-                    "title_site" => $value->website
+                    "title_site" => $value->website,
+                    "subscription" => $temp_subscription,
+                    "website_id" => $value->website_id
                     ));
 
             }

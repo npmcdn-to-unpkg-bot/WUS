@@ -20,11 +20,12 @@
 			{
 				$sql = "SELECT *
 						FROM " . $this->_TABLES['public']['User'] . "
-						WHERE login = :login AND pass = SHA1(:password) AND valid = :valid";
+						WHERE email = :email AND password = SHA1(:password) AND verified = :verified AND blocked = :blocked";
 				$req = $this->bdd->prepare($sql);
-				$req->bindValue('login', $username, PDO::PARAM_STR);
+				$req->bindValue('email', $username, PDO::PARAM_STR);
 				$req->bindValue('password', $password, PDO::PARAM_STR);
-				$req->bindValue('valid', 1, PDO::PARAM_BOOL);
+				$req->bindValue('verified', 1, PDO::PARAM_BOOL);
+				$req->bindValue('blocked', 0, PDO::PARAM_BOOL);
 				$req->execute();
 				$item = $req->fetch(PDO::FETCH_OBJ);
 			}

@@ -6,20 +6,27 @@ $app->get('/', function () {
     $page   = new Page('home');
 });
 
-//home root
+//bar page
 $app->get('/to/:to', function ($to) {
     //load page config and html content
     $page   = new Page('bar');
 });
 
+//legale page
+$app->get('/legale/:name', function ($name) {
+    //load page config and html content
+    $page   = new Page('legale');
+});
+
+// account page
+$app->get('/account', function () {
+    //load page config and html content
+    $page   = new Page('account');
+});
+
 /////////////////
 // ADMIN PAGE  //
 /////////////////
-
-// Connexion
-/*$app->get('/login/:provider', function ($provider) {
-    header("Location: http://local.wus.dev/application/common/php/tools/hybridauth/index.php?hauth.done=" . $provider);
-});*/
 
 //home root
 $app->get('/admin', function () {

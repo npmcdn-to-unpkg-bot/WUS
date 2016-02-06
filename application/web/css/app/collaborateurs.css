@@ -16,8 +16,46 @@
 		font-weight: bold;
 	}
 
+	content div.informations div.collaborateurs div.wrapper
+	{
+		//background-color: #EEEEEE;
+	}
+
 	content div.informations div.collaborateurs div.data
 	{
+		margin-left: 40px;
+		width: 160px;
+	}
+
+	content div.informations div.collaborateurs div.data div.collaborateur
+	{
+	    width: 160px;
+	    display: block;
+	    text-align: center;
+	}
+
+	content div.informations div.collaborateurs div.data div.collaborateur div.image a img
+	{
+		width: 160px;
+		margin: auto;
+	}
+
+	content div.informations div.collaborateurs div.data div.collaborateur div.data
+	{
+		margin-left: 0;
+		text-align: center;
+		width: 160px;
+	}
+
+	content div.informations div.collaborateurs div.data div.collaborateur div.data h2.title
+	{
+		
+	}
+
+	content div.informations div.collaborateurs div.data div.collaborateur div.data h2.title a
+	{
+		text-decoration: none;
+		color: #000000;
 	}
 
 	content div.informations div.collaborateurs div.link
@@ -29,6 +67,12 @@
 	{
 		text-decoration: none;
 		color: #000000;
+	}
+
+	/* Custom Thème Slick */
+	content div.informations div.collaborateurs div.data .slick-prev:before, content div.informations div.collaborateurs div.data .slick-next:before
+	{
+		color: black !important;
 	}
 }
 

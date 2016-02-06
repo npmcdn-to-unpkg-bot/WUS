@@ -24,7 +24,10 @@ content
 	{
 		display: inline-block;
 		width: 60%;
+		height: 950px;
 		//background-color: blue;
+		overflow-y:scroll;
+		overflow-x:hidden;
 	}
 
 	content div.informations

@@ -34,6 +34,16 @@ function loadTimeline() {
 
             foreach ($articles as $key => $value) {
 
+                $temp_subscription = '';
+
+                if(isset($_SESSION['user_auth']) && $_SESSION['user_auth'] == '1' && isset($_SESSION['user_subscription'])) {
+                    if(in_array($value->website_id, $_SESSION['user_subscription'])) {
+                        $temp_subscription = "<a href='#' class='unsubscription' website_id='%%website_id%%'></a>";
+                    } else {
+                        $temp_subscription = "<a href='#' class='subscription' website_id='%%website_id%%'></a>";
+                    }
+                }
+
                 $content .= $view->getView(array(
                     "url" => '/to/' . $value->guid . '#' . $value->url,
                     "title" => $value->title,
@@ -44,7 +54,9 @@ function loadTimeline() {
                     "description" => $value->description,
                     "logo_site" => $value->logo,
                     "alt_logo_site" => $value->website,
-                    "title_site" => $value->website
+                    "title_site" => $value->website,
+                    "subscription" => $temp_subscription,
+                    "website_id" => $value->website_id
                     ));
             }
 

@@ -21,15 +21,39 @@
 	{
 	}
 
-	content div.informations div.newsletter div.data input[type=text]
+	content div.informations div.newsletter div.data div.input input[type=text]
 	{
-		width: 90%;
+		width: 100%;
 		padding: 2px;
 		border: solid 1px #FFFFFF;
 		transition: border 0.3s;
 		background-color: #000000;
 		color: #FFFFFF;
 	}
+
+	content div.informations div.newsletter div.data div.input
+	{
+		display: inline-block;
+	    width: 70%;
+	    height: 40px;
+	    vertical-align: middle;
+	}
+
+	content div.informations div.newsletter div.data div.button
+	{
+		display: inline-block;
+	    width: 28%;
+	    text-align: center;
+	}
+
+	content div.informations div.newsletter div.data div.button a
+	{
+		display: inline-block;
+	    width: 40px;
+	    height: 40px;
+	    background: url("../image/icone.png") 0 0 no-repeat;
+	    background-position: -378px -15px;
+	}	    
 }
 
 @media all and (device-width: 320px)

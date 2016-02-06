@@ -80,13 +80,14 @@ class Mailer {
 		$this->mail->IsSMTP();
 
 		//server config
-		$this->mail->SMTPAuth   = true;                           
-		$this->mail->Host       = "mail.gandi.net";     
-		$this->mail->Port       = 25; 
+		$this->mail->SMTPAuth   = true;
+		$this->mail->SMTPSecure = "tls";                   
+		$this->mail->Host       = "smtp.gmail.com";     
+		$this->mail->Port       = 587; 
 
 		//smtp account config
-		$this->mail->Username   = "hamza.guitouni@ilopro.com";
-		$this->mail->Password   = "sos1sos2"; 
+		$this->mail->Username   = "quentin.belot.pro@gmail.com";
+		$this->mail->Password   = "UtOpY579&"; 
 
 		//security config
 		// $this->mail->SMTPSecure = "ssl";
@@ -94,13 +95,13 @@ class Mailer {
 
 	public function defaultInformations() {
 
-		$this->from     = "contact@ilopro.com";
-		$this->fromName = "ILOPRO";
-		$this->subject  = "Email de la societe Ilopro";
-		$this->altBody  = "Ilopro.com";
+		$this->from     = "";
+		$this->fromName = "";
+		$this->subject  = "";
+		$this->altBody  = "";
 		$this->body 	= '';
 
-		$this->debug 	= false;
+		$this->debug 	= true;
 
 	}
 

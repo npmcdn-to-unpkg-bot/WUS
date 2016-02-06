@@ -1,41 +1,64 @@
-<!--<div id="login-box" class="login-popup">
+<div id="login" class="login-popup">
+
 	<a href="#" class="login-close"><img src="application/web/css/image/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
-	<fieldset>
-		<fieldset>
-			<legend>Sign-in form</legend>
-			Email   : <input type="text" name="email" /><br /> 
-			Password: <input type="password" name="password" /><br /> 
-	 
-			<input type="button" value="Sign-in" />
-		</fieldset>	
 
-		<fieldset>
-			<legend>Or use another service</legend>
+	<div id="login-social">
+		<div class="title bold"><b>CONNEXION AVEC FACEBOOK<b></div>
+		<div class="form-login-social">
+			<a class="provider" provider="facebook" href='application/web/facebook.php'></a>
+		</div>
+		<div class="description">La connexion par Facebook est plus rapide que que par e-mail.<br/>Pas besoin de se souvenir d'autres mots de passe, pas de casse-tête.</div>
+		<div class="inline">
+			<div class="bold">Déja inscrit ?</div>
+			<div class="other-login clickable" href="#login-site">Se connecter / S'inscrire</div>
+		</div>
+	</div>
 
-			<a href="login.php?provider=facebook">Signin with Facebook</a>
-			<a href="login.php?provider=instagram">Signin with Instagram</a> 
-			<a href="login.php?provider=twitter" >Signin with Twitter</a>
-		</fieldset>	
-	</fieldset>
-</div>-->
+	<div id="login-site">
+		<th></th>
+		<div class="title bold">CONNEXION AVEC ADRESSE EMAIL</div>
+		<div class="form-login-site">
+			<div><input class="input-text" type="text" id="username" placeholder="Adresse email" /></div>
+			<div><input class="input-text" type="password" id="password" placeholder="Mot de passe" /></div>
+			<div class="button-validate login-site clickable"></div>
+		</div>
+		<div class="lost-password clickable">Mot de passe oublié ?</div>
+		<div class="inline">
+			<div class="bold">Vous n'avez pas de compte ?</div>
+			<div class="other-login clickable" href="#sign">S'inscrire</div>
+		</div>
+	</div>
 
+	<div id="sign">
+		<th></th>
+		<div class="title bold">CREEZ VOTRE COMPTE</div>
+		<div class="form-sign">
+			<div id="form-sign">
+				<div class="left">
+					<input class="input-text" type="text" id="sign-last-name" placeholder="Nom" />
+					<input class="input-text" type="text" id="sign-first-name" placeholder="Prénom" />
+					<input class="input-text" type="text" id="sign-birthday" placeholder="Date de naissance : JJ / MM / AAAA" />
+					<div>
+						<label>Sexe : </label>
+						<input type="radio" name="sign-sexe" class="sign-sex" value="1">Homme</input>
+						<input type="radio" name="sign-sexe" class="sign-sex" value="0">Femme</input>
+					</div>
+				</div>
+				<div class="right">
+					<input class="input-text" type="text" id="sign-email" placeholder="Adresse email" />
+					<input class="input-text" type="text" id="sign-email-conf" placeholder="Confirmation adresse email" />
+					<input class="input-text" type="password" id="sign-password" placeholder="Mot de passe" />
+				</div>
+				<div class="g-recaptcha" data-sitekey="6LdnahcTAAAAAF3BL0rbA6XWJiRx_roihfiZlEOz"></div>
+				<div class="button-validate sign clickable"></div>
+			</div>
+		</div>
+		<div class="sign-valid">
+			<p>Un email de bienvenue vient de vous être envoyé, merci de vérifier votre boîte email.</p>
+		</div>
+		<div class="sign-error">
+			<p>Une erreur est survenu lors de votre inscription, merci de contacter le service technique à cette adresse : ....</p>
+		</div>
+	</div>
 
-<div id="login-box" class="login-popup">
-	<a href="#" class="login-close"><img src="application/web/css/image/close_pop.png" class="btn_close" title="Close Window" alt="Close" /></a>
-	<form method="post" class="signin" action="#">
-	    <fieldset class="textbox">
-	    <label class="username">
-	    <span>Username or email</span>
-	    <input id="username" name="username" value="" type="text" autocomplete="on" placeholder="Username">
-	    </label>
-	    <label class="password">
-	    <span>Password</span>
-	    <input id="password" name="password" value="" type="password" placeholder="Password">
-	    </label>
-	    <button class="submit login-button sign-in" type="button">Sign in</button>
-	    <p>
-	    <a class="forgot" href="#">Forgot your password?</a>
-	    </p>        
-	    </fieldset>
-	</form>
 </div>

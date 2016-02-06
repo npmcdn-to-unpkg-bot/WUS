@@ -23,6 +23,21 @@ $("#connexion").on('click', function() {
     return false;
 });
 
+$('.other-login').off('click');
+$('.other-login').on('click', function() {
+    var other = $(this).attr('href');
+
+    $(other).fadeIn(300);
+
+    var popMargTop = ($("#login").height() + 24) / 2; 
+    var popMargLeft = ($("#login").width() + 24) / 2; 
+    
+    $("#login").css({ 
+        'margin-top' : -popMargTop,
+        'margin-left' : -popMargLeft
+    });
+});
+
 $("#deconnexion").off('click');
 $("#deconnexion").on('click', function() {
 
@@ -33,8 +48,9 @@ $("#deconnexion").on('click', function() {
     }).done(function(response) {
         // Puis appeler la fonction de rechargement ajax de
         // la timeline qui ira chercher les cookies en cours.
-        if(response == 1) {
-            location.reload();
+        if(response == 0) {
+            //location.reload();
+            $(location).attr('href',"/");
         } else {
             alert('Erreur de deconnexion !');
         }
@@ -47,13 +63,17 @@ $("#deconnexion").on('click', function() {
 $(".login-close").off('click');
 $(".login-close").on('click', function() {
     $('#mask, .login-popup').fadeOut(300 , function() {
+        $('.sign-valid').fdeOut(0);
+        $('.sign-error').fdeOut(0);
+        $('#login-site').fadeOut(0);
+        $('#sign').fadeOut(0);
         $('#mask').remove();  
     }); 
     return false;
 });
 
-$(".sign-in").off('click');
-$(".sign-in").on('click', function() {
+$(".login-site").off('click');
+$(".login-site").on('click', function() {
 
     var username = $('#username').val();
     var password = $('#password').val();
@@ -65,7 +85,7 @@ $(".sign-in").on('click', function() {
     }).done(function(response) {
         // Puis appeler la fonction de rechargement ajax de
         // la timeline qui ira chercher les cookies en cours.
-        if(response == 1) {
+        if(response == 0) {
             location.reload();
         } else {
             alert('Erreur de connexion !');
@@ -74,3 +94,25 @@ $(".sign-in").on('click', function() {
 
     return false;
 });
+
+/*$(".provider").off('click');
+$(".provider").on('click', function() {
+
+    var provider = $(this).attr('provider');
+
+    $.ajax({
+        url: "application/web/ajax/controller.login.php",
+        type: 'POST',
+        data: {'action':'loginByProvider', 'provider':provider}
+    }).done(function(response) {
+        // Puis appeler la fonction de rechargement ajax de
+        // la timeline qui ira chercher les cookies en cours.
+        if(response == 0) {
+            location.reload();
+        } else {
+            alert('Erreur de connexion !');
+        }
+    });
+
+    return false;
+});*/

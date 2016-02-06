@@ -30,7 +30,7 @@
 
 			try 
 			{
-				$sql = "SELECT I.*, W.website, W.logo
+				$sql = "SELECT I.*, W.website, W.logo, WC.website_id
 						FROM " . $this->_TABLES['public']['Website'] . " W
 						LEFT JOIN " . $this->_TABLES['public']['WebsiteCategory'] . " WC
 						ON W.id = WC.website_id

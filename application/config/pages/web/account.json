@@ -1,0 +1,60 @@
+{
+    "favicon" : "",
+    "meta": {
+        "title" : "",
+        "keywords"   : "",
+        "description": ""
+    },
+    "og": {
+        "title" : "",
+        "type" : "website",
+        "image" : "",
+        "url" : "",
+        "description" : "",
+        "video" : "",
+        "locale" : "fr_FR",
+        "site_name" : ""
+    },
+    "php": [
+        ]
+    ,
+    "js": [
+            "https://www.google.com/recaptcha/api.js",
+            "/application/js/library/jquery.js",
+            "/application/js/library/jquery-ui.min.js",
+            "/application/js/library/slick/slick.min.js",
+            "/application/js/library/jquery.cookiebar/jquery.cookiebar.js",
+            "/application/web/js/app/caroussel.js",
+            "/application/web/js/app/category.js",
+            "/application/web/js/app/timeline.js",
+            "/application/web/js/app/login.js",
+            "/application/web/js/app/subscription.js",
+            "/application/web/js/app/collaboration.js",
+            "/application/web/js/app/cookie.js",
+            "/application/web/js/app/sign.js",
+            "/application/web/js/app/account.js"
+        ]
+    ,
+    "css": [
+            "/application/js/library/slick/slick.css",
+            "/application/js/library/slick/slick-theme.css",
+            "/application/js/library/jquery.cookiebar/jquery.cookiebar.css",
+            "/application/web/css/app/home.css",
+            "/application/web/css/app/header.css",
+            "/application/web/css/app/content.css",
+            "/application/web/css/app/connexion.css",
+            "/application/web/css/app/recherche.css",
+            "/application/web/css/app/preferences.css",
+            "/application/web/css/app/caroussel.css",
+            "/application/web/css/app/collaborateurs.css",
+            "/application/web/css/app/newsletter.css",
+            "/application/web/css/app/suggestions.css",
+            "/application/web/css/app/legale.css",
+            "/application/web/css/app/copyright.css",
+            "/application/web/css/app/article.css",
+            "/application/web/css/app/footer.css",
+            "/application/web/css/app/login.css",
+            "/application/web/css/app/timeline.css",
+            "/application/web/css/app/account.css"
+        ]
+}

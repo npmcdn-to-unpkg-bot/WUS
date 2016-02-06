@@ -31,7 +31,7 @@ content div.articles div.timeline article div.site div.social
 
 content div.articles div.timeline article div.site div.logo_site
 {
-	width: 30px;
+	//width: 30px;
 }
 
 content div.articles div.timeline article div.site div.logo_site img
@@ -72,13 +72,22 @@ content div.articles div.timeline article div.site div.informations_site div.tit
 	font-size: 12px;
 }
 
-content div.articles div.timeline article div.site div.informations_site div.button a
+content div.articles div.timeline article div.site div.informations_site div.button a.subscription
 {
 	display: block;
     width: 70px;
     height: 21px;
     background: url("../image/icone.png") 0 0 no-repeat;
     background-position: -236px -26px;
+}
+
+content div.articles div.timeline article div.site div.informations_site div.button a.unsubscription
+{
+	display: block;
+    width: 70px;
+    height: 21px;
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: -308px -26px;
 }
 
 content div.articles div.timeline article div.image, article div.image a, article div.image a img

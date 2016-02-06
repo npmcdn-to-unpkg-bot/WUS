@@ -42,6 +42,14 @@ function setCategoryInCookies($categories_id) {
 
 		return true;
 	} else {
+
+        if(isset($_COOKIE['category_preference'])) {
+            unset($_COOKIE['category_preference']);
+        }
+
+        $json = json_encode($categories_id);
+        setcookie('category_preference', $json, -1, "/");
+        
 		return false;
 	}
 

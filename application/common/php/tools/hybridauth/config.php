@@ -13,19 +13,8 @@ return
 		array(
 			"base_url" => "http://local.wus.dev/application/common/php/tools/hybridauth/index.php",
 			"providers" => array(
-				// openid providers
-				"OpenID" => array(
-					"enabled" => true
-				),
-				"Yahoo" => array(
-					"enabled" => true,
-					"keys" => array("key" => "", "secret" => ""),
-				),
-				"AOL" => array(
-					"enabled" => true
-				),
 				"Google" => array(
-					"enabled" => true,
+					"enabled" => false,
 					"keys" => array("id" => "", "secret" => ""),
 				),
 				"Facebook" => array(
@@ -34,24 +23,10 @@ return
 					"scope" => "email",
 					"trustForwarded" => false
 				),
-				"Twitter" => array(
+				"Instagram" => array(
 					"enabled" => true,
-					"keys" => array("key" => "", "secret" => ""),
-					"includeEmail" => false
-				),
-				// windows live
-				"Live" => array(
-					"enabled" => true,
-					"keys" => array("id" => "", "secret" => "")
-				),
-				"LinkedIn" => array(
-					"enabled" => true,
-					"keys" => array("key" => "", "secret" => "")
-				),
-				"Foursquare" => array(
-					"enabled" => true,
-					"keys" => array("id" => "", "secret" => "")
-				),
+					"keys" => array("id" => "e3619d9447ad4bf69cd934ee626e8713", "secret" => "2baf914cf50649a8b44722d5b3b86736")
+				)
 			),
 			// If you want to enable logging, set 'debug_mode' to true.
 			// You can also set it to

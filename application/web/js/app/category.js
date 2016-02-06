@@ -19,7 +19,7 @@ $(".category_choice").on('click', function() {
     }).done(function(response) {
         // Puis appeler la fonction de rechargement ajax de
         // la timeline qui ira chercher les cookies en cours.
-
+        console.log('enr choice');
         loadTimeline();
     });
 
@@ -27,8 +27,6 @@ $(".category_choice").on('click', function() {
 
 $(".preferences_enregistrer").off('click');
 $(".preferences_enregistrer").on('click', function() {
-
-    alert('preferences');
 
     // Rechercher toute les categories selectionné
     // pour les mettre dans un tableau envoyé une 
@@ -48,7 +46,7 @@ $(".preferences_enregistrer").on('click', function() {
     }).done(function(response) {
         // Puis appeler la fonction de rechargement ajax de
         // la timeline qui ira chercher les cookies en cours.
-
+        console.log('enr pref');
         loadTimeline();
     });
 

@@ -2,6 +2,9 @@
 
 require_once(dirname(dirname(dirname(__FILE__))) . '/core/system/ajax.php');
 require_once(dirname(dirname(__FILE__)) . "/php/class.login.php");
+require_once(dirname(dirname(dirname(__FILE__))) . "/common/php/class/class.website_subscription.php");
+require_once(dirname(dirname(dirname(__FILE__))) . "/common/php/class/class.user.php");
+require_once(dirname(dirname(dirname(__FILE__))) . "/common/php/tools/hybridauth/Hybrid/Auth.php");
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -11,6 +14,13 @@ if(isset($_POST['action']) && !empty($_POST['action'])) {
     $action = $_POST['action'];
 
     switch($action) {
+        case 'loginByProvider' : {
+            $provider = $_POST['provider'];
+
+            echo loginByProvider($provider);
+            break;
+        }
+
         case 'login' : {
             $username = $_POST['username'];
             $password = $_POST['password'];
@@ -23,6 +33,111 @@ if(isset($_POST['action']) && !empty($_POST['action'])) {
             echo logout();
             break;
         }
+    }
+}
+
+function loginByProvider($provider) {
+
+    global $bdd;
+    global $_TABLES;
+
+    $config = dirname(dirname(dirname(__FILE__))) . '/common/php/tools/hybridauth/config.php';
+
+    try
+    {
+        // initialize Hybrid_Auth with a given file
+        $hybridauth = new Hybrid_Auth($config);
+ 
+        // try to authenticate with the selected provider
+        $adapter = $hybridauth->authenticate($provider);
+ 
+        // then grab the user profile 
+        $user_profile = $adapter->getUserProfile();
+
+        if($user_profile && !is_null($user_profile)) {
+
+            error_log(json_encode($user_profile));
+
+            $objUser = new User($bdd, $_TABLES); 
+            $userProvider = $objUser->getExistByProvider($provider, $user_profile->identifier);
+            $user = $objUser->getExist($user_profile->email);
+
+
+            // Cas 1 = Aucun compte
+            if(!$user || is_null($user)) {
+                $password = md5(microtime(TRUE) * 100000);
+                $verification_key = md5(microtime(TRUE) * 100000);
+                $verified = true;
+                $blocked = false;
+
+                $sex = ($user_profile->gender == "male" ? 1 : 0);
+
+                error_log($user_profile->birthYear . '-' . $user_profile->birthMonth . '-' . $user_profile->birthMonth);
+
+                if(!is_null($user_profile->birthYear) && !is_null($user_profile->birthMonth) && !is_null($user_profile->birthMonth)) {
+                    $birthday = $user_profile->birthYear . '-' . $user_profile->birthMonth . '-' . $user_profile->birthMonth;
+                } else {
+                    $birthday = '';
+                }
+
+                // Création du compte entier
+                $objUser->createUser($user_profile->email, $password, $user_profile->firstName, $user_profile->lastName, $birthday, $sex, $verification_key, $verified, $blocked, $provider, $user_profile->identifier);
+            
+                // Récupération du compte après création
+                $user = $objUser->getExist($user_profile->email);
+            }
+            else {
+
+                // Cas 2 = Un compte sur le site
+                if(!$userProvider || is_null($userProvider)) {
+
+                    $verified = true;
+
+                    // Mise à jour de son compte
+                    $objUser->fusionClassicAndProviderAccount($user->id, $user->email, $verified, $provider, $user_profile->identifier);
+                }
+            }
+
+            // Connexion
+            $_SESSION['user_auth'] = '1';
+            $_SESSION['user_id'] = $user->id;
+
+            // Get All Media Subscription by User
+            $objWebsiteSubscription = new WebsiteSubscription($bdd, $_TABLES);
+            $website_subscriptions = $objWebsiteSubscription->getAllWebsiteSubscriptionsByUser($_SESSION['user_id']);
+
+            $temp = array();
+            if($website_subscriptions) {
+
+                foreach ($website_subscriptions as $key => $value) {
+                    array_push($temp, $value->website_id);
+                }
+            }
+            $_SESSION['user_subscription'] = $temp;
+
+            // Retour 0
+            return 0;
+        }
+        else {
+            // Problème d'authentification
+            $_SESSION['user_auth'] = '0';
+
+            if(isset($_SESSION['user_id'])) {
+                unset($_SESSION['user_id']);
+            }
+
+            if(isset($_SESSION['user_subscription'])) {
+                unset($_SESSION['user_subscription']);
+            }
+
+            return 1;
+        }
+    }
+    // something went wrong?
+    catch( Exception $e )
+    {
+        error_log($e->getMessage());
+        header("Location: http://local.wus.dev/404.php");
     }
 }
 
@@ -39,13 +154,34 @@ function login($username, $password) {
             $_SESSION['user_auth'] = '1';
             $_SESSION['user_id'] = $login->id;
 
-            return true;
+            // Get All Media Subscription by User
+            $objWebsiteSubscription = new WebsiteSubscription($bdd, $_TABLES);
+            $website_subscriptions = $objWebsiteSubscription->getAllWebsiteSubscriptionsByUser($_SESSION['user_id']);
+
+            $temp = array();
+            if($website_subscriptions) {
+
+                foreach ($website_subscriptions as $key => $value) {
+                    array_push($temp, $value->website_id);
+                }
+            }
+            $_SESSION['user_subscription'] = $temp;
+
+            return 0;
         }
         else {
 
             $_SESSION['user_auth'] = '0';
 
-            return false;
+            if(isset($_SESSION['user_id'])) {
+                unset($_SESSION['user_id']);
+            }
+
+            if(isset($_SESSION['user_subscription'])) {
+                unset($_SESSION['user_subscription']);
+            }
+
+            return 1;
         }
     }
     else {
@@ -57,8 +193,10 @@ function login($username, $password) {
 function logout() {
     unset($_SESSION['user_auth']);
     unset($_SESSION['user_id']);
+    unset($_SESSION['user_subscription']);
+    unset($_COOKIE['user_preference']);
 
-    return true;
+    return 0;
 }
 
 ?>

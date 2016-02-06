@@ -15,11 +15,31 @@
 
         if(!is_null($categories)) {
 
+            $category_preference = null;
+
+            if(isset($_COOKIE['category_preference'])) {
+
+                $category_preference = json_decode(stripcslashes($_COOKIE['category_preference']), true);
+
+                if(is_null($category_preference)) {
+                    $category_preference = '';
+                }
+            }
+
             foreach ($categories as $key => $value) {
+
+                if(!is_null($category_preference) && !empty($category_preference)) {
+                    $checked = (in_array($value->id, $category_preference) == true ? 'checked="true"' : '');
+                } else if(empty($category_preference)) {
+                    $checked = '';
+                } else {
+                    $checked = 'checked="true"';
+                }
 
                 $content .= $view->getView(array(
                     "category_id" => $value->id,
-                    "category_name" => mb_strtoupper($value->category)
+                    "category_name" => mb_strtoupper($value->category),
+                    "checked" => $checked
                     ));
             }
 
