@@ -41,6 +41,35 @@
 			}
 		}
 
+		public function getAllWebsitesNoSubscript($user_id) {
+
+			try 
+			{
+				$sql = "SELECT W.* 
+						FROM " . $this->_TABLES['public']['Website'] . " W
+						LEFT JOIN " . $this->_TABLES['public']['WebsiteSubscription'] . " WS
+						ON W.id = WS.website_id
+						WHERE WS.website_id IS NULL";
+				$req = $this->bdd->prepare($sql);
+				//$req->bindValue('user_id', $user_id, PDO::PARAM_INT);
+				$req->execute();
+				$websites = $req->fetchAll(PDO::FETCH_OBJ);
+			}
+			catch (PDOException $e)
+			{
+			    error_log($sql);
+			    error_log($e->getMessage());
+			    die();
+			}
+
+			if($websites) {
+				return $websites;
+			}
+			else {
+				return null;
+			}
+		}
+
 		public function getWebsites() {
 
 			try 

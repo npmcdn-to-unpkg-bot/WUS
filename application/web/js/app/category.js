@@ -20,7 +20,13 @@ $(".category_choice").on('click', function() {
         // Puis appeler la fonction de rechargement ajax de
         // la timeline qui ira chercher les cookies en cours.
         console.log('enr choice');
-        loadTimeline();
+
+        if($('.timeline').length) {
+            loadTimeline(); 
+        } else {
+            loadLastArticle();
+        }
+        
     });
 
 });
@@ -47,7 +53,7 @@ $(".preferences_enregistrer").on('click', function() {
         // Puis appeler la fonction de rechargement ajax de
         // la timeline qui ira chercher les cookies en cours.
         console.log('enr pref');
-        loadTimeline();
+        loadLastArticle();
     });
 
 });

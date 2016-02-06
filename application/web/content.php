@@ -76,16 +76,23 @@
 				}
 			?>
 		</div>
-		<div class="medias">
-			<div class="title">
-				<label class="title">MEDIAS</label>
-			</div>
-			<div class="data">
-				<?php 
-					include('websites.php');
-				?>
-			</div>
-		</div>
+
+		<?php 
+			if (session_status() == PHP_SESSION_NONE) {
+			    session_start();
+			}
+			
+			if(!isset($_SESSION['user_auth']) || $_SESSION['user_auth'] == '0') {
+				echo('<div class="medias">
+					<div class="title">
+						<label class="title">MEDIAS</label>
+					</div>
+					<div class="data">');
+							include('websites.php');
+				echo('</div>
+					</div>');
+			}
+		?>
 	</div>
 	<div class="articles">
 
@@ -169,19 +176,21 @@
 		
 		<?php
 
-			include_once('ajax/controller.system_preference.php');
+			if(isset($_SESSION['user_auth']) && $_SESSION['user_auth'] == '1') {
 
-			if(getSystemPreference('mod_suggestion')->mod_suggestion == 1) {
+				include_once('ajax/controller.system_preference.php');
 
-				// FONCTION DESACTIVE CAR A CODER
-				echo('<div class="suggestions">
-						<div class="title">
-							<label>SUGGESTIONS</label>
-						</div>
-						<div class="data">
-							<br/><br/><br/>
-						</div>
-					</div>');
+				if(getSystemPreference('mod_suggestion')->mod_suggestion == 1) {
+
+					echo('<div class="suggestions">
+							<div class="title">
+								<label>SUGGESTIONS</label>
+							</div>
+							<div class="data">');
+							include('suggestions.php');
+							echo('</div>
+						</div>');
+				}
 			}
 		?>
 		

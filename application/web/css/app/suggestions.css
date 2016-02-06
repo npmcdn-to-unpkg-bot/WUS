@@ -20,6 +20,66 @@
 	content div.informations div.suggestions div.data
 	{
 	}
+
+	content div.informations div.suggestions div.data media-list 
+	{
+		width: 100%;
+    	display: block;
+	}
+
+	content div.informations div.suggestions div.data media-list h2.title
+	{
+		display: inline-block;
+	    /* text-align: center; */
+	    /* height: 21px; */
+	    /* width: 40%; */
+	    padding: 3px;
+	    /* margin: auto; */
+	    text-transform: uppercase;
+	    vertical-align: top;
+	}
+
+	content div.informations div.suggestions div.data media-list h2.title a
+	{
+		text-decoration: none;
+		font-weight: bold;
+		color: #000000;
+	}
+
+	content div.informations div.suggestions div.data media-list div.button
+	{
+		display: inline-block;
+	    width: 40%;
+	    text-align: left;
+	    font-size: 12px;
+	    color: #000000;
+	    height: 26px;
+	    /* margin-top: 5px; */
+	    vertical-align: top;
+	    /* margin-bottom: 5px; */
+	}
+
+	content div.informations div.suggestions div.data media-list div.button div.subscription
+	{
+		   display: block;
+	    width: 70px;
+	    height: 20px;
+	    background: url("../image/icone.png") 0 0 no-repeat;
+	    background-position: -308px -28px;
+	    margin: auto;
+	    cursor: pointer;
+	}
+
+	content div.informations div.suggestions div.data media-list div.button div.unsubscription
+	{
+		display: block;
+	    width: 70px;
+	    height: 21px;
+	    background: url("../image/icone.png") 0 0 no-repeat;
+	    background-position: -308px -26px;
+	    margin: auto;
+	    cursor: pointer;
+	}
 }
 
 @media all and (device-width: 320px)

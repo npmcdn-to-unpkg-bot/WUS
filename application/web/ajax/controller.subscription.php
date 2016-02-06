@@ -64,8 +64,6 @@ function subscriptionList() {
 
                     if(!is_null($website)) {
 
-                        error_log("Website subscripted");
-
                         $temp_subscription = "<div class='unsubscription' website_id='%%website_id%%'></div>";
 
                         $content .= $view->getView(array(
