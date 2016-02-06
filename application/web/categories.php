@@ -1,5 +1,9 @@
 <?php 
     
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+
     require_once(dirname(dirname(__FILE__)) . "/common/php/class/class.category.php");
 
     global $bdd;
@@ -15,24 +19,19 @@
 
         if(!is_null($categories)) {
 
-            $category_preference = null;
-
-            if(isset($_COOKIE['category_preference'])) {
-
-                $category_preference = json_decode(stripcslashes($_COOKIE['category_preference']), true);
-
-                if(is_null($category_preference)) {
-                    $category_preference = '';
-                }
-            }
-
             foreach ($categories as $key => $value) {
 
-                if(!is_null($category_preference) && !empty($category_preference)) {
-                    $checked = (in_array($value->id, $category_preference) == true ? 'checked="true"' : '');
-                } else if(empty($category_preference)) {
-                    $checked = '';
-                } else {
+                if(isset($_COOKIE['category_preference'])) {
+
+                    $category_preference = json_decode(stripcslashes($_COOKIE['category_preference']), true);
+
+                    if(!is_null($category_preference) && !empty($category_preference)) {
+                        $checked = (in_array($value->id, $category_preference) == true ? 'checked="true"' : '');
+                    } else {
+                        $checked = '';
+                    }
+                }
+                else {
                     $checked = 'checked="true"';
                 }
 

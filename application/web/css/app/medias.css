@@ -1,0 +1,88 @@
+@media all and (min-width: 1400px)
+{
+	content div.options div.medias
+	{
+		background-color: #FFFFFF;
+		color: #000000;
+		padding: 5px;
+		text-align: left;
+		border: 1px #D9D6D7 solid;
+		margin-bottom: 5px;
+	}
+
+	content div.options div.medias div.title
+	{
+		height: 20px;
+		font-weight: bold;
+	}
+
+	content div.options div.medias div.data
+	{
+	}
+
+	content div.options div.medias div.button
+	{
+		height: 40px;
+		width: 40px;
+		margin: auto;
+	}
+
+	content div.options div.medias div.button a
+	{
+		display: block;
+	    width: 40px;
+	    height: 40px;
+	    background: url("../image/icone.png") 0 0 no-repeat;
+	    background-position: -378px -15px;
+	}
+
+	content div.options div.medias div.link
+	{
+		height: 20px;
+		font-size: 10px;
+		text-align: center;
+	}
+
+	content div.options div.medias div.link a
+	{
+		text-decoration: none;
+		color: #000000;
+	}
+}
+
+@media all and (device-width: 320px)
+{
+	content div.options div.medias
+	{
+		display: none;
+	}
+
+	content div.options div.medias div.title
+	{
+		display: none;
+	}
+
+	content div.options div.medias div.data
+	{
+	}
+
+	content div.options div.medias div.button
+	{
+		display: none;
+	}
+
+	content div.options div.medias div.button a
+	{
+		display: none;
+	}
+
+	content div.options div.medias div.link
+	{
+		display: none;
+	}
+
+	content div.options div.medias div.link a
+	{
+		display: none;
+	}
+}

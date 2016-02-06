@@ -1,13 +1,16 @@
 $(".subscription").off('click');
-$(".subscription").on('click', function() {
+$(".subscription").on('click', function(e) {
+
+    e.preventDefault();
 
     subscription($(this));
 
 });
 
 $(".unsubscription").off('click');
-$(".unsubscription").on('click', function() {
+$(".unsubscription").on('click', function(e) {
 
+    e.preventDefault();
     unsubscription($(this));
 
 });
@@ -26,7 +29,20 @@ function subscription(element) {
         // la timeline qui ira chercher les cookies en cours.
         console.log('enr choice');
         //loadTimeline();
-        location.reload();
+        //location.reload();
+        $(".subscription").each(function() {
+            if($(this).attr('website_id') == website_id) {
+                $(this).removeClass('subscription').addClass('unsubscription');
+
+                $(".unsubscription").off('click');
+                $(".unsubscription").on('click', function(e) {
+
+                    e.preventDefault();
+                    unsubscription($(this));
+
+                });
+            }
+        });
     });
 }
 
@@ -45,6 +61,20 @@ function unsubscription(element) {
         // la timeline qui ira chercher les cookies en cours.
         console.log('enr choice');
         //loadTimeline();
-        location.reload();
+        //location.reload();
+        $(".unsubscription").each(function() {
+            if($(this).attr('website_id') == website_id) {
+                $(this).removeClass('unsubscription').addClass('subscription');
+
+                $(".subscription").off('click');
+                $(".subscription").on('click', function(e) {
+
+                    e.preventDefault();
+
+                    subscription($(this));
+
+                });
+            }
+        });
     });   
 }

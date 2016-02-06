@@ -1,0 +1,22 @@
+.personnal-menu .last-article-link, .personnal-menu .subscriptions-list-link {
+	display: inline-block;
+	width: 40%;
+	font-size: 20px;
+	margin: 10px;
+	padding: 5px;
+	border-bottom: 1px solid grey;
+	border-left: 1px solid grey;
+	border-right: 1px solid grey;
+}
+
+.personnal-menu .active {
+	font-weight: bold;
+	font-size: 25px;
+	border-bottom: 3px solid grey;
+	border-left: 3px solid grey;
+	border-right: 3px solid grey;
+}
+
+.personnal-menu .clickable {
+	cursor: pointer;
+}

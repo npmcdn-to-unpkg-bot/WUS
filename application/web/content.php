@@ -14,8 +14,7 @@
 						<div class="link">');
 
 				if(isset($_SESSION['user_auth']) && $_SESSION['user_auth'] == '1') {
-					echo('<a href="#logout" id="deconnexion">DECONNEXION</a><br/>');
-					echo('<a href="#params" id="params">PARAMETRES</a><br/>');
+					echo('<a href="#logout" id="deconnexion">DECONNEXION</a>');
 				} else {
 					echo('<a href="#login" id="connexion">CONNEXION</a>');
 				}
@@ -77,22 +76,43 @@
 				}
 			?>
 		</div>
+		<div class="medias">
+			<div class="title">
+				<label class="title">MEDIAS</label>
+			</div>
+			<div class="data">
+				<?php 
+					include('websites.php');
+				?>
+			</div>
+		</div>
 	</div>
 	<div class="articles">
-		<?php
 
-			include_once('ajax/controller.system_preference.php');
+		<?php 
+			if (session_status() == PHP_SESSION_NONE) {
+			    session_start();
+			}
+			
+			if(isset($_SESSION['user_auth']) && $_SESSION['user_auth'] == '1') {
 
-			if(getSystemPreference('mod_carrousel')->mod_carrousel == 1) {
+				include('personnal-content.php');
 
-				echo('<div class="caroussel">');
-				include('caroussel.php');
+			} else {
+				include_once('ajax/controller.system_preference.php');
+
+				if(getSystemPreference('mod_carrousel')->mod_carrousel == 1) {
+
+					echo('<div class="caroussel">');
+					include('caroussel.php');
+					echo('</div>');
+				}
+
+				echo('<div class="timeline">');
+				include('timeline.php');
 				echo('</div>');
 			}
 		?>
-		<div class="timeline">
-			<?php include('timeline.php'); ?>
-		</div>
 	</div>
 	<div class="informations">
 
@@ -129,7 +149,6 @@
 
 				if(getSystemPreference('mod_newsletter')->mod_newsletter == 1) {
 
-					// FONCTION DESACTIVE CAR A CODER
 					echo('<div class="newsletter">
 							<div class="title">
 								<label>NEWSLETTER</label>
@@ -141,6 +160,7 @@
 								<div class="button">
 									<a href="#" id="newsletter_valider" class="newsletter_valider"></a>
 								</div>
+								<div class="newsletter valid" style="color:green; display:none;border:0;font-size:18px">Enregistré.</div>
 							</div>
 						</div>');
 				}

@@ -14,6 +14,33 @@
 			$this->_TABLES = $_TABLES;
 		}
 
+		public function getData($id) {
+
+			try 
+			{
+				$sql = "SELECT * 
+						FROM " . $this->_TABLES['public']['Website'] . "
+						WHERE id = :id";
+				$req = $this->bdd->prepare($sql);
+				$req->bindValue('id', $id, PDO::PARAM_INT);
+				$req->execute();
+				$website = $req->fetch(PDO::FETCH_OBJ);
+			}
+			catch (PDOException $e)
+			{
+			    error_log($sql);
+			    error_log($e->getMessage());
+			    die();
+			}
+
+			if($website) {
+				return $website;
+			}
+			else {
+				return null;
+			}
+		}
+
 		public function getWebsites() {
 
 			try 

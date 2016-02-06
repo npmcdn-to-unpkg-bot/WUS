@@ -55,7 +55,7 @@ img.btn_close {
     margin: -28px -28px 0 0;
 }
 
-.clickable {
+.login-popup .clickable {
     text-decoration: underline;
     cursor: pointer;
 }

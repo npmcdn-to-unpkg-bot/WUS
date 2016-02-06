@@ -31,7 +31,10 @@
             "/application/web/js/app/subscription.js",
             "/application/web/js/app/collaboration.js",
             "/application/web/js/app/cookie.js",
-            "/application/web/js/app/sign.js"
+            "/application/web/js/app/sign.js",
+            "/application/web/js/app/newsletter.js",
+            "/application/web/js/app/media.js",
+            "/application/web/js/app/personnal-content.js"
         ]
     ,
     "css": [
@@ -54,6 +57,10 @@
             "/application/web/css/app/footer.css",
             "/application/web/css/app/login.css",
             "/application/web/css/app/timeline.css",
-            "/application/web/css/app/account.css"
+            "/application/web/css/app/account.css",
+            "/application/web/css/app/medias.css",
+            "/application/web/css/app/personnal-content.css",
+            "/application/web/css/app/last-article.css",
+            "/application/web/css/app/subscriptions-list.css"
         ]
 }

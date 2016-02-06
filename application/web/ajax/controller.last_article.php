@@ -1,7 +1,7 @@
 <?php
 
 require_once(dirname(dirname(dirname(__FILE__))) . '/core/system/ajax.php');
-require_once(dirname(dirname(__FILE__)) . "/php/class.timeline.php");
+require_once(dirname(dirname(__FILE__)) . "/php/class.last_article.php");
 require_once(dirname(dirname(dirname(__FILE__))) . "/core/system/template.php");
 
 if (session_status() == PHP_SESSION_NONE) {
@@ -12,13 +12,13 @@ if(isset($_POST['action']) && !empty($_POST['action'])) {
     $action = $_POST['action'];
 
     switch($action) {
-        case 'loadTimeline' : 
-			echo loadTimeline();
+        case 'lastArticle' : 
+			echo lastArticle();
 			break;
     }
 }
 
-function loadTimeline() {
+function lastArticle() {
     global $bdd;
     global $_TABLES;
 
@@ -27,8 +27,8 @@ function loadTimeline() {
     $view = new Template(dirname(dirname(__FILE__)) . '/html/article.html');
 
     if(!is_null($bdd) && !is_null($_TABLES)) {
-        $objTimeline = new Timeline($bdd, $_TABLES);
-        $articles = $objTimeline->getTimeline();
+        $objLastArticle = new LastArticle($bdd, $_TABLES);
+        $articles = $objLastArticle->getLastArticles();
 
         if(!is_null($articles)) {
 

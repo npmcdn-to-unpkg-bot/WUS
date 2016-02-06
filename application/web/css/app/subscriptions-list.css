@@ -1,0 +1,67 @@
+content div.articles div.subscriptions-list
+{
+	vertical-align: top;
+}
+
+content div.articles div.subscriptions-list media
+{
+	background-color: #FFFFFF;
+	display: inline-block;
+	vertical-align: top;
+	width: 260px;
+	margin: 10px;
+	border: 1px #D9D6D7 solid;
+}
+
+content div.articles div.subscriptions-list media div.site, media div.site a, media div.site a img
+{
+	max-height: 100%;
+	max-width: 100%;
+}
+
+content div.articles div.subscriptions-list media div.informations_site h2.title
+{
+	text-align: center;
+	width: 80%;
+	margin: auto;
+	text-transform: uppercase;
+}
+
+content div.articles div.subscriptions-list media div.informations_site h2.title a
+{
+	text-decoration: none;
+	font-weight: bold;
+	color: #000000;
+}
+
+content div.articles div.subscriptions-list media div.informations_site div.button
+{
+	display: block
+	text-align: left;
+	font-size: 12px;
+	color: #000000;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+content div.articles div.subscriptions-list media div.button div.subscription
+{
+	display: block;
+    width: 70px;
+    height: 21px;
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: -236px -26px;
+    margin: auto;
+    cursor: pointer;
+}
+
+content div.articles div.subscriptions-list media div.button div.unsubscription
+{
+	display: block;
+    width: 70px;
+    height: 21px;
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: -308px -26px;
+    margin: auto;
+    cursor: pointer;
+}

@@ -72,7 +72,7 @@ content div.articles div.timeline article div.site div.informations_site div.tit
 	font-size: 12px;
 }
 
-content div.articles div.timeline article div.site div.informations_site div.button a.subscription
+content div.articles div.timeline article div.site div.informations_site div.button div.subscription
 {
 	display: block;
     width: 70px;
@@ -81,7 +81,7 @@ content div.articles div.timeline article div.site div.informations_site div.but
     background-position: -236px -26px;
 }
 
-content div.articles div.timeline article div.site div.informations_site div.button a.unsubscription
+content div.articles div.timeline article div.site div.informations_site div.button div.unsubscription
 {
 	display: block;
     width: 70px;
