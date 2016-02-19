@@ -16,11 +16,11 @@ function login() {
         success : function(data){
             if(data == 1) {
                 alert("Vous êtes maintenant connecté !");
-                $(location).attr('href',"http://local.wus.dev/admin");
+                $(location).attr('href',"http://" + window.location.hostname + "/admin");
             }
             else {
                 alert("Erreur de connexion !");
-                $(location).attr('href',"http://local.wus.dev/admin");
+                $(location).attr('href',"http://" + window.location.hostname + "/admin");
             }                             
         }
     });

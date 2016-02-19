@@ -163,7 +163,7 @@
 	                }
 
 			    } else {
-			        header("Location: http://local.wus.dev/");
+			        header("Location: http://" . $_SERVER['HTTP_HOST'] . "/");
 			    }
 
 			?>

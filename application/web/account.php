@@ -7,7 +7,7 @@
     if(isset($_SESSION['user_auth']) && $_SESSION['user_auth'] == '1') {
         require('account-verification.php');
     } else {
-        header("Location: http://local.wus.dev/");
+        header("Location: http://" . $_SERVER['HTTP_HOST'] . "/");
     }
 
 ?>

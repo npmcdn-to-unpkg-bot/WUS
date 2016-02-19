@@ -4,6 +4,6 @@ require_once(dirname(__FILE__) . '/ajax/controller.login.php');
 
 loginByProvider("Facebook");
 
-header("Location: http://local.wus.dev/");
+header("Location: http://" . $_SERVER['HTTP_HOST'] . "/");
 
 ?>

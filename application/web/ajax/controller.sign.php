@@ -74,7 +74,7 @@ function sign($first_name, $last_name, $birthday, $sex, $email, $email_conf, $pa
 		            $content = $template->getView(array(
 		                "first_name" => $first_name,
 		                "last_name" => $last_name,
-		                "link_verification" => "http://local.wus.dev/verification/" . $verification_key
+		                "link_verification" => "http://" . $_SERVER['HTTP_HOST'] . "/verification/" . $verification_key
 		                ));
 
 					// Envoi de l'email de bienvenue
@@ -116,7 +116,7 @@ function sign($first_name, $last_name, $birthday, $sex, $email, $email_conf, $pa
 		            $content = $template->getView(array(
 		                "first_name" => $first_name,
 		                "last_name" => $last_name,
-		                "link" => "http://local.wus.dev"
+		                "link" => "http://" . $_SERVER['HTTP_HOST']
 		                ));
 
 					// Envoi de l'email de bienvenue

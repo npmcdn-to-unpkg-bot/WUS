@@ -11,7 +11,7 @@
 
 return
 		array(
-			"base_url" => "http://local.wus.dev/application/common/php/tools/hybridauth/index.php",
+			"base_url" => "http://" . $_SERVER['HTTP_HOST'] . "/application/common/php/tools/hybridauth/index.php",
 			"providers" => array(
 				"Google" => array(
 					"enabled" => false,

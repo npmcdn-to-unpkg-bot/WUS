@@ -137,7 +137,7 @@ function loginByProvider($provider) {
     catch( Exception $e )
     {
         error_log($e->getMessage());
-        header("Location: http://local.wus.dev/404.php");
+        header("Location: http://" . $_SERVER['HTTP_HOST'] . "/404.php");
     }
 }
 
