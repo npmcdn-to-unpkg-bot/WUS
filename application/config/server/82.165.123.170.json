@@ -1,0 +1,48 @@
+{
+    "environment": "www",
+    "application": {
+        "title"    : "WUS",
+        "version"  : "2.0",
+        "charset"  : "UTF-8",
+        "debug"    : "true",
+        "activated": "true",
+        "ssl"      : "false",
+        "log"      : "false"
+    },
+    "mysql": {
+        "host"    : "db373783828.db.1and1.com",
+        "port"    : "3306",
+        "username": "dbo373783828",
+        "password": "wU2011$haha",
+        "database": "db373783828",
+        "charset" : "utf8"
+    },
+    "lang": {
+        "default": "FR"
+    },
+    "date": {
+        "timezone": "Europe/Paris"
+    },  
+    "mail": {
+        "smtp": {
+            "ilopro": {
+                "host"     : "ssl0.ovh.net",
+                "port"     : "465",
+                "protocol" : "ssl",
+                "timeout"  : "10",
+                "user"     : "postmaster@ilopro.com",
+                "password" : "mdp",
+                "word_wrap": "900"
+            },
+            "mailjet": {
+                "host"     : "in.mailjet.com",
+                "port"     : "587",
+                "protocol" : "tls",
+                "timeout"  : "10",
+                "user"     : "user",
+                "password" : "mdp",
+                "word_wrap": "900"
+            }
+        }
+    }
+}

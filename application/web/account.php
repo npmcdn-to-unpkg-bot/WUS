@@ -5,7 +5,7 @@
     }
 
     if(isset($_SESSION['user_auth']) && $_SESSION['user_auth'] == '1') {
-        include('account-verification.php');
+        require('account-verification.php');
     } else {
         header("Location: http://local.wus.dev/");
     }

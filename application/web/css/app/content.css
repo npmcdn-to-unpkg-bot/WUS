@@ -5,7 +5,7 @@ content
 	text-align: center;
 }
 
-@media all and (min-width: 1400px)
+@media screen and (min-width: 1400px)
 {
 	content div.options, content div.articles, content div.informations
 	{
@@ -38,7 +38,7 @@ content
 	}
 }
 
-@media all and (device-width: 320px)
+@media handheld and (device-width: 320px)
 {
 	content div.options
 	{

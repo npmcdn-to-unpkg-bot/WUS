@@ -1,4 +1,4 @@
-@media all and (min-width: 1400px)
+@media screen and (min-width: 1400px)
 {
 	content div.articles div.caroussel
 	{
@@ -192,7 +192,7 @@
 	}
 }
 
-@media all and (device-width: 320px)
+@media handheld and (device-width: 320px)
 {
     content div.articles div.caroussel
 	{

@@ -1,6 +1,6 @@
 <?php
 
-include("mailer/class.mailer.php");
+require("mailer/class.mailer.php");
 
 $mailer = new Mailer();
 

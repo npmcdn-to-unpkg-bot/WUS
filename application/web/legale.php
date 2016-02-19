@@ -20,7 +20,7 @@
     	
         <page>
 
-            <?php include('header.php'); ?>
+            <?php require('header.php'); ?>
 
             <?php
                 require_once(dirname(__FILE__) . "/php/class.document.php");
@@ -63,7 +63,7 @@
                 }
             ?>
 
-            <?php include('footer.php'); ?>
+            <?php require('footer.php'); ?>
         </page>
 
         <?php $this->loadJS(); ?>

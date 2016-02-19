@@ -22,7 +22,7 @@
 				echo('</div>
 				</div>');
 
-				include('html/login.html');
+				require('html/login.html');
 			}
 		?>
 		<?php
@@ -54,9 +54,9 @@
 					}
 					
 					if(isset($_SESSION['user_auth']) && $_SESSION['user_auth'] == '1') {
-						include('preferences.php');
+						require('preferences.php');
 					} else {
-						include('categories.php');
+						require('categories.php');
 					}
 				?>
 			</div>
@@ -88,7 +88,7 @@
 						<label class="title">MEDIAS</label>
 					</div>
 					<div class="data">');
-							include('websites.php');
+							require('websites.php');
 				echo('</div>
 					</div>');
 			}
@@ -103,7 +103,7 @@
 			
 			if(isset($_SESSION['user_auth']) && $_SESSION['user_auth'] == '1') {
 
-				include('personnal-content.php');
+				require('personnal-content.php');
 
 			} else {
 				include_once('ajax/controller.system_preference.php');
@@ -111,12 +111,12 @@
 				if(getSystemPreference('mod_carrousel')->mod_carrousel == 1) {
 
 					echo('<div class="caroussel">');
-					include('caroussel.php');
+					require('caroussel.php');
 					echo('</div>');
 				}
 
 				echo('<div class="timeline">');
-				include('timeline.php');
+				require('timeline.php');
 				echo('</div>');
 			}
 		?>
@@ -137,7 +137,7 @@
 						<div class="wrapper">
 						<div class="data auto-slick">');
 				
-				include('collaboration.php');
+				require('collaboration.php');
 
 				echo('</div>
 					  </div>
@@ -187,7 +187,7 @@
 								<label>SUGGESTIONS</label>
 							</div>
 							<div class="data">');
-							include('suggestions.php');
+							require('suggestions.php');
 							echo('</div>
 						</div>');
 				}
@@ -195,7 +195,7 @@
 		?>
 		
 		<div class="legale">
-			<?php include('document.php'); ?>
+			<?php require('document.php'); ?>
 		</div>
 		<div class="account-link">
 			<?php 

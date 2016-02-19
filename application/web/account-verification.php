@@ -20,9 +20,9 @@
     <body>        
     	
         <page>
-    	    <?php include('header.php'); ?>
-    	    <?php include('account-content.php'); ?>
-    	    <?php include('footer.php'); ?>
+    	    <?php require('header.php'); ?>
+    	    <?php require('account-content.php'); ?>
+    	    <?php require('footer.php'); ?>
         </page>
 
         <?php $this->loadJS(); ?>

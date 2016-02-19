@@ -23,7 +23,7 @@
 				echo('</div>
 				</div>');
 
-				include('html/login.html');
+				require('html/login.html');
 			}
 		?>
 		<?php
@@ -55,9 +55,9 @@
 					}
 					
 					if(isset($_SESSION['user_auth']) && $_SESSION['user_auth'] == '1') {
-						include('preferences.php');
+						require('preferences.php');
 					} else {
-						include('categories.php');
+						require('categories.php');
 					}
 				?>
 			</div>
@@ -189,7 +189,7 @@
 						<div class="wrapper">
 						<div class="data auto-slick">');
 				
-				include('collaboration.php');
+				require('collaboration.php');
 
 				echo('</div>
 					  </div>
@@ -245,7 +245,7 @@
 		?>
 		
 		<div class="legale">
-			<?php include('document.php'); ?>
+			<?php require('document.php'); ?>
 		</div>
 		<div class="account-link">
 			<?php 

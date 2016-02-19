@@ -21,7 +21,7 @@
     	
         <page>
     	    <?php 
-                include(dirname(__FILE__) . '/php/controller/index.controller.php');
+                require(dirname(__FILE__) . '/php/controller/index.controller.php');
             ?>
         </page>
 

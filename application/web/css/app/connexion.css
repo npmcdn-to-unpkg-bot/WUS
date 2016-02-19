@@ -1,4 +1,4 @@
-@media all and (min-width: 1400px)
+@media screen and (min-width: 1400px)
 {
 	content div.options div.connexion
 	{
@@ -20,7 +20,7 @@
 	}
 }
 
-@media all and (device-width: 320px)
+@media handheld and (device-width: 320px)
 {
     content div.options div.connexion
 	{

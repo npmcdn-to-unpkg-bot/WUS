@@ -1,7 +1,7 @@
 <?php
 
-include("class.phpmailer.php");
-include("class.smtp.php"); 
+require("class.phpmailer.php");
+require("class.smtp.php"); 
 
 class Mailer {
 
