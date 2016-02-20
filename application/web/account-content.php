@@ -14,7 +14,7 @@
 						<div class="link">');
 
 				if(isset($_SESSION['user_auth']) && $_SESSION['user_auth'] == '1') {
-					echo('<a href="#logout" id="deconnexion">DECONNEXION</a><br/>');
+					echo('<a href="#logout" id="deconnexion">DECONNEXION</a>');
 				} else {
 					echo('<a href="#login" id="connexion">CONNEXION</a>');
 				}
