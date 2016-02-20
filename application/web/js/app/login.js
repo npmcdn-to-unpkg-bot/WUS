@@ -63,8 +63,8 @@ $("#deconnexion").on('click', function() {
 $(".login-close").off('click');
 $(".login-close").on('click', function() {
     $('#mask, .login-popup').fadeOut(300 , function() {
-        $('.sign-valid').fdeOut(0);
-        $('.sign-error').fdeOut(0);
+        $('.sign-valid').fadeOut(0);
+        $('.sign-error').fadeOut(0);
         $('#login-site').fadeOut(0);
         $('#sign').fadeOut(0);
         $('#mask').remove();  
