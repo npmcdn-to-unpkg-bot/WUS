@@ -21,6 +21,8 @@
 			    session_start();
 			}
 
+			$articles = null;
+
 			if(isset($_SESSION['user_subscription'])) {
 
 				if(count($_SESSION['user_subscription']) > 0) {

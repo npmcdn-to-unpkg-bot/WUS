@@ -16,10 +16,6 @@
 
 		public function getLogin($login, $pass) {
 
-			error_log("getLogin");
-			error_log($login);
-			error_log($pass);
-
 			try 
 			{
 				$sql = "SELECT * 

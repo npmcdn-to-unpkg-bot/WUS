@@ -38,13 +38,8 @@ function sign($first_name, $last_name, $birthday, $sex, $email, $email_conf, $pa
 	// Requete de verification anti bot recaptcha Google
 	if(captchaValid($g_recaptcha_secret, $g_recaptcha_response)) {
 
-		// Captcha correctement validé
-		error_log('Captcha Valide');
-
 		// Verification que les emails concordent
 		if($email === $email_conf) {
-
-			error_log('Email good');
 
 			// Mise en forme de la date d'anniversaire
 			$birthday_temp = explode("/", $birthday);
@@ -59,8 +54,6 @@ function sign($first_name, $last_name, $birthday, $sex, $email, $email_conf, $pa
 
 			// Vérification de l'activation de la verification par email
 			if(getSystemPreference('email_verification')->email_verification == 1) {
-
-				error_log('Verification On');
 
 				// Création du compte utilisateur en fonction de la verification par email
 				$objUser = new User($bdd, $_TABLES);
@@ -98,8 +91,6 @@ function sign($first_name, $last_name, $birthday, $sex, $email, $email_conf, $pa
 				}
 
 			} else {
-
-				error_log('Verification Off');
 
 				// Pas de verification
 				$verified = true;
@@ -143,15 +134,11 @@ function sign($first_name, $last_name, $birthday, $sex, $email, $email_conf, $pa
 
 		} else {
 
-			error_log('Email erreur');
-
 			// Email non correspondant
 			return 2;
 		}
 
 	} else {
-
-		error_log('Captcha Erreur');
 
 		// Captcha mal validé
 		return 1;

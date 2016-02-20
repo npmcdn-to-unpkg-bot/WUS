@@ -8,8 +8,6 @@
 	$content = "";
 
     if(!is_null($bdd) && !is_null($_TABLES)) {
-
-        error_log('php login');
         
        	if(isset($_POST['login']) && !empty($_POST['login']) && isset($_POST['pass']) && !empty($_POST['pass'])) {
        		$login = new Login($bdd, $_TABLES);
