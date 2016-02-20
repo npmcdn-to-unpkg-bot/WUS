@@ -45,15 +45,13 @@
 
 			try 
 			{
-				$sql = "SELECT W.* 
-						FROM " . $this->_TABLES['public']['Website'] . " W
-						LEFT JOIN " . $this->_TABLES['public']['WebsiteSubscription'] . " WS
-						ON W.id = WS.website_id
-						WHERE WS.website_id IS NULL";
+				$sql = "SELECT WS.website_id
+						FROM " . $this->_TABLES['public']['WebsiteSubscription'] . " WS
+						WHERE WS.user_id = :user_id";
 				$req = $this->bdd->prepare($sql);
-				//$req->bindValue('user_id', $user_id, PDO::PARAM_INT);
+				$req->bindValue('user_id', $user_id, PDO::PARAM_INT);
 				$req->execute();
-				$websites = $req->fetchAll(PDO::FETCH_OBJ);
+				$websites_subs = $req->fetchAll(PDO::FETCH_OBJ);
 			}
 			catch (PDOException $e)
 			{
@@ -62,11 +60,64 @@
 			    die();
 			}
 
-			if($websites) {
-				return $websites;
-			}
-			else {
-				return null;
+			if($websites_subs) {
+
+				$subs = "";
+
+				foreach ($websites_subs as $key => $value) {
+					if($key == 0) {
+						$subs .= $value->website_id;
+					} else {
+						$subs .= ', ' . $value->website_id;
+					}
+				}
+
+				try 
+				{
+					$sql = "SELECT W.* 
+							FROM " . $this->_TABLES['public']['Website'] . " W
+							WHERE W.id NOT IN ($subs)";
+					$req = $this->bdd->prepare($sql);
+					$req->execute();
+					$websites = $req->fetchAll(PDO::FETCH_OBJ);
+				}
+				catch (PDOException $e)
+				{
+				    error_log($sql);
+				    error_log($e->getMessage());
+				    die();
+				}
+
+				if($websites) {
+					return $websites;
+				}
+				else {
+					return null;
+				}
+
+			} else {
+				
+				try 
+				{
+					$sql = "SELECT * 
+							FROM " . $this->_TABLES['public']['Website'];
+					$req = $this->bdd->prepare($sql);
+					$req->execute();
+					$websites = $req->fetchAll(PDO::FETCH_OBJ);
+				}
+				catch (PDOException $e)
+				{
+				    error_log($sql);
+				    error_log($e->getMessage());
+				    die();
+				}
+
+				if($websites) {
+					return $websites;
+				}
+				else {
+					return null;
+				}
 			}
 		}
 

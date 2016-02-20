@@ -23,7 +23,7 @@
 
                 foreach ($websites as $key => $value) {
 
-                    $temp_subscription = "<div class='unsubscription' website_id='%%website_id%%'></div>";
+                    $temp_subscription = "<div class='subscription' website_id='%%website_id%%'></div>";
 
                     $content .= $view->getView(array(
                         "url" => $value->url,

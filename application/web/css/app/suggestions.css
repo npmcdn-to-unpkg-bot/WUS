@@ -61,11 +61,11 @@
 
 	content div.informations div.suggestions div.data media-list div.button div.subscription
 	{
-		   display: block;
+		display: block;
 	    width: 70px;
 	    height: 20px;
 	    background: url("../image/icone.png") 0 0 no-repeat;
-	    background-position: -308px -28px;
+	    background-position: -236px -26px;
 	    margin: auto;
 	    cursor: pointer;
 	}
