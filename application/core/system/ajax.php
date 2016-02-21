@@ -43,21 +43,58 @@ class Ajax {
 
 	public function getServerConfig() {
 
-		$ip = $_SERVER['SERVER_ADDR'];
+		$ip_server = $_SERVER['SERVER_ADDR'];
+        $domain = $_SERVER['HTTP_HOST'];
 
-		try {
+        $get_ip = gethostbyname($domain);
 
-			//$file = $this->rootPath."application/config/server/". $ip .".json";
-			$file = dirname(dirname(dirname(dirname(__FILE__)))) . "/application/config/server/". $ip .".json";
-			error_log("Filename : " . $file);
+        if($get_ip == $ip_server) {
 
-			$json = file_get_contents($file); 
+        	try {
 
-			return (json_decode($json));
-			
-		} catch (Exception $e) {
-			return "sub-domaine configuration error in Ajax.php file";
-		}
+				//$file = $this->rootPath."application/config/server/". $ip .".json";
+				$file = dirname(dirname(dirname(dirname(__FILE__)))) . "/application/config/server/". $ip_server .".json";
+				error_log("Filename : " . $file);
+
+				$json = file_get_contents($file); 
+
+				return (json_decode($json));
+				
+			} catch (Exception $e) {
+				return "sub-domaine configuration error in Ajax.php file";
+			}
+        } else {
+
+            if($get_ip != $domain) {
+                try {
+
+					//$file = $this->rootPath."application/config/server/". $ip .".json";
+					$file = dirname(dirname(dirname(dirname(__FILE__)))) . "/application/config/server/". $get_ip .".json";
+					error_log("Filename : " . $file);
+
+					$json = file_get_contents($file); 
+
+					return (json_decode($json));
+					
+				} catch (Exception $e) {
+					return "sub-domaine configuration error in Ajax.php file";
+				}
+            } else {
+                try {
+
+					//$file = $this->rootPath."application/config/server/". $ip .".json";
+					$file = dirname(dirname(dirname(dirname(__FILE__)))) . "/application/config/server/". $domain .".json";
+					error_log("Filename : " . $file);
+
+					$json = file_get_contents($file); 
+
+					return (json_decode($json));
+					
+				} catch (Exception $e) {
+					return "sub-domaine configuration error in Ajax.php file";
+				}
+            }
+        }
     }
 
 	public function getSubdomainFromUrl(){

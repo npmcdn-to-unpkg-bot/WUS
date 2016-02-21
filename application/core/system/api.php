@@ -215,7 +215,7 @@ class API {
 
     public function getStructureBdd(){
         $this->_TABLES = [];
-        $database = 'whatsupaig16';
+        $database = 'wus';
 
         try
         {
