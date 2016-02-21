@@ -93,15 +93,40 @@ class API {
 
     public function getServerConfig(){
 
-        $ip = $_SERVER['SERVER_ADDR'];
-        
-        try {
+        $ip_server = $_SERVER['SERVER_ADDR'];
+        $domain = $_SERVER['HTTP_HOST'];
 
-            return $this->loadJsonFile("application/config/server/". $ip .".json");
-            
-        } catch (Exception $e) {
-            $this->printError(103); // Invalid subdomain
-        }
+        $get_ip = gethostbyname($domain);
+
+        if($get_ip == $ip_server) {
+
+            try {
+
+                return $this->loadJsonFile("application/config/server/". $ip_server .".json");
+                
+            } catch (Exception $e) {
+                $this->printError(103); // Invalid subdomain
+            }
+        } else {
+
+            if($get_ip != $domain) {
+                try {
+
+                    return $this->loadJsonFile("application/config/server/". $get_ip .".json");
+                    
+                } catch (Exception $e) {
+                    $this->printError(103); // Invalid subdomain
+                }
+            } else {
+                try {
+
+                    return $this->loadJsonFile("application/config/server/". $domain .".json");
+                    
+                } catch (Exception $e) {
+                    $this->printError(103); // Invalid subdomain
+                }
+            }
+        }       
     }
 
     /**
@@ -190,7 +215,7 @@ class API {
 
     public function getStructureBdd(){
         $this->_TABLES = [];
-        $database = 'wus';
+        $database = 'whatsupaig16';
 
         try
         {
