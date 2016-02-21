@@ -215,7 +215,7 @@ class API {
 
     public function getStructureBdd(){
         $this->_TABLES = [];
-        $database = 'wus';
+        $database = $this->config->mysql->database;
 
         try
         {
