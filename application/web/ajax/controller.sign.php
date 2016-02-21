@@ -72,7 +72,7 @@ function sign($first_name, $last_name, $birthday, $sex, $email, $email_conf, $pa
 
 					// Envoi de l'email de bienvenue
 					$objMailer = new Mailer();
-					$objMailer->from = "quentin.belot.pro@gmail.com";
+					$objMailer->from = "postmaster@whatsup.agency";
 					$objMailer->fromName = "Whats Up Street";
 					$objMailer->to = $email;
 					$objMailer->toName = $first_name . ' ' . $last_name;
@@ -112,7 +112,7 @@ function sign($first_name, $last_name, $birthday, $sex, $email, $email_conf, $pa
 
 					// Envoi de l'email de bienvenue
 					$objMailer = new Mailer();
-					$objMailer->from = "quentin.belot.pro@gmail.com";
+					$objMailer->from = "postmaster@whatsup.agency";
 					$objMailer->fromName = "Whats Up Street";
 					$objMailer->to = $email;
 					$objMailer->toName = $first_name . ' ' . $last_name;

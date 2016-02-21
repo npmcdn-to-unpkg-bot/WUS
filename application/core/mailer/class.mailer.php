@@ -81,13 +81,13 @@ class Mailer {
 
 		//server config
 		$this->mail->SMTPAuth   = true;
-		$this->mail->SMTPSecure = "tls";                   
-		$this->mail->Host       = "smtp.gmail.com";     
-		$this->mail->Port       = 587; 
+		$this->mail->SMTPSecure = "ssl";                   
+		$this->mail->Host       = "ssl0.ovh.net";     
+		$this->mail->Port       = 465; 
 
 		//smtp account config
-		$this->mail->Username   = "quentin.belot.pro@gmail.com";
-		$this->mail->Password   = "UtOpY579&"; 
+		$this->mail->Username   = "postmaster@whatsup.agency";
+		$this->mail->Password   = "postmaster"; 
 
 		//security config
 		// $this->mail->SMTPSecure = "ssl";
