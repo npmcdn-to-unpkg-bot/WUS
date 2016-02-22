@@ -24,75 +24,92 @@
 
         if(!is_null($websites)) {
 
-        	foreach ($websites as $key_website => $value_website) {
-        		$website_category = new WebsiteCategory($bdd, $_TABLES);
-        		$website_categories = $website_category->getWebsiteCategories($value_website->id);
+            foreach ($websites as $key_website => $value_website) {
+                $website_category = new WebsiteCategory($bdd, $_TABLES);
+                $website_categories = $website_category->getWebsiteCategories($value_website->id);
 
-        		$url = $value_website->url;
-        		$file = $value_website->file;
+                $url = $value_website->url;
+                $file = $value_website->file;
 
-        		// Try to load json config
-        		$config = null;
-		        $json = file_get_contents(dirname(dirname(dirname(__FILE__))) . '/' . $file); 
+                // Try to load json config
+                $config = null;
+                $json = file_get_contents(dirname(dirname(dirname(__FILE__))) . '/' . $file); 
 
-		        if ($json !== false) { // if Valid Config
+                if ($json !== false) { // if Valid Config
 
-		            $config = json_decode($json);
-		            
-		        }
-		        else { // Invalid Config
-		            
-		            echo "Website File Not Found \n";
-		        }
+                    $config = json_decode($json);
+                    
+                }
+                else { // Invalid Config
+                    
+                    echo "Website File Not Found \n";
+                }
 
-        		if(!is_null($website_categories)) {
+                if(!is_null($website_categories)) {
 
-        			foreach ($website_categories as $key_website_category => $value_website_category) {
-		        		$article = new Article($bdd, $_TABLES);
+                    foreach ($website_categories as $key_website_category => $value_website_category) {
+                        $article = new Article($bdd, $_TABLES);
+
+                        $url_category = "";
 
                         if($value_website_category->use_url) {
-		        			$url .= $value_website_category->url;
-		        		}
+                            $url_category = $value_website_category->url;
+                        }
 
                         $objItem = new Item($bdd, $_TABLES);
-                        $exist = $objItem->getItemExistByUrl($url);
 
-                        if(!$exist) {
+                        $html = file_get_html($url . $url_category);
 
-                            $html = file_get_html($url);
+                        if(!is_null($html)) {
 
-                            if(!is_null($html)) {
+                            foreach ($html->find($config->container . ' ' . $config->item->container) as $value) {
 
-                                foreach ($html->find($config->container . ' ' . $config->item->container) as $value) {
+                                $temp['website_category_id'] = $value_website_category->id;
+                                $temp['guid'] = substr(md5(microtime(TRUE) * 100000), 0, 5);
+                                $temp['url'] = getElement($value->find($config->item->url->html, 0), $config->item->url->element);
+                                
+                                if($temp['url'][0] == "/") {
+                                    $temp['url'] = substr($temp['url'], 1);
+                                    $temp['url'] = $value_website->url . $temp['url'];
+                                }
 
-                                    $temp['website_category_id'] = $value_website_category->id;
-                                    $temp['guid'] = substr(md5(microtime(TRUE) * 100000), 0, 5);
-                                    $temp['url'] = getElement($value->find($config->item->url->html, 0), $config->item->url->element);
-                                    $temp['title'] = getElement($value->find($config->item->title->html, 0), $config->item->title->element);
-                                    $temp['width_image'] = getElement($value->find($config->item->width_image->html, 0), $config->item->width_image->element);
-                                    $temp['height_image'] = getElement($value->find($config->item->height_image->html, 0), $config->item->height_image->element);
-                                    $temp['image'] = getElement($value->find($config->item->image->html, 0), $config->item->image->element);
-                                    $temp['alt_image'] = getElement($value->find($config->item->alt_image->html, 0), $config->item->alt_image->element);
-                                    $temp['description'] = getElement($value->find($config->item->description->html, 0), $config->item->description->element);
-                                    $temp['date_publication'] = getElement($value->find($config->item->date_publication->html, 0), $config->item->date_publication->element);
-                                    $temp['author'] = getElement($value->find($config->item->author->html, 0), $config->item->author->element);
+                                $temp['title'] = getElement($value->find($config->item->title->html, 0), $config->item->title->element);
+                                $temp['width_image'] = getElement($value->find($config->item->width_image->html, 0), $config->item->width_image->element);
+                                $temp['height_image'] = getElement($value->find($config->item->height_image->html, 0), $config->item->height_image->element);
+                                $temp['image'] = getElement($value->find($config->item->image->html, 0), $config->item->image->element);
+                                
+                                if($temp['image'][0] == "/") {
+                                    $temp['image'] = substr($temp['image'], 1);
+                                    $temp['image'] = $value_website->url . $temp['image'];
+                                }
+
+                                $temp['alt_image'] = getElement($value->find($config->item->alt_image->html, 0), $config->item->alt_image->element);
+                                $temp['description'] = getElement($value->find($config->item->description->html, 0), $config->item->description->element);
+                                $temp['date_publication'] = getElement($value->find($config->item->date_publication->html, 0), $config->item->date_publication->element);
+
+                                if(empty($temp['date_publication']) || is_null($temp['date_publication'])) {
+                                    $dt = new DateTime();
+                                    $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
+                                }
+                                $temp['author'] = getElement($value->find($config->item->author->html, 0), $config->item->author->element);
+
+                                if(!$objItem->getItemExistByUrl($temp['url'])) {
 
                                     $data = json_encode($temp);
-
                                     echo $data;
-
+                                    
                                     $article->setArticle($data);
-
-                                    //die('Scrap one article \n');
                                 }
+
+                                //die('Scrap one article \n');
                             }
                         }
-		        	}
-        		}
-        		else {
-		            echo "Website Categories Not Found For " . $url . "\n";
-		        }
-        	}
+                    }
+                }
+                else {
+                    echo "Website Categories Not Found For " . $url . "\n";
+                }
+            }
         }
         else {
             echo "Websites Not Found \n";
@@ -104,35 +121,35 @@
     }
 
     function getElement($data, $element) {
-    	switch($element) {
-    		case "href": {
-    			return $data->href;
-    		}
+        switch($element) {
+            case "href": {
+                return $data->href;
+            }
 
-    		case "text": {
-    			return $data->innertext;
-    		}
+            case "text": {
+                return $data->innertext;
+            }
 
-    		case "src": {
-    			return $data->src;
-    		}
+            case "src": {
+                return $data->src;
+            }
 
-    		case "title": {
-    			return $data->title;
-    		}
+            case "title": {
+                return $data->title;
+            }
 
-    		case "width": {
-    			return $data->width;
-    		}
+            case "width": {
+                return $data->width;
+            }
 
-    		case "height": {
-    			return $data->height;
-    		}
+            case "height": {
+                return $data->height;
+            }
 
-    		case "alt": {
-    			return $data->alt;
-    		}
-    	}
+            case "alt": {
+                return $data->alt;
+            }
+        }
     }
 
     function getConnection(){
@@ -143,11 +160,11 @@
         global $username;
         global $password;
 
-        echo $bdd . "\n";
+        /*echo $bdd . "\n";
         echo $host . "\n";
         echo $database . "\n";
         echo $username . "\n";
-        echo $password . "\n";
+        echo $password . "\n";*/
 
         try {
             $bdd = new PDO('mysql:host='.$host.
