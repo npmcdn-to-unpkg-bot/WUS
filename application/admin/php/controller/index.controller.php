@@ -19,8 +19,6 @@
                 echo $content;
         	}
         	else {
-        		echo("HELLO WORLD");
-
 	        	$view = new Template(dirname(dirname(dirname(__FILE__))) . '/view/login.html');
 	        	$content = $view->getView(array());
 	            echo $content;

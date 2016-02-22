@@ -1,42 +1,47 @@
-<header>
-	<div class="left">Hello %%name%%, ton email est %%login%%</div>
-	<div class="right"><input type="button" id="admin_logout" value="Logout"></div>
-</header>
-
-<nav>
-	<ul>
-		<li>
-			<a href="/admin/modules/category">Category</a>
-		</li>
-		<li>
-			<a href="/admin/modules/category_preference">Category Preferences</a>
-		</li>
-		<li>
-			<a href="/admin/modules/collaboration">Collaborations</a>
-		</li>
-		<li>
-			<a href="/admin/modules/item">Items</a>
-		</li>
-		<li>
-			<a href="/admin/modules/static_page">Static Pages</a>
-		</li>
-		<li>
-			<a href="/admin/modules/system_preference">System Preferences</a>
-		</li>
-		<li>
-			<a href="/admin/modules/type_item">Type Items</a>
-		</li>
-		<li>
-			<a href="/admin/modules/user">Users</a>
-		</li>
-		<li>
-			<a href="/admin/modules/website">Website</a>
-		</li>
-		<li>
-			<a href="/admin/modules/website_category">Website Category</a>
-		</li>
-		<li>
-			<a href="/admin/modules/website_subscription">Website Subscriptions</a>
-		</li>
-	</ul>
-</nav>
+<div>
+	<div class="left">
+		<nav>
+			<ul>
+				<li>
+					<a href="/admin/modules/category" target='content'>Category</a>
+				</li>
+				<li>
+					<a href="/admin/modules/category_preference" target='content'>Category Preferences</a>
+				</li>
+				<li>
+					<a href="/admin/modules/collaboration" target='content'>Collaborations</a>
+				</li>
+				<li>
+					<a href="/admin/modules/item" target='content'>Items</a>
+				</li>
+				<li>
+					<a href="/admin/modules/static_page" target='content'>Static Pages</a>
+				</li>
+				<li>
+					<a href="/admin/modules/system_preference" target='content'>System Preferences</a>
+				</li>
+				<li>
+					<a href="/admin/modules/type_item" target='content'>Type Items</a>
+				</li>
+				<li>
+					<a href="/admin/modules/user" target='content'>Users</a>
+				</li>
+				<li>
+					<a href="/admin/modules/website" target='content'>Website</a>
+				</li>
+				<li>
+					<a href="/admin/modules/website_category" target='content'>Website Category</a>
+				</li>
+				<li>
+					<a href="/admin/modules/website_subscription" target='content'>Website Subscriptions</a>
+				</li>
+				<li>
+					<a id="admin_logout">Deconnexion</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+	<div class="right">
+		<iframe allowtransparency="true" frameborder="0" scrolling="auto" name='content'></iframe>
+	</div>
+</div>

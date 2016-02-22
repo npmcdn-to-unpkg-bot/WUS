@@ -26,5 +26,7 @@
         ]
     ,
     "css": [
+            "/application/admin/css/index.css",
+            "/application/admin/css/login.css"
         ]
 }
