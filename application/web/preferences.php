@@ -51,7 +51,7 @@
 
                 $content .= $view->getView(array(
                     "category_id" => $value->id,
-                    "category_name" => mb_strtoupper($value->category),
+                    "category_name" => mb_strtoupper($value->category, 'UTF-8'),
                     "checked" => $checked
                     ));
             }

@@ -1,4 +1,4 @@
-@media screen
+@media screen and (min-width: 1024px)
 {
 	content div.articles div.caroussel
 	{
@@ -36,7 +36,7 @@
 	content div.articles div.caroussel caroussel vignette div.image
 	{
 		position: relative;
-		width: 500px;
+		width: 50%;
 		height: 230px;
 	}
 
@@ -73,15 +73,19 @@
 
 	content div.articles div.caroussel caroussel vignette div.data
 	{
-		width: 38%;
+		width: 49%;
 	}
 
 	content div.articles div.caroussel caroussel vignette div.data h2.title
 	{
 		text-align: center;
-		width: 80%;
-		margin: auto;
-		text-transform: uppercase;
+	    width: 80%;
+	    margin: auto;
+	    text-transform: uppercase;
+	    display: block;
+	    height: 50px;
+		max-height: 50px;
+		overflow-y: hidden;
 	}
 
 	content div.articles div.caroussel caroussel vignette div.data h2.title a
@@ -93,17 +97,19 @@
 
 	content div.articles div.caroussel caroussel vignette div.data p.description
 	{
-		display: block;
-		text-align: left;
-		font-size: 12px;
-		color: #000000;
-		margin-top: 5px;
-		margin-bottom: 5px;
+	    display: block;
+	    text-align: left;
+	    font-size: 12px;
+	    color: #000000;
+	    margin-top: 5px;
+	    /* margin-bottom: 20px; */
+	    max-height: 110px;
+	    height: 110px;
 	}
 
 	content div.articles div.caroussel caroussel vignette div.data a.read
 	{
-		display: block;
+		display: none;
 		text-decoration: none;
 		text-align: left;
 		color: #000000;
@@ -125,6 +131,11 @@
 		height: 70px;
 	}
 
+	content div.articles div.caroussel caroussel vignette div.data div.action div.precedent
+	{
+		width: 13%;
+	}
+
 	content div.articles div.caroussel caroussel vignette div.data div.action div.precedent a
 	{
 		display: block;
@@ -134,11 +145,26 @@
 	    background-position: -160px -1px;
 	}
 
+	content div.articles div.caroussel caroussel vignette div.data div.action div.site
+	{
+		width: 70%;
+	}
+
 	content div.articles div.caroussel caroussel vignette div.data div.action div.site div.logo_site,
 	content div.articles div.caroussel caroussel vignette div.data div.action div.site div.informations_site
 	{
 		display: inline-block;
 		vertical-align: middle;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data div.action div.site div.logo_site
+	{
+		width: 33%;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data div.action div.site div.informations_site
+	{
+		width: 45%;
 	}
 
 	content div.articles div.caroussel caroussel vignette div.data div.action div.site div.logo_site img
@@ -180,6 +206,11 @@
 	    height: 21px;
 	    background: url("../image/icone.png") 0 0 no-repeat;
 	    background-position: -308px -26px;
+	}
+
+	content div.articles div.caroussel caroussel vignette div.data div.action div.suivant
+	{
+		width: 13%;
 	}
 
 	content div.articles div.caroussel caroussel vignette div.data div.action div.suivant a

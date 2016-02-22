@@ -20,6 +20,19 @@
 	{
 	}
 
+	content div.options div.preferences div.data category input.category_choice
+	{
+		display: inline-block;
+		width: 6%;
+		vertical-align: top;
+	}
+
+	content div.options div.preferences div.data category label
+	{
+		display: inline-block;
+		width: 80%;
+	}
+
 	content div.options div.preferences div.button
 	{
 		height: 40px;
@@ -47,6 +60,7 @@
 	{
 		text-decoration: none;
 		color: #000000;
+		text-transform:uppercase;
 	}
 }
 

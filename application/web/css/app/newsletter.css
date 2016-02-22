@@ -1,4 +1,4 @@
-@media screen
+@media screen and (min-width: 1024px)
 {
 	content div.informations div.newsletter
 	{
@@ -34,7 +34,7 @@
 	content div.informations div.newsletter div.data div.input
 	{
 		display: inline-block;
-	    width: 70%;
+	    width: 67%;
 	    height: 40px;
 	    vertical-align: middle;
 	}

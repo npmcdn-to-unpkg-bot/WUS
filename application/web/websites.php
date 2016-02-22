@@ -37,7 +37,7 @@
 
                 $content .= $view->getView(array(
                     "website_id" => $value->id,
-                    "website_name" => mb_strtoupper($value->website),
+                    "website_name" => mb_strtoupper($value->website, 'UTF-8'),
                     "checked" => $checked
                     ));
             }

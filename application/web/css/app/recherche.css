@@ -1,4 +1,4 @@
-@media screen
+@media screen and (min-width: 1024px)
 {
     content div.options div.recherche
     {
@@ -17,6 +17,13 @@
     	vertical-align: middle;
     	height: 26px;
     }
+    content div.options div.recherche div.link {
+        width: 20%;
+    }
+
+    content div.options div.recherche div.data {
+        width: 72%;
+    }
 
     content div.options div.recherche div.link a
     {
@@ -25,14 +32,15 @@
         height: 30px;
         background: url("../image/icone.png") 0 0 no-repeat;
         background-position: 0px -23px;
+        margin: auto;
     }
 
     content div.options div.recherche div.data input[type=text]
     {
     	display: block;
-        width: 75%;
+        width: 100%;
         height: 22px;
-        padding: 0px 5px 0px 5px;
+        padding: 0px 5px 0px 0px;
         border: solid 2px #000000;
         transition: border 0.3s;
         background-color: #FFFFFF;

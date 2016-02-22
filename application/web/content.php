@@ -45,7 +45,7 @@
 		?>
 		<div class="preferences">
 			<div class="title">
-				<label class="title">MES PREFERENCES</label>
+				<label class="title">PREFERENCES</label>
 			</div>
 			<div class="data">
 				<?php 
