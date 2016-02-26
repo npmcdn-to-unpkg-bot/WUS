@@ -63,6 +63,12 @@
 				$item_date_publication_element = $_POST['item-date_publication-element'];
 				$item_author_html = $_POST['item-author-html'];
 				$item_author_element = $_POST['item-author-element'];
+				$item_inner_date_publication_html = $_POST['item-inner-date-publication-html'];
+				$item_inner_date_publication_element = $_POST['item-inner-date-publication-element'];
+				$item_inner_date_publication_format = $_POST['item-inner-date-publication-format'];
+				$item_inner_date_publication_function_type = $_POST['item-inner-date-publication-function-type'];
+				$item_inner_date_publication_function_separator = $_POST['item-inner-date-publication-function-separator'];
+				$item_inner_date_publication_function_counter = $_POST['item-inner-date-publication-function-counter'];
 
 	          	echo createWebsite($website, $url, $logo, $scrap, 
 	          	$container, 
@@ -84,7 +90,13 @@
 				$item_date_publication_html,
 				$item_date_publication_element,
 				$item_author_html,
-				$item_author_element);
+				$item_author_element,
+				$item_inner_date_publication_html,
+				$item_inner_date_publication_element,
+				$item_inner_date_publication_format,
+				$item_inner_date_publication_function_type,
+				$item_inner_date_publication_function_separator,
+				$item_inner_date_publication_function_counter);
 	        	break; 
 	        }
 	    }
@@ -192,7 +204,13 @@
 				$item_date_publication_html,
 				$item_date_publication_element,
 				$item_author_html,
-				$item_author_element) {
+				$item_author_element,
+				$item_inner_date_publication_html,
+				$item_inner_date_publication_element,
+				$item_inner_date_publication_format,
+				$item_inner_date_publication_function_type,
+				$item_inner_date_publication_function_separator,
+				$item_inner_date_publication_function_counter) {
 
 
 		global $bdd, $_TABLES;
@@ -226,7 +244,13 @@
 					"item-date_publication-html" => $item_date_publication_html,
 					"item-date_publication-element" => $item_date_publication_element,
 					"item-author-html" => $item_author_html,
-					"item-author-element" => $item_author_element
+					"item-author-element" => $item_author_element,
+					"item_inner-date_publication-html" => $item_inner_date_publication_html,
+					"item_inner-date_publication-element" => $item_inner_date_publication_element,
+					"item_inner-date_publication-format" => $item_inner_date_publication_format,
+					"item_inner-date_publication-function-type" => $item_inner_date_publication_function_type,
+					"item_inner-date_publication-function-separator" => $item_inner_date_publication_function_separator,
+					"item_inner-date_publication-function-counter" => $item_inner_date_publication_function_counter
                     ));
 
 			$createFile = file_put_contents($output, $json);

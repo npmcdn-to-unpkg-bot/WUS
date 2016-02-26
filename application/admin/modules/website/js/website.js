@@ -160,6 +160,16 @@ function createWebsite() {
 	var item_author_html = $(".configuration-website-new input[id=item-author-html]").val();
 	var item_author_element = $(".configuration-website-new input[id=item-author-element]").val();
 
+	var item_inner_date_publication_html = $(".configuration-website-new input[id=item_inner-date_publication-html]").val();
+	var item_inner_date_publication_element = $(".configuration-website-new input[id=item_inner-date_publication-element]").val();
+	var item_inner_date_publication_format = $(".configuration-website-new input[id=item_inner-date_publication-format]").val();
+	
+	var item_inner_date_publication_function_type = $(".configuration-website-new input[id=item_inner-date_publication-function-type]").val();
+	var item_inner_date_publication_function_separator = $(".configuration-website-new input[id=item_inner-date_publication-function-separator]").val();
+	var item_inner_date_publication_function_counter = $(".configuration-website-new input[id=item_inner-date_publication-function-counter]").val();
+
+	alert(item_inner_date_publication_html);
+
 	$.ajax({
 		url : '/application/admin/modules/website/php/controller/website.controller.php', // La ressource ciblée
 		type : 'POST', // Le type de la requête HTTP
@@ -187,7 +197,13 @@ function createWebsite() {
 				'item-date_publication-html': item_date_publication_html,
 				'item-date_publication-element': item_date_publication_element,
 				'item-author-html': item_author_html,
-				'item-author-element': item_author_element }
+				'item-author-element': item_author_element,
+				'item-inner-date-publication-html': item_inner_date_publication_html,
+				'item-inner-date-publication-element': item_inner_date_publication_element,
+				'item-inner-date-publication-format': item_inner_date_publication_format,
+				'item-inner-date-publication-function-type': item_inner_date_publication_function_type,
+				'item-inner-date-publication-function-separator': item_inner_date_publication_function_separator,
+				'item-inner-date-publication-function-counter': item_inner_date_publication_function_counter }
 		}).done(function() {
 
 		resetWebsite();
