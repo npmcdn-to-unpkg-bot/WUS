@@ -31,12 +31,24 @@
             "element" : "text"
             },
         "date_publication" : {
-            "html" : "div[class=content-post] div[class=imgwrap] div[class=date_meta]",
-            "element" : "text"
+            "html" : "",
+            "element" : ""
             },
         "author" : {
             "html" : "",
             "element" : ""
+            }
+    },
+    "item_inner" : {
+        "date_publication" : {
+            "html" : "div[id=meta] p",
+            "element" : "text",
+            "format" : "d/m/Y",
+            "function" : {
+                    "type" : "explode",
+                    "separator" : " ",
+                    "counter" : "2"
+                }
             }
     }
 }

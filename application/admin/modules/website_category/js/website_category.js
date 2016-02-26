@@ -28,8 +28,6 @@ loadWebsiteCategories();
  */
 function loadWebsiteCategories() {
 
-	console.log('loadWebsiteCategories');
-
 	$.ajax({
 		url: '/application/admin/modules/website_category/php/controller/website_category.controller.php',
 		type: 'POST',
@@ -51,6 +49,7 @@ function loadWebsiteCategories() {
 				$('input.input_dt_website_id', row).prop( 'checked', $('input.input_dt_use_url', row).val() == 1 );
 	            // Set the checked state of the checkbox in the table
 	            $('input.input_dt_use_url', row).prop( 'checked', $('input.input_dt_use_url', row).val() == 1 );
+	            $('input.input_dt_use_pagination', row).prop( 'checked', $('input.input_dt_use_pagination', row).val() == 1 );
 	        }
 	    });
 
@@ -104,6 +103,8 @@ function editWebsiteCategory(button) {
 	var category = $(button).parent().parent().find('.input_dt_website_category').val();
 	var url = $(button).parent().parent().find('.input_dt_url').val();
 	var use_url = ($(button).parent().parent().find('.input_dt_use_url').prop('checked') == true ? 1 : 0);
+	var url_pagination = $(button).parent().parent().find('.input_dt_url_pagination').val();
+	var use_pagination = ($(button).parent().parent().find('.input_dt_use_pagination').prop('checked') == true ? 1 : 0);
 
 	$.ajax({
 		url : '/application/admin/modules/website_category/php/controller/website_category.controller.php', // La ressource ciblée
@@ -114,7 +115,9 @@ function editWebsiteCategory(button) {
 				'website_id': website_id,
 				'category': category,
 				'url': url,
-				'use_url': use_url }
+				'use_url': use_url,
+				'url_pagination': url_pagination,
+				'use_pagination': use_pagination }
 		}).done(function() {
 
 		resetWebsiteCategory();
@@ -147,6 +150,8 @@ function createWebsiteCategory() {
 	var category = $(".informations-website-category-new input[id=website-category]").val();
 	var url = $(".informations-website-category-new input[id=url]").val();
 	var use_url = ($(".informations-website-category-new input[id=use-url]").prop('checked') == true ? 1 : 0);
+	var url_pagination = $(".informations-website-category-new input[id=url-pagination]").val();
+	var use_pagination = ($(".informations-website-category-new input[id=use-pagination]").prop('checked') == true ? 1 : 0);
 
 	$.ajax({
 		url : '/application/admin/modules/website_category/php/controller/website_category.controller.php', // La ressource ciblée
@@ -156,7 +161,9 @@ function createWebsiteCategory() {
 				'website_id': website_id,
 				'category': category,
 				'url': url,
-				'use_url': use_url }
+				'use_url': use_url,
+				'url_pagination': url_pagination,
+				'use_pagination': use_pagination }
 		}).done(function() {
 
 		resetWebsiteCategory();
@@ -175,4 +182,6 @@ function resetWebsiteCategory() {
 	$(".informations-website-category-new input[id=website-category]").val('');
 	$(".informations-website-category-new input[id=url]").val('');
 	$(".informations-website-category-new input[id=use-url]").attr('checked', false);
+	$(".informations-website-category-new input[id=url-pagination]").val('');
+	$(".informations-website-category-new input[id=use-pagination]").attr('checked', false);
 }

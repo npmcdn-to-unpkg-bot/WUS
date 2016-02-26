@@ -46,8 +46,10 @@
 				$category = $_POST['category'];
 				$url = $_POST['url'];
 				$use_url = $_POST['use_url'];
+				$url_pagination = $_POST['url_pagination'];
+				$use_pagination = $_POST['use_pagination'];
 
-	          	echo editWebsiteCategory($id, $category_id, $website_id, $category, $url, $use_url);
+	          	echo editWebsiteCategory($id, $category_id, $website_id, $category, $url, $use_url, $url_pagination, $use_pagination);
 	        	break; 
 	        }
 
@@ -58,8 +60,10 @@
 				$category = $_POST['category'];
 				$url = $_POST['url'];
 				$use_url = $_POST['use_url'];
+				$url_pagination = $_POST['url_pagination'];
+				$use_pagination = $_POST['use_pagination'];
 
-	          	echo createWebsiteCategory($category_id, $website_id, $category, $url, $use_url);
+	          	echo createWebsiteCategory($category_id, $website_id, $category, $url, $use_url, $url_pagination, $use_pagination);
 	        	break; 
 	        }
 	    }
@@ -133,6 +137,8 @@
 		    $content .= '<th>Website Category</th>';
 		    $content .= '<th>Url</th>';
 		    $content .= '<th>Use Url</th>';
+		    $content .= '<th>Url Pagination</th>';
+		    $content .= '<th>Use Pagination</th>';
 		    $content .= '<th>Action</th>';
 		    $content .= '</tr>';
 		    $content .= '</thead>';
@@ -202,6 +208,8 @@
 				    $content .= '<td><input type="text" class="input_dt input_dt_website_category" value="' . $item->category . '" /></td>';
 				    $content .= '<td><input type="text" class="input_dt input_dt_url" value="' . $item->url . '" /></td>';
 				    $content .= '<td><input type="checkbox" class="input_dt input_dt_use_url" value="' . $item->use_url . '"></input></td>';
+				    $content .= '<td><input type="text" class="input_dt input_dt_url_pagination" value="' . $item->url_pagination . '" /></td>';
+				    $content .= '<td><input type="checkbox" class="input_dt input_dt_use_pagination" value="' . $item->use_pagination . '"></input></td>';
 				    $content .= "<td><input type='button' class='edit edit_website_category_dt' value='Save' />
 				    <input type='button' class='delete delete_website_category_dt' value='Supprimer' /></td>";
 				    $content .= '</tr>';
@@ -234,14 +242,14 @@
 	    }
 	}
 
-	function editWebsiteCategory($id, $category_id, $website_id, $category, $url, $use_url) {
+	function editWebsiteCategory($id, $category_id, $website_id, $category, $url, $use_url, $url_pagination, $use_pagination) {
 
 		global $bdd, $_TABLES;
 
 		if(!is_null($bdd) && !is_null($_TABLES)) {
 
 			$objWebsiteCategory = new WebsiteCategory($bdd, $_TABLES);
-		    $objWebsiteCategory->editWebsiteCategory($id, $category_id, $website_id, $category, $url, $use_url);
+		    $objWebsiteCategory->editWebsiteCategory($id, $category_id, $website_id, $category, $url, $use_url, $url_pagination, $use_pagination);
 
 		}
 	    else {
@@ -251,14 +259,14 @@
 
 	}
 
-	function createWebsiteCategory($category_id, $website_id, $category, $url, $use_url) {
+	function createWebsiteCategory($category_id, $website_id, $category, $url, $use_url, $url_pagination, $use_pagination) {
 
 		global $bdd, $_TABLES;
 
 		if(!is_null($bdd) && !is_null($_TABLES)) {
 
 			$objWebsiteCategory = new WebsiteCategory($bdd, $_TABLES);
-		   	$objWebsiteCategory->createWebsiteCategory($category_id, $website_id, $category, $url, $use_url);
+		   	$objWebsiteCategory->createWebsiteCategory($category_id, $website_id, $category, $url, $use_url, $url_pagination, $use_pagination);
 		}
 	    else {
 	        error_log("BDD ERROR : " . json_encode($bdd));

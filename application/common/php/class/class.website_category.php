@@ -86,7 +86,7 @@
 			}
 		}
 
-		public function editWebsiteCategory($id, $category_id, $website_id, $category, $url, $use_url) {
+		public function editWebsiteCategory($id, $category_id, $website_id, $category, $url, $use_url, $url_pagination, $use_pagination) {
 
 			try 
 			{
@@ -95,7 +95,9 @@
 							website_id = :website_id, 
 							category = :category,
 							url = :url,
-							use_url = :use_url
+							use_url = :use_url,
+							url_pagination = :url_pagination,
+							use_pagination = :use_pagination
 						WHERE id = :id";
 				$req = $this->bdd->prepare($sql);
 				$req->bindValue('id', $id, PDO::PARAM_INT);
@@ -104,6 +106,8 @@
 				$req->bindValue('category', $category, PDO::PARAM_STR);
 				$req->bindValue('url', $url, PDO::PARAM_STR);
 				$req->bindValue('use_url', $use_url, PDO::PARAM_BOOL);
+				$req->bindValue('url_pagination', $url_pagination, PDO::PARAM_STR);
+				$req->bindValue('use_pagination', $use_pagination, PDO::PARAM_BOOL);
 				$req->execute();
 			}
 			catch (PDOException $e)
@@ -114,17 +118,19 @@
 			}
 		}
 
-		public function createWebsiteCategory($category_id, $website_id, $category, $url, $use_url) {
+		public function createWebsiteCategory($category_id, $website_id, $category, $url, $use_url, $url_pagination, $use_pagination) {
 
 			try 
 			{
-				$sql = "INSERT INTO " . $this->_TABLES['public']['WebsiteCategory'] . " (category_id, website_id, category, url, use_url) VALUES (:category_id, :website_id, :category, :url, :use_url)";
+				$sql = "INSERT INTO " . $this->_TABLES['public']['WebsiteCategory'] . " (category_id, website_id, category, url, use_url, url_pagination, use_pagination) VALUES (:category_id, :website_id, :category, :url, :use_url, :url_pagination, :use_pagination)";
 				$req = $this->bdd->prepare($sql);
 				$req->bindValue('category_id', $category_id, PDO::PARAM_INT);
 				$req->bindValue('website_id', $website_id, PDO::PARAM_INT);
 				$req->bindValue('category', $category, PDO::PARAM_STR);
 				$req->bindValue('url', $url, PDO::PARAM_STR);
 				$req->bindValue('use_url', $use_url, PDO::PARAM_BOOL);
+				$req->bindValue('url_pagination', $url_pagination, PDO::PARAM_STR);
+				$req->bindValue('use_pagination', $use_pagination, PDO::PARAM_BOOL);
 				$req->execute();
 			}
 			catch (PDOException $e)

@@ -8,7 +8,7 @@
     require_once(dirname(dirname(__FILE__)) . "/common/php/class/class.article.php");
 	require_once(dirname(dirname(__FILE__)) . "/common/php/tools/simple_html_dom.php");
 
-	$host = '127.0.0.1';
+	$host = 'localhost';
 	$database = 'wus';
 	$username = 'root';
 	$password = 'root';
@@ -88,8 +88,31 @@
                                 $temp['date_publication'] = getElement($value->find($config->item->date_publication->html, 0), $config->item->date_publication->element);
 
                                 if(empty($temp['date_publication']) || is_null($temp['date_publication'])) {
-                                    $dt = new DateTime();
-                                    $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
+
+                                    $html_inner = file_get_html($temp['url']);
+
+                                    $html_find = $html_inner->find($config->item_inner->date_publication->html, 0);
+
+                                    if(!empty($html_find) && !is_null($html_find)) {
+
+                                        $date_publication = getElement($html_find, $config->item_inner->date_publication->element);
+                                        
+                                        if(!empty($date_publication) && !is_null($date_publication)) {
+
+                                            $date_publication = setFunction($date_publication, $config->item_inner->date_publication->function);
+
+                                            $dt = DateTime::createFromFormat($config->item_inner->date_publication->format, $date_publication);
+                                            $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
+
+                                        } else {
+                                            
+                                            $dt = new DateTime();
+                                            $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
+                                        }
+                                    } else {
+                                        $dt = new DateTime();
+                                        $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
+                                    }
                                 }
                                 $temp['author'] = getElement($value->find($config->item->author->html, 0), $config->item->author->element);
 
@@ -148,6 +171,14 @@
 
             case "alt": {
                 return $data->alt;
+            }
+        }
+    }
+
+    function setFunction($data, $function) {
+        switch($function->type) {
+            case "explode": {
+                return (explode($function->separator, $data)[$function->counter]);
             }
         }
     }
