@@ -49,82 +49,193 @@
 
                     foreach ($website_categories as $key_website_category => $value_website_category) {
                         $article = new Article($bdd, $_TABLES);
+                        $objItem = new Item($bdd, $_TABLES);
 
                         $url_category = "";
+                        $url_pagination = "";
+                        $url_temp_pagination = "";
+                        $nb_max_pagination = 100; // CONSTANTE A VERIFIER
 
                         if($value_website_category->use_url) {
                             $url_category = $value_website_category->url;
                         }
 
-                        $objItem = new Item($bdd, $_TABLES);
+                        if($value_website_category->use_pagination) {
+                            $url_pagination = $value_website_category->url_pagination;
 
-                        $html = file_get_html($url . $url_category);
-
-                        if(!is_null($html)) {
-
-                            foreach ($html->find($config->container . ' ' . $config->item->container) as $value) {
-
-                                $temp['website_category_id'] = $value_website_category->id;
-                                $temp['guid'] = substr(md5(microtime(TRUE) * 100000), 0, 5);
-                                $temp['url'] = getElement($value->find($config->item->url->html, 0), $config->item->url->element);
+                            for ($nb_page = 0; $nb_page < $nb_max_pagination; $nb_page++) {
                                 
-                                if($temp['url'][0] == "/") {
-                                    $temp['url'] = substr($temp['url'], 1);
-                                    $temp['url'] = $value_website->url . $temp['url'];
+                                if($nb_page != 0) {
+                                    $url_temp_pagination = str_replace("%%nb_page%%", $nb_page, $url_pagination);
                                 }
 
-                                $temp['title'] = getElement($value->find($config->item->title->html, 0), $config->item->title->element);
-                                $temp['width_image'] = getElement($value->find($config->item->width_image->html, 0), $config->item->width_image->element);
-                                $temp['height_image'] = getElement($value->find($config->item->height_image->html, 0), $config->item->height_image->element);
-                                $temp['image'] = getElement($value->find($config->item->image->html, 0), $config->item->image->element);
-                                
-                                if($temp['image'][0] == "/") {
-                                    $temp['image'] = substr($temp['image'], 1);
-                                    $temp['image'] = $value_website->url . $temp['image'];
-                                }
+                                $html = file_get_html($url . $url_category . $url_temp_pagination);
 
-                                $temp['alt_image'] = getElement($value->find($config->item->alt_image->html, 0), $config->item->alt_image->element);
-                                $temp['description'] = getElement($value->find($config->item->description->html, 0), $config->item->description->element);
-                                $temp['date_publication'] = getElement($value->find($config->item->date_publication->html, 0), $config->item->date_publication->element);
+                                if(!is_null($html)) {
 
-                                if(empty($temp['date_publication']) || is_null($temp['date_publication'])) {
+                                    $data = $html->find($config->container . ' ' . $config->item->container);
 
-                                    $html_inner = file_get_html($temp['url']);
+                                    if(!is_null($data)) {
 
-                                    $html_find = $html_inner->find($config->item_inner->date_publication->html, 0);
+                                        foreach ($data as $value) {
 
-                                    if(!empty($html_find) && !is_null($html_find)) {
-
-                                        $date_publication = getElement($html_find, $config->item_inner->date_publication->element);
-                                        
-                                        if(!empty($date_publication) && !is_null($date_publication)) {
-
-                                            $date_publication = setFunction($date_publication, $config->item_inner->date_publication->function);
-
-                                            $dt = DateTime::createFromFormat($config->item_inner->date_publication->format, $date_publication);
-                                            $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
-
-                                        } else {
+                                            $temp['website_category_id'] = $value_website_category->id;
+                                            $temp['guid'] = substr(md5(microtime(TRUE) * 100000), 0, 5);
+                                            $temp['url'] = getElement($value->find($config->item->url->html, 0), $config->item->url->element);
                                             
-                                            $dt = new DateTime();
-                                            $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
+                                            if($temp['url'][0] == "/") {
+                                                $temp['url'] = substr($temp['url'], 1);
+                                                $temp['url'] = $value_website->url . $temp['url'];
+                                            }
+
+                                            $temp['title'] = getElement($value->find($config->item->title->html, 0), $config->item->title->element);
+                                            $temp['width_image'] = getElement($value->find($config->item->width_image->html, 0), $config->item->width_image->element);
+                                            $temp['height_image'] = getElement($value->find($config->item->height_image->html, 0), $config->item->height_image->element);
+                                            $temp['image'] = getElement($value->find($config->item->image->html, 0), $config->item->image->element);
+                                            
+                                            if($temp['image'][0] == "/") {
+                                                $temp['image'] = substr($temp['image'], 1);
+                                                $temp['image'] = $value_website->url . $temp['image'];
+                                            }
+
+                                            $temp['alt_image'] = getElement($value->find($config->item->alt_image->html, 0), $config->item->alt_image->element);
+                                            $temp['description'] = getElement($value->find($config->item->description->html, 0), $config->item->description->element);
+                                            $temp['date_publication'] = getElement($value->find($config->item->date_publication->html, 0), $config->item->date_publication->element);
+
+                                            if(empty($temp['date_publication']) || is_null($temp['date_publication'])) {
+
+                                                $html_inner = file_get_html($temp['url']);
+
+                                                $html_find = $html_inner->find($config->item_inner->date_publication->html, 0);
+
+                                                if(!empty($html_find) && !is_null($html_find)) {
+
+                                                    $date_publication = getElement($html_find, $config->item_inner->date_publication->element);
+                                                    
+                                                    if(!empty($date_publication) && !is_null($date_publication)) {
+
+                                                        $date_publication = setFunction($date_publication, $config->item_inner->date_publication->function);
+
+                                                        $dt = DateTime::createFromFormat($config->item_inner->date_publication->format, $date_publication);
+                                                        $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
+
+                                                    } else {
+                                                        
+                                                        $dt = new DateTime();
+                                                        $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
+                                                    }
+                                                } else {
+                                                    $dt = new DateTime();
+                                                    $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
+                                                }
+                                            }
+                                            $temp['author'] = getElement($value->find($config->item->author->html, 0), $config->item->author->element);
+
+                                            if(!$objItem->getItemExistByUrl($temp['url'])) {
+
+                                                $data = json_encode($temp);
+                                                echo $data;
+                                                
+                                                $article->setArticle($data);
+                                            }
+
+                                            //die('Scrap one article \n');
                                         }
                                     } else {
-                                        $dt = new DateTime();
-                                        $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
+                                        // 404 lors de la recherche par pagination
+                                        // Donc break de la boucle de pagination
+                                        break;
                                     }
+                                } else {
+                                    // 404 lors de la recherche par pagination
+                                    // Donc break de la boucle de pagination
+                                    break;
                                 }
-                                $temp['author'] = getElement($value->find($config->item->author->html, 0), $config->item->author->element);
+                            }
+                        } else {
+                            // Si on utilise pas de pagination
 
-                                if(!$objItem->getItemExistByUrl($temp['url'])) {
+                            $html = file_get_html($url . $url_category);
 
-                                    $data = json_encode($temp);
-                                    echo $data;
-                                    
-                                    $article->setArticle($data);
+                            if(!is_null($html)) {
+
+                                $data = $html->find($config->container . ' ' . $config->item->container);
+
+                                if(!is_null($data)) {
+
+                                    foreach ($data as $value) {
+
+                                        $temp['website_category_id'] = $value_website_category->id;
+                                        $temp['guid'] = substr(md5(microtime(TRUE) * 100000), 0, 5);
+                                        $temp['url'] = getElement($value->find($config->item->url->html, 0), $config->item->url->element);
+                                        
+                                        if($temp['url'][0] == "/") {
+                                            $temp['url'] = substr($temp['url'], 1);
+                                            $temp['url'] = $value_website->url . $temp['url'];
+                                        }
+
+                                        $temp['title'] = getElement($value->find($config->item->title->html, 0), $config->item->title->element);
+                                        $temp['width_image'] = getElement($value->find($config->item->width_image->html, 0), $config->item->width_image->element);
+                                        $temp['height_image'] = getElement($value->find($config->item->height_image->html, 0), $config->item->height_image->element);
+                                        $temp['image'] = getElement($value->find($config->item->image->html, 0), $config->item->image->element);
+                                        
+                                        if($temp['image'][0] == "/") {
+                                            $temp['image'] = substr($temp['image'], 1);
+                                            $temp['image'] = $value_website->url . $temp['image'];
+                                        }
+
+                                        $temp['alt_image'] = getElement($value->find($config->item->alt_image->html, 0), $config->item->alt_image->element);
+                                        $temp['description'] = getElement($value->find($config->item->description->html, 0), $config->item->description->element);
+                                        $temp['date_publication'] = getElement($value->find($config->item->date_publication->html, 0), $config->item->date_publication->element);
+
+                                        if(empty($temp['date_publication']) || is_null($temp['date_publication'])) {
+
+                                            $html_inner = file_get_html($temp['url']);
+
+                                            $html_find = $html_inner->find($config->item_inner->date_publication->html, 0);
+
+                                            if(!empty($html_find) && !is_null($html_find)) {
+
+                                                $date_publication = getElement($html_find, $config->item_inner->date_publication->element);
+                                                
+                                                if(!empty($date_publication) && !is_null($date_publication)) {
+
+                                                    $date_publication = setFunction($date_publication, $config->item_inner->date_publication->function);
+
+                                                    $dt = DateTime::createFromFormat($config->item_inner->date_publication->format, $date_publication);
+                                                    $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
+
+                                                } else {
+                                                    
+                                                    $dt = new DateTime();
+                                                    $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
+                                                }
+                                            } else {
+                                                $dt = new DateTime();
+                                                $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
+                                            }
+                                        }
+                                        $temp['author'] = getElement($value->find($config->item->author->html, 0), $config->item->author->element);
+
+                                        if(!$objItem->getItemExistByUrl($temp['url'])) {
+
+                                            $data = json_encode($temp);
+                                            echo $data;
+                                            
+                                            $article->setArticle($data);
+                                        }
+
+                                        //die('Scrap one article \n');
+                                    }
+                                } else {
+                                    // 404 lors de la recherche classique
+                                    // Donc continue de la boucle de categorie
+                                    continue;
                                 }
-
-                                //die('Scrap one article \n');
+                            } else {
+                                // 404 lors de la recherche classique
+                                // Donc continue de la boucle de categorie
+                                continue;
                             }
                         }
                     }
