@@ -92,27 +92,27 @@
 			    global $_TABLES;
 
 			    $content_html = "<label for='last-name'>Nom : </label>
-								<input class='input-text' type='text' name='last-name' id='last-name' placeholder='Nom' value='%%last-name%%' />
+								<input class='input-text' type='text' name='last-name' id='account-last-name' placeholder='Nom' value='%%last-name%%' />
 								<br/>
 								<label for='first-name'>Prénom : </label>
-								<input class='input-text' type='text' name='first-name' id='first-name' placeholder='Prénom' value='%%first-name%%' />
+								<input class='input-text' type='text' name='first-name' id='account-first-name' placeholder='Prénom' value='%%first-name%%' />
 								<br/>
 								<label for='birthday'>Date de naissance : </label>
-								<input class='input-text' type='text' name='birthday' id='birthday' placeholder='Date de naissance : JJ / MM / AAAA' value='%%birthday%%' />
+								<input class='input-text' type='text' name='birthday' id='account-birthday' placeholder='Date de naissance : JJ / MM / AAAA' value='%%birthday%%' />
 								<br/>
 								<div>
 									<label for='sex'>Sexe : </label>
-									<input type='radio' name='sex' class='sex' value='1' %%sex-1%%>Homme</input>
-									<input type='radio' name='sex' class='sex' value='0' %%sex-0%%>Femme</input>
+									<input type='radio' name='sex' class='account-sex' value='1' %%sex-1%%>Homme</input>
+									<input type='radio' name='sex' class='account-sex' value='0' %%sex-0%%>Femme</input>
 								</div>
 								<label for='email'>Email : </label>
-								<input class='input-text' name='email' type='text' id='email' placeholder='Adresse email' value='%%email%%' />
+								<input class='input-text' name='email' type='text' id='account-email' placeholder='Adresse email' value='%%email%%' />
 								<br/>
 								<label for='password'>Mot de passe : </label>
-								<input class='input-text' name='password' type='password' id='password' placeholder='Mot de passe' />
+								<input class='input-text' name='password' type='password' id='account-password' placeholder='Mot de passe' />
 								<br/>
 								<label for='newsletter'>Newsletter : </label>
-								<input type='checkbox' name='newsletter' id='newsletter' %%newsletter%% />";
+								<input type='checkbox' name='newsletter' id='account-newsletter' %%newsletter%% />";
 
 
 			    if (session_status() == PHP_SESSION_NONE) {

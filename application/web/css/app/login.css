@@ -69,7 +69,7 @@ img.btn_close {
     margin: auto;
 }
 
-#login-social, #login-site, #sign {
+#login-social, #login-site, #sign, #lost-password {
     margin-top: 10px;
     margin-bottom: 20px;
 }
@@ -114,6 +114,18 @@ img.btn_close {
     margin: 5px;
 }
 
+.login-popup .form-lost-password {
+    display: block;
+    width: 50%;
+    margin: auto;
+    vertical-align: top;
+    padding: 20px;
+}
+
+.login-popup .form-lost-password input {
+    margin: 5px;
+}
+
 .login-popup .form-sign {
     font-size: 12px;
 }
@@ -134,13 +146,13 @@ img.btn_close {
     margin: auto;
 }
 
-.sign-valid {
+.sign-valid, .lost-password-valid {
     text-align: center;
     display: none;
     color: green;
 }
 
-.sign-error {
+.sign-error, .lost-password-error {
     text-align: center;
     display: none;
     color: red;
@@ -151,5 +163,9 @@ img.btn_close {
 }
 
 #sign {
+    display: none;
+}
+
+#lost-password {
     display: none;
 }

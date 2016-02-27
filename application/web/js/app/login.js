@@ -38,6 +38,56 @@ $('.other-login').on('click', function() {
     });
 });
 
+$('.lost-password').off('click');
+$('.lost-password').on('click', function() {
+
+    $('#login-social').fadeOut(0);
+    $('.sign-valid').fadeOut(0);
+    $('.sign-error').fadeOut(0);
+    $('#login-site').fadeOut(0);
+    $('#sign').fadeOut(0);
+
+    var other = $(this).attr('href');
+
+    $(other).fadeIn(300);
+
+    var popMargTop = ($("#login").height() + 24) / 2; 
+    var popMargLeft = ($("#login").width() + 24) / 2; 
+    
+    $("#login").css({ 
+        'margin-top' : -popMargTop,
+        'margin-left' : -popMargLeft
+    });
+});
+
+$(".lost-password-validate").off('click');
+$(".lost-password-validate").on('click', function() {
+
+    var email = $('#lost-password-username').val();
+
+    $.ajax({
+        url: "application/web/ajax/controller.login.php",
+        type: "POST",        
+        data: { 
+            'action' : 'lostPassword',
+            'email' : email
+        },
+        success: function(data) {
+
+            if(data != 0) {
+                $('.form-lost-password').fadeOut(0);
+                $('.lost-password-error').fadeIn(300);
+            }
+            else {
+                $('.form-lost-password').fadeOut(0);
+                $('.lost-password-valid').fadeIn(300);
+            }
+        }
+    }).done(function(data) {
+    }).fail(function( jqXHR, textStatus ) {
+    });
+});
+
 $("#deconnexion").off('click');
 $("#deconnexion").on('click', function() {
 
@@ -63,10 +113,14 @@ $("#deconnexion").on('click', function() {
 $(".login-close").off('click');
 $(".login-close").on('click', function() {
     $('#mask, .login-popup').fadeOut(300 , function() {
+        $('.lost-password-valid').fadeOut(0);
+        $('.lost-password-error').fadeOut(0);
+        $('#lost-password').fadeOut(0);
         $('.sign-valid').fadeOut(0);
         $('.sign-error').fadeOut(0);
         $('#login-site').fadeOut(0);
         $('#sign').fadeOut(0);
+        $('#login-social').fadeIn(300);
         $('#mask').remove();  
     }); 
     return false;

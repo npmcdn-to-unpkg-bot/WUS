@@ -16,6 +16,27 @@
 
 		// Custom
 
+		public function updatePassword($id, $password) {
+
+			try 
+			{
+				$sql = "UPDATE " . $this->_TABLES['public']['User'] . " 	
+						SET password = SHA1(:password)
+						WHERE id = :id";
+
+				$req = $this->bdd->prepare($sql);
+				$req->bindValue('id', $id, PDO::PARAM_INT);
+				$req->bindValue('password', $password, PDO::PARAM_STR);
+				$req->execute();
+			}
+			catch (PDOException $e)
+			{
+			    error_log($sql);
+			    error_log($e->getMessage());
+			    die();
+			}
+		}
+
 		public function updateAccount($id, $email, $password, $first_name, $last_name, $birthday, $sex) {
 
 			try 

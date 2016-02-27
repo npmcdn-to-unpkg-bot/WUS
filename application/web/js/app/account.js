@@ -2,13 +2,13 @@ $(document).ready(function() {
     $('.account').off('click');
     $('.account').on('click', function(e) {
 
-        var first_name = $('#first-name').val();
-        var last_name = $('#last-name').val();
-        var birthday = $('#birthday').val();
-        var sex = $(".sex:checked").val();
-        var email = $('#email').val();
-        var password = $('#password').val();
-        var newsletter = $("#newsletter:checked").val();
+        var first_name = $('#account-first-name').val();
+        var last_name = $('#account-last-name').val();
+        var birthday = $('#account-birthday').val();
+        var sex = $(".account-sex:checked").val();
+        var email = $('#account-email').val();
+        var password = $('#account-password').val();
+        var newsletter = $("#account-newsletter:checked").val();
 
         $.ajax({
             url: "application/web/ajax/controller.account.php",

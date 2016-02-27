@@ -5,6 +5,7 @@ require_once(dirname(dirname(__FILE__)) . "/php/class.login.php");
 require_once(dirname(dirname(dirname(__FILE__))) . "/common/php/class/class.website_subscription.php");
 require_once(dirname(dirname(dirname(__FILE__))) . "/common/php/class/class.user.php");
 require_once(dirname(dirname(dirname(__FILE__))) . "/common/php/tools/hybridauth/Hybrid/Auth.php");
+require_once(dirname(dirname(dirname(__FILE__))) . "/core/mailer/class.mailer.php");
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -31,6 +32,13 @@ if(isset($_POST['action']) && !empty($_POST['action'])) {
 
         case 'logout' : {
             echo logout();
+            break;
+        }
+
+        case 'lostPassword' : {
+            $email = $_POST['email'];
+
+            echo lostPassword($email);
             break;
         }
     }
@@ -197,6 +205,65 @@ function logout() {
     unset($_COOKIE['user_preference']);
 
     return 0;
+}
+
+function lostPassword($email) {
+
+    global $bdd;
+    global $_TABLES;
+
+    if(!is_null($bdd) && !is_null($_TABLES)) {
+        
+        // Requete de verification de l'existence du compte
+        $objUser = new User($bdd, $_TABLES);
+        $user = $objUser->getExist($email);
+
+        if($user && !is_null($user)) {
+            
+            // Generation du nouveau mot de passe
+            $new_password = random_password();
+
+            // Mise à jour du mot de passe de l'utilisateur
+            $objUser->updatePassword($user->id, $new_password);
+
+            // Génération de l'email
+            $template = new Template(dirname(dirname(dirname(__FILE__))) . "/ressources/template/email/reset_password.html");
+            $content = $template->getView(array(
+                "first_name" => $first_name,
+                "last_name" => $last_name,
+                "new_password" => $new_password
+                ));
+
+            // Envoi de l'email de bienvenue
+            $objMailer = new Mailer();
+            $objMailer->from = "postmaster@whatsup.agency";
+            $objMailer->fromName = "Whats Up Street";
+            $objMailer->to = $email;
+            $objMailer->toName = $first_name . ' ' . $last_name;
+            $objMailer->subject = "[Important] Whats Up Street : Changement mot de passe";
+            $objMailer->content = $content;
+            $objMailer->isHTML();
+            $objMailer->send();
+
+            // Retour 0 si tout c'est bien passé
+            return 0;
+        }
+        else {
+
+            // Compte n'existe pas
+            return 1;
+        }
+    }
+    else {
+        error_log("BDD ERROR : " . json_encode($bdd));
+        error_log("TABLES ERROR : " . json_encode($_TABLES));
+    }
+}
+
+function random_password( $length = 8 ) {
+    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-=+;:,.?";
+    $password = substr( str_shuffle( $chars ), 0, $length );
+    return $password;
 }
 
 ?>

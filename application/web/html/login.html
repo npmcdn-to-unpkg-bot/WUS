@@ -22,7 +22,7 @@
 			<div><input class="input-text" type="password" id="password" placeholder="Mot de passe" /></div>
 			<div class="button-validate login-site clickable"></div>
 		</div>
-		<div class="lost-password clickable">Mot de passe oublié ?</div>
+		<div class="lost-password clickable" href="#lost-password">Mot de passe oublié ?</div>
 		<div class="inline">
 			<div class="bold">Vous n'avez pas de compte ?</div>
 			<div class="other-login clickable" href="#sign">S'inscrire</div>
@@ -57,7 +57,24 @@
 			<p>Un email de bienvenue vient de vous être envoyé, merci de vérifier votre boîte email.</p>
 		</div>
 		<div class="sign-error">
-			<p>Une erreur est survenu lors de votre inscription, merci de contacter le service technique à cette adresse : ....</p>
+			<p>Une erreur est survenu lors de votre inscription, merci de contacter le support.</p>
+		</div>
+	</div>
+
+	<div id="lost-password">
+		<th></th>
+		<div class="title bold">MOT DE PASSE PERDU ... ?</div>
+		<div class="form-lost-password">
+			<div><input class="input-text" type="text" id="lost-password-username" placeholder="Adresse email" /></div>
+			<div class="description">Veuillez saisir votre adresse email pour recevoir un nouveau mot de passe.</div>
+
+			<div class="button-validate lost-password-validate clickable"></div>
+		</div>
+		<div class="lost-password-valid">
+			<p>Un email avec votre nouveau mot de passe vient de vous être envoyé, merci de vérifier votre boîte email.</p>
+		</div>
+		<div class="lost-password-error">
+			<p>Une erreur est survenu lors de l'opération, merci de contacter le support.</p>
 		</div>
 	</div>
 
