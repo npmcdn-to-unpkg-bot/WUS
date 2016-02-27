@@ -24,6 +24,12 @@ $app->get('/account', function () {
     $page   = new Page('account');
 });
 
+//bar page
+$app->get('/verification/:key', function ($key) {
+    //load page config and html content
+    $page   = new Page('verification');
+});
+
 /////////////////
 // ADMIN PAGE  //
 /////////////////

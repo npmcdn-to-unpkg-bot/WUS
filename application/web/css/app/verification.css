@@ -1,0 +1,16 @@
+div.verification {
+	height: 200px;
+    line-height: 200px;
+    text-align: center;
+    font-size: 22px;
+}
+
+div.message, div.redirection {
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+div.redirection {
+	color: grey;
+}
