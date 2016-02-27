@@ -1,35 +1,35 @@
 {
     "container" : {
-        "html" : "main[id=main]",
+        "html" : "div[class=colLeft]",
         "item" : {
             "html" : "article",
             "url" : {
-                "html" : "a[class=img]",
+                "html" : "a",
                 "counter" : "-1",
                 "element" : "href"
                 },
             "title" : {
-                "html" : "h2 a",
+                "html" : "a h2",
                 "counter" : "-1",
-                "element" : "title"
+                "element" : "text"
                 },
             "width_image" : {
-                "html" : "a[class=img] img",
+                "html" : "a img",
                 "counter" : "-1",
                 "element" : "width"
                 },
             "height_image" : {
-                "html" : "a[class=img] img",
+                "html" : "a img",
                 "counter" : "-1",
                 "element" : "height"
                 },
             "image" : {
-                "html" : "a[class=img] img",
+                "html" : "a img",
                 "counter" : "-1",
                 "element" : "src"
                 },
             "alt_image" : {
-                "html" : "a[class=img] img",
+                "html" : "a img",
                 "counter" : "-1",
                 "element" : "alt"
                 },
@@ -51,14 +51,14 @@
         },
         "item_inner" : {
             "date_publication" : {
-                "html" : "div[class=author]",
-                "counter" : "1",
+                "html" : "div[class=auteur] p",
+                "counter" : "-1",
                 "element" : "plaintext",
                 "prev" : "",
                 "next" : "",
-                "format" : "d F, Y",
+                "format" : "d F Y",
                 "function" : {
-                        "type" : "explode% le %1,explode% | %0",
+                        "type" : "explode% le %1,explode%Rédaction%0",
                         "separator" : "",
                         "counter" : ""
                     }

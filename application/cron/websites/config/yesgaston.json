@@ -1,54 +1,68 @@
 {
-    "container" : "div[id=articles]",
-    "item" : {
-        "container" : "article",
-        "url" : {
-            "html" : "div[class=content-post] div[class=imgwrap] a",
-            "element" : "href"
-            },
-        "title" : {
-            "html" : "div[class=content-post] div[class=imgwrap] a",
-            "element" : "title"
-            },
-        "width_image" : {
-            "html" : "div[class=content-post] div[class=imgwrap] a img",
-            "element" : "width"
-            },
-        "height_image" : {
-            "html" : "div[class=content-post] div[class=imgwrap] a img",
-            "element" : "height"
-            },
-        "image" : {
-            "html" : "div[class=content-post] div[class=imgwrap] a img",
-            "element" : "src"
-            },
-        "alt_image" : {
-            "html" : "div[class=content-post] div[class=imgwrap] a img",
-            "element" : "alt"
-            },
-        "description" : {
-            "html" : "div[class=content-post] p",
-            "element" : "text"
-            },
-        "date_publication" : {
-            "html" : "",
-            "element" : ""
-            },
-        "author" : {
-            "html" : "",
-            "element" : ""
-            }
-    },
-    "item_inner" : {
-        "date_publication" : {
-            "html" : "div[id=meta] p",
-            "element" : "text",
-            "format" : "d/m/Y",
-            "function" : {
-                    "type" : "explode",
-                    "separator" : " ",
-                    "counter" : "2"
+    "container" : {
+        "html" : "div[id=articles]",
+        "item" : {
+            "html" : "article",
+            "url" : {
+                "html" : "div[class=content-post] div[class=imgwrap] a",
+                "counter" : "-1",
+                "element" : "href"
+                },
+            "title" : {
+                "html" : "div[class=content-post] div[class=imgwrap] a",
+                "counter" : "-1",
+                "element" : "title"
+                },
+            "width_image" : {
+                "html" : "div[class=content-post] div[class=imgwrap] a img",
+                "counter" : "-1",
+                "element" : "width"
+                },
+            "height_image" : {
+                "html" : "div[class=content-post] div[class=imgwrap] a img",
+                "counter" : "-1",
+                "element" : "height"
+                },
+            "image" : {
+                "html" : "div[class=content-post] div[class=imgwrap] a img",
+                "counter" : "-1",
+                "element" : "src"
+                },
+            "alt_image" : {
+                "html" : "div[class=content-post] div[class=imgwrap] a img",
+                "counter" : "-1",
+                "element" : "alt"
+                },
+            "description" : {
+                "html" : "div[class=content-post] p",
+                "counter" : "-1",
+                "element" : "text"
+                },
+            "date_publication" : {
+                "html" : "",
+                "counter" : "-1",
+                "element" : ""
+                },
+            "author" : {
+                "html" : "",
+                "counter" : "-1",
+                "element" : ""
                 }
-            }
+        },
+        "item_inner" : {
+            "date_publication" : {
+                "html" : "div[id=meta] p",
+                "counter" : "-1",
+                "element" : "plaintext",
+                "prev" : "",
+                "next" : "",
+                "format" : "d/m/Y",
+                "function" : {
+                        "type" : "explode% le %1,explode% par %0",
+                        "separator" : "",
+                        "counter" : ""
+                    }
+                }
+        }
     }
 }

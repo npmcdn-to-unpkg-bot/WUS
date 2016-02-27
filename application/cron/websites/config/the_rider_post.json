@@ -1,42 +1,42 @@
 {
     "container" : {
-        "html" : "main[id=main]",
+        "html" : "div[class=post_list]",
         "item" : {
-            "html" : "article",
+            "html" : "article[class=article_preview]",
             "url" : {
-                "html" : "a[class=img]",
-                "counter" : "-1",
+                "html" : "div[class=article_inner] a",
+                "counter" : "0",
                 "element" : "href"
                 },
             "title" : {
-                "html" : "h2 a",
+                "html" : "div[class=article_inner] div[class=article_text] h3 a",
                 "counter" : "-1",
-                "element" : "title"
+                "element" : "text"
                 },
             "width_image" : {
-                "html" : "a[class=img] img",
+                "html" : "div[class=article_inner] a img",
                 "counter" : "-1",
                 "element" : "width"
                 },
             "height_image" : {
-                "html" : "a[class=img] img",
+                "html" : "div[class=article_inner] a img",
                 "counter" : "-1",
                 "element" : "height"
                 },
             "image" : {
-                "html" : "a[class=img] img",
+                "html" : "div[class=article_inner] a img",
                 "counter" : "-1",
                 "element" : "src"
                 },
             "alt_image" : {
-                "html" : "a[class=img] img",
+                "html" : "div[class=article_inner] a img",
                 "counter" : "-1",
                 "element" : "alt"
                 },
             "description" : {
-                "html" : "",
+                "html" : "div[class=article_inner] div[class=article_text] div[class=post_content]",
                 "counter" : "-1",
-                "element" : ""
+                "element" : "text"
                 },
             "date_publication" : {
                 "html" : "",
@@ -51,14 +51,14 @@
         },
         "item_inner" : {
             "date_publication" : {
-                "html" : "div[class=author]",
-                "counter" : "1",
+                "html" : "div[class=article_infos_left] span[class=date]",
+                "counter" : "-1",
                 "element" : "plaintext",
                 "prev" : "",
                 "next" : "",
-                "format" : "d F, Y",
+                "format" : "d.m.y",
                 "function" : {
-                        "type" : "explode% le %1,explode% | %0",
+                        "type" : "",
                         "separator" : "",
                         "counter" : ""
                     }

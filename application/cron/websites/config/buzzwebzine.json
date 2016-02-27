@@ -1,42 +1,68 @@
 {
-    "container" : "div[class=listing]",
-    "item" : {
-        "container" : "article",
-        "url" : {
-            "html" : "a[class=image-link]",
-            "element" : "href"
-            },
-        "title" : {
-            "html" : "h2 a[itemprop=url]",
-            "element" : "href"
-            },
-        "width_image" : {
-            "html" : "a[class=image-link] img",
-            "element" : "width"
-            },
-        "height_image" : {
-            "html" : "a[class=image-link] img",
-            "element" : "height"
-            },
-        "image" : {
-            "html" : "a[class=image-link] img",
-            "element" : "src"
-            },
-        "alt_image" : {
-            "html" : "a[class=image-link] img",
-            "element" : "alt"
-            },
-        "description" : {
-            "html" : "div[class=excerpt] p",
-            "element" : "text"
-            },
-        "date_publication" : {
-            "html" : "div[class=meta] time",
-            "element" : "datetime"
-            },
-        "author" : {
-            "html" : "",
-            "element" : ""
-            }
+    "container" : {
+        "html" : "div[class=listing]",
+        "item" : {
+            "html" : "article",
+            "url" : {
+                "html" : "a[class=image-link]",
+                "counter" : "-1",
+                "element" : "href"
+                },
+            "title" : {
+                "html" : "h2 a[itemprop=url]",
+                "counter" : "-1",
+                "element" : "title"
+                },
+            "width_image" : {
+                "html" : "a[class=image-link] img",
+                "counter" : "-1",
+                "element" : "width"
+                },
+            "height_image" : {
+                "html" : "a[class=image-link] img",
+                "counter" : "-1",
+                "element" : "height"
+                },
+            "image" : {
+                "html" : "a[class=image-link] img",
+                "counter" : "-1",
+                "element" : "src"
+                },
+            "alt_image" : {
+                "html" : "a[class=image-link] img",
+                "counter" : "-1",
+                "element" : "alt"
+                },
+            "description" : {
+                "html" : "div[class=excerpt] p",
+                "counter" : "-1",
+                "element" : "text"
+                },
+            "date_publication" : {
+                "html" : "",
+                "counter" : "-1",
+                "element" : ""
+                },
+            "author" : {
+                "html" : "",
+                "counter" : "-1",
+                "element" : ""
+                }
+        },
+        "item_inner" : {
+            "date_publication" : {
+                "html" : "time[class=value-title]",
+                "counter" : "-1",
+                "element" : "title",
+                "prev" : "",
+                "next" : "",
+                "format" : "Y-m-d",
+                "function" : {
+                        "type" : "",
+                        "separator" : "",
+                        "counter" : ""
+                    }
+                }
+        }
     }
 }

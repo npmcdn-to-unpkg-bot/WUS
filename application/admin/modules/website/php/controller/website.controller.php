@@ -43,27 +43,37 @@
 				$url = $_POST['url'];
 				$logo = $_POST['logo'];
 				$scrap = $_POST['scrap'];
-				$container = $_POST['container'];
-				$item_container = $_POST['item-container'];
+				$container_html = $_POST['container-html'];
+				$item_html = $_POST['item-html'];
 				$item_url_html = $_POST['item-url-html'];
+				$item_url_counter = $_POST['item-url-counter'];
 				$item_url_element = $_POST['item-url-element'];
 				$item_title_html = $_POST['item-title-html'];
+				$item_title_counter = $_POST['item-title-counter'];
 				$item_title_element = $_POST['item-title-element'];
 				$item_width_image_html = $_POST['item-width_image-html'];
+				$item_width_image_counter = $_POST['item-width_image-counter'];
 				$item_width_image_element = $_POST['item-width_image-element'];
 				$item_height_image_html = $_POST['item-height_image-html'];
+				$item_height_image_counter = $_POST['item-height_image-counter'];
 				$item_height_image_element = $_POST['item-height_image-element'];
 				$item_image_html = $_POST['item-image-html'];
+				$item_image_counter = $_POST['item-image-counter'];
 				$item_image_element = $_POST['item-image-element'];
 				$item_alt_image_html = $_POST['item-alt_image-html'];
+				$item_alt_image_counter = $_POST['item-alt_image-counter'];
 				$item_alt_image_element = $_POST['item-alt_image-element'];
 				$item_description_html = $_POST['item-description-html'];
+				$item_description_counter = $_POST['item-description-counter'];
 				$item_description_element = $_POST['item-description-element'];
 				$item_date_publication_html = $_POST['item-date_publication-html'];
+				$item_date_publication_counter = $_POST['item-date_publication-counter'];
 				$item_date_publication_element = $_POST['item-date_publication-element'];
 				$item_author_html = $_POST['item-author-html'];
+				$item_author_counter = $_POST['item-author-counter'];
 				$item_author_element = $_POST['item-author-element'];
 				$item_inner_date_publication_html = $_POST['item-inner-date-publication-html'];
+				$item_inner_date_publication_counter = $_POST['item-inner-date-publication-counter'];
 				$item_inner_date_publication_element = $_POST['item-inner-date-publication-element'];
 				$item_inner_date_publication_format = $_POST['item-inner-date-publication-format'];
 				$item_inner_date_publication_function_type = $_POST['item-inner-date-publication-function-type'];
@@ -71,27 +81,37 @@
 				$item_inner_date_publication_function_counter = $_POST['item-inner-date-publication-function-counter'];
 
 	          	echo createWebsite($website, $url, $logo, $scrap, 
-	          	$container, 
-	          	$item_container,
+	          	$container_html,
+	          	$item_html,
 				$item_url_html,
+				$item_url_counter,
 				$item_url_element,
 				$item_title_html,
+				$item_title_counter,
 				$item_title_element,
 				$item_width_image_html,
+				$item_width_image_counter,
 				$item_width_image_element,
 				$item_height_image_html,
+				$item_height_image_counter,
 				$item_height_image_element,
 				$item_image_html,
+				$item_image_counter,
 				$item_image_element,
 				$item_alt_image_html,
+				$item_alt_image_counter,
 				$item_alt_image_element,
 				$item_description_html,
+				$item_description_counter,
 				$item_description_element,
 				$item_date_publication_html,
+				$item_date_publication_counter,
 				$item_date_publication_element,
 				$item_author_html,
+				$item_author_counter,
 				$item_author_element,
 				$item_inner_date_publication_html,
+				$item_inner_date_publication_counter,
 				$item_inner_date_publication_element,
 				$item_inner_date_publication_format,
 				$item_inner_date_publication_function_type,
@@ -185,27 +205,37 @@
 	}
 
 	function createWebsite($website, $url, $logo, $scrap, 
-				$container, 
-				$item_container,
+				$container_html,
+	          	$item_html,
 				$item_url_html,
+				$item_url_counter,
 				$item_url_element,
 				$item_title_html,
+				$item_title_counter,
 				$item_title_element,
 				$item_width_image_html,
+				$item_width_image_counter,
 				$item_width_image_element,
 				$item_height_image_html,
+				$item_height_image_counter,
 				$item_height_image_element,
 				$item_image_html,
+				$item_image_counter,
 				$item_image_element,
 				$item_alt_image_html,
+				$item_alt_image_counter,
 				$item_alt_image_element,
 				$item_description_html,
+				$item_description_counter,
 				$item_description_element,
 				$item_date_publication_html,
+				$item_date_publication_counter,
 				$item_date_publication_element,
 				$item_author_html,
+				$item_author_counter,
 				$item_author_element,
 				$item_inner_date_publication_html,
+				$item_inner_date_publication_counter,
 				$item_inner_date_publication_element,
 				$item_inner_date_publication_format,
 				$item_inner_date_publication_function_type,
@@ -225,27 +255,37 @@
 
 			$view = new Template(dirname(dirname(dirname(__FILE__))) . '/view/template-json.html');
 			$json = $view->getView(array(
-                    "container" => $container,
-					"item-container" => $item_container,
+                    "container-html" => $container_html,
+					"item-html" => $item_html,
 					"item-url-html" => $item_url_html,
+					"item-url-counter" => $item_url_counter,
 					"item-url-element" => $item_url_element,
 					"item-title-html" => $item_title_html,
+					"item-title-counter" => $item_title_counter,
 					"item-title-element" => $item_title_element,
 					"item-width_image-html" => $item_width_image_html,
+					"item-width_image-counter" => $item_width_image_counter,
 					"item-width_image-element" => $item_width_image_element,
 					"item-height_image-html" => $item_height_image_html,
+					"item-height_image-counter" => $item_height_image_counter,
 					"item-height_image-element" => $item_height_image_element,
 					"item-image-html" => $item_image_html,
+					"item-image-counter" => $item_image_counter,
 					"item-image-element" => $item_image_element,
 					"item-alt_image-html" => $item_alt_image_html,
+					"item-alt_image-counter" => $item_alt_image_counter,
 					"item-alt_image-element" => $item_alt_image_element,
 					"item-description-html" => $item_description_html,
+					"item-description-counter" => $item_description_counter,
 					"item-description-element" => $item_description_element,
 					"item-date_publication-html" => $item_date_publication_html,
+					"item-date_publication-counter" => $item_date_publication_counter,
 					"item-date_publication-element" => $item_date_publication_element,
 					"item-author-html" => $item_author_html,
+					"item-author-counter" => $item_author_counter,
 					"item-author-element" => $item_author_element,
 					"item_inner-date_publication-html" => $item_inner_date_publication_html,
+					"item_inner-date_publication-counter" => $item_inner_date_publication_counter,
 					"item_inner-date_publication-element" => $item_inner_date_publication_element,
 					"item_inner-date_publication-format" => $item_inner_date_publication_format,
 					"item_inner-date_publication-function-type" => $item_inner_date_publication_function_type,

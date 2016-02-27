@@ -129,46 +129,54 @@ function createWebsite() {
 	var logo = $(".informations-website-new input[id=logo]").val();
 	var scrap = ($(".informations-website-new input[id=scrap]").attr('checked') == 1 ? true : false);
 
-	var container = $(".configuration-website-new input[id=container]").val();
+	var container_html = $(".configuration-website-new input[id=container-html]").val();
 	
-	var item_container = $(".configuration-website-new input[id=item-container]").val();
+	var item_html = $(".configuration-website-new input[id=item-html]").val();
 	
 	var item_url_html = $(".configuration-website-new input[id=item-url-html]").val();
+	var item_url_counter = $(".configuration-website-new input[id=item-url-counter]").val();
 	var item_url_element = $(".configuration-website-new input[id=item-url-element]").val();
 
 	var item_title_html = $(".configuration-website-new input[id=item-title-html]").val();
+	var item_title_counter = $(".configuration-website-new input[id=item-title-counter]").val();
 	var item_title_element = $(".configuration-website-new input[id=item-title-element]").val();
 	
 	var item_width_image_html = $(".configuration-website-new input[id=item-width_image-html]").val();
+	var item_width_image_counter = $(".configuration-website-new input[id=item-width_image-counter]").val();
 	var item_width_image_element = $(".configuration-website-new input[id=item-width_image-element]").val();
 
 	var item_height_image_html = $(".configuration-website-new input[id=item-height_image-html]").val();
+	var item_height_image_counter = $(".configuration-website-new input[id=item-height_image-counter]").val();
 	var item_height_image_element = $(".configuration-website-new input[id=item-height_image-element]").val();
 	
 	var item_image_html = $(".configuration-website-new input[id=item-image-html]").val();
+	var item_image_counter = $(".configuration-website-new input[id=item-image-counter]").val();
 	var item_image_element = $(".configuration-website-new input[id=item-image-element]").val();
 
 	var item_alt_image_html = $(".configuration-website-new input[id=item-alt_image-html]").val();
+	var item_alt_image_counter = $(".configuration-website-new input[id=item-alt_image-counter]").val();
 	var item_alt_image_element = $(".configuration-website-new input[id=item-alt_image-element]").val();
 	
 	var item_description_html = $(".configuration-website-new input[id=item-description-html]").val();
+	var item_description_counter = $(".configuration-website-new input[id=item-description-counter]").val();
 	var item_description_element = $(".configuration-website-new input[id=item-description-element]").val();
 
 	var item_date_publication_html = $(".configuration-website-new input[id=item-date_publication-html]").val();
+	var item_date_publication_counter = $(".configuration-website-new input[id=item-date_publication-counter]").val();
 	var item_date_publication_element = $(".configuration-website-new input[id=item-date_publication-element]").val();
 	
 	var item_author_html = $(".configuration-website-new input[id=item-author-html]").val();
+	var item_author_counter = $(".configuration-website-new input[id=item-author-counter]").val();
 	var item_author_element = $(".configuration-website-new input[id=item-author-element]").val();
 
 	var item_inner_date_publication_html = $(".configuration-website-new input[id=item_inner-date_publication-html]").val();
+	var item_inner_date_publication_counter = $(".configuration-website-new input[id=item_inner-date_publication-counter]").val();
 	var item_inner_date_publication_element = $(".configuration-website-new input[id=item_inner-date_publication-element]").val();
 	var item_inner_date_publication_format = $(".configuration-website-new input[id=item_inner-date_publication-format]").val();
 	
 	var item_inner_date_publication_function_type = $(".configuration-website-new input[id=item_inner-date_publication-function-type]").val();
 	var item_inner_date_publication_function_separator = $(".configuration-website-new input[id=item_inner-date_publication-function-separator]").val();
 	var item_inner_date_publication_function_counter = $(".configuration-website-new input[id=item_inner-date_publication-function-counter]").val();
-
-	alert(item_inner_date_publication_html);
 
 	$.ajax({
 		url : '/application/admin/modules/website/php/controller/website.controller.php', // La ressource ciblée
@@ -178,27 +186,37 @@ function createWebsite() {
 				'url': url,
 				'logo': logo,
 				'scrap': scrap,
-				'container': container,
-				'item-container': item_container,
+				'container-html': container_html,
+				'item-html': item_html,
 				'item-url-html': item_url_html,
+				'item-url-counter': item_url_counter,
 				'item-url-element': item_url_element,
 				'item-title-html': item_title_html,
+				'item-title-counter': item_title_counter,
 				'item-title-element': item_title_element,
 				'item-width_image-html': item_width_image_html,
+				'item-width_image-counter': item_width_image_counter,
 				'item-width_image-element': item_width_image_element,
 				'item-height_image-html': item_height_image_html,
+				'item-height_image-counter': item_height_image_counter,
 				'item-height_image-element': item_height_image_element,
 				'item-image-html': item_image_html,
+				'item-image-counter': item_image_counter,
 				'item-image-element': item_image_element,
 				'item-alt_image-html': item_alt_image_html,
+				'item-alt_image-counter': item_alt_image_counter,
 				'item-alt_image-element': item_alt_image_element,
 				'item-description-html': item_description_html,
+				'item-description-counter': item_description_counter,
 				'item-description-element': item_description_element,
 				'item-date_publication-html': item_date_publication_html,
+				'item-date_publication-counter': item_date_publication_counter,
 				'item-date_publication-element': item_date_publication_element,
 				'item-author-html': item_author_html,
+				'item-author-counter': item_author_counter,
 				'item-author-element': item_author_element,
 				'item-inner-date-publication-html': item_inner_date_publication_html,
+				'item-inner-date-publication-counter': item_inner_date_publication_counter,
 				'item-inner-date-publication-element': item_inner_date_publication_element,
 				'item-inner-date-publication-format': item_inner_date_publication_format,
 				'item-inner-date-publication-function-type': item_inner_date_publication_function_type,

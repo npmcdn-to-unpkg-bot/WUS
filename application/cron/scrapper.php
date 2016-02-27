@@ -15,10 +15,14 @@
 	$bdd = getConnection();
     $_TABLES = null;
 
+
     if(!is_null($bdd)) $_TABLES = getStructure();
     else echo "Connection BDD Error \n";
 
     if(!is_null($bdd) && !is_null($_TABLES)) {
+        
+        set_time_limit(0);
+
         $website = new Website($bdd, $_TABLES);
         $websites = $website->getWebsites();
 
@@ -69,87 +73,123 @@
                                     $url_temp_pagination = str_replace("%%nb_page%%", $nb_page, $url_pagination);
                                 }
 
-                                $html = file_get_html($url . $url_category . $url_temp_pagination);
+                                $file_headers = @get_headers($url . $url_category . $url_temp_pagination);
+                                if($file_headers[0] == 'HTTP/1.1 404 Not Found' || $file_headers[0] == 'HTTP/1.1 502 Bad Gateway') {
+                                    
+                                    // 404 lors de la recherche par pagination
+                                    // Donc break de la boucle de pagination
+                                    break;
 
-                                if(!is_null($html)) {
+                                }
+                                else {
 
-                                    $data = $html->find($config->container . ' ' . $config->item->container);
+                                    $html = file_get_html($url . $url_category . $url_temp_pagination);
 
-                                    if(!is_null($data)) {
+                                    if(!is_null($html)) {
 
-                                        foreach ($data as $value) {
+                                        $data = $html->find($config->container->html . ' ' . $config->container->item->html);
 
-                                            $temp['website_category_id'] = $value_website_category->id;
-                                            $temp['guid'] = substr(md5(microtime(TRUE) * 100000), 0, 5);
-                                            $temp['url'] = getElement($value->find($config->item->url->html, 0), $config->item->url->element);
-                                            
-                                            if($temp['url'][0] == "/") {
-                                                $temp['url'] = substr($temp['url'], 1);
-                                                $temp['url'] = $value_website->url . $temp['url'];
-                                            }
+                                        if(!is_null($data)) {
 
-                                            $temp['title'] = getElement($value->find($config->item->title->html, 0), $config->item->title->element);
-                                            $temp['width_image'] = getElement($value->find($config->item->width_image->html, 0), $config->item->width_image->element);
-                                            $temp['height_image'] = getElement($value->find($config->item->height_image->html, 0), $config->item->height_image->element);
-                                            $temp['image'] = getElement($value->find($config->item->image->html, 0), $config->item->image->element);
-                                            
-                                            if($temp['image'][0] == "/") {
-                                                $temp['image'] = substr($temp['image'], 1);
-                                                $temp['image'] = $value_website->url . $temp['image'];
-                                            }
+                                            foreach ($data as $value) {
 
-                                            $temp['alt_image'] = getElement($value->find($config->item->alt_image->html, 0), $config->item->alt_image->element);
-                                            $temp['description'] = getElement($value->find($config->item->description->html, 0), $config->item->description->element);
-                                            $temp['date_publication'] = getElement($value->find($config->item->date_publication->html, 0), $config->item->date_publication->element);
+                                                $temp['website_category_id'] = $value_website_category->id;
+                                                $temp['guid'] = substr(md5(microtime(TRUE) * 100000), 0, 5);
+                                                $temp['url'] = getElement($value->find($config->container->item->url->html, $config->container->item->url->counter), $config->container->item->url->element);
+                                                
+                                                if($temp['url'][0] == "/" && $temp['url'][1] != "/") {
+                                                    $temp['url'] = substr($temp['url'], 1);
+                                                    $temp['url'] = $value_website->url . $temp['url'];
+                                                }
 
-                                            if(empty($temp['date_publication']) || is_null($temp['date_publication'])) {
+                                                $temp['title'] = getElement($value->find($config->container->item->title->html, $config->container->item->title->counter), $config->container->item->title->element);
+                                                $temp['width_image'] = getElement($value->find($config->container->item->width_image->html, $config->container->item->width_image->counter), $config->container->item->width_image->element);
+                                                $temp['height_image'] = getElement($value->find($config->container->item->height_image->html, $config->container->item->height_image->counter), $config->container->item->height_image->element);
+                                                $temp['image'] = getElement($value->find($config->container->item->image->html, $config->container->item->image->counter), $config->container->item->image->element);
+                                                
+                                                if($temp['image'][0] == "/" && $temp['image'][1] != "/") {
+                                                    $temp['image'] = substr($temp['image'], 1);
+                                                    $temp['image'] = $value_website->url . $temp['image'];
+                                                }
 
-                                                $html_inner = file_get_html($temp['url']);
+                                                $temp['alt_image'] = getElement($value->find($config->container->item->alt_image->html, $config->container->item->alt_image->counter), $config->container->item->alt_image->element);
+                                                $temp['description'] = getElement($value->find($config->container->item->description->html, $config->container->item->description->counter), $config->container->item->description->element);
+                                                $temp['date_publication'] = getElement($value->find($config->container->item->date_publication->html, $config->container->item->date_publication->counter), $config->container->item->date_publication->element);
 
-                                                $html_find = $html_inner->find($config->item_inner->date_publication->html, 0);
+                                                if(empty($temp['date_publication']) || is_null($temp['date_publication'])) {
 
-                                                if(!empty($html_find) && !is_null($html_find)) {
+                                                    $html_inner = file_get_html($temp['url']);
 
-                                                    $date_publication = getElement($html_find, $config->item_inner->date_publication->element);
-                                                    
-                                                    if(!empty($date_publication) && !is_null($date_publication)) {
+                                                    $html_find = $html_inner->find($config->container->item_inner->date_publication->html, $config->container->item_inner->date_publication->counter);
 
-                                                        $date_publication = setFunction($date_publication, $config->item_inner->date_publication->function);
+                                                    if(!empty($html_find) && !is_null($html_find)) {
 
-                                                        $dt = DateTime::createFromFormat($config->item_inner->date_publication->format, $date_publication);
-                                                        $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
-
-                                                    } else {
+                                                        $date_publication = getElement($html_find, $config->container->item_inner->date_publication->element);
                                                         
+                                                        if(!empty($date_publication) && !is_null($date_publication)) {
+
+                                                            error_log($date_publication);
+
+                                                            $date_publication = setFunction($date_publication, $config->container->item_inner->date_publication->function);
+
+                                                            error_log($date_publication);
+
+                                                            $date_publication = preFormatMonthDate($date_publication);
+
+                                                            error_log($date_publication);
+
+                                                            $date_publication = ltrim($date_publication, $config->container->item_inner->date_publication->prev);
+
+                                                            error_log($date_publication);
+
+                                                            $date_publication = rtrim($date_publication, $config->container->item_inner->date_publication->next);
+
+                                                            error_log($date_publication);
+
+                                                            $date_publication = trim($date_publication);
+
+                                                            error_log($date_publication);
+
+                                                            $dt = DateTime::createFromFormat($config->container->item_inner->date_publication->format, $date_publication);
+                                                            
+                                                            if(!is_null($dt) || !empty($dt)) {
+
+                                                                $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
+                                                                
+                                                            }
+
+                                                        } else {
+                                                            
+                                                            $dt = new DateTime();
+                                                            $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
+                                                        }
+                                                    } else {
                                                         $dt = new DateTime();
                                                         $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
                                                     }
-                                                } else {
-                                                    $dt = new DateTime();
-                                                    $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
                                                 }
+                                                $temp['author'] = getElement($value->find($config->container->item->author->html, $config->container->item->author->counter), $config->container->item->author->element);
+
+                                                if(!$objItem->getItemExistByUrl($temp['url'])) {
+
+                                                    $data = json_encode($temp);
+                                                    echo $data;
+                                                    
+                                                    $article->setArticle($data);
+                                                }
+
+                                                //die('Scrap one article \n');
                                             }
-                                            $temp['author'] = getElement($value->find($config->item->author->html, 0), $config->item->author->element);
-
-                                            if(!$objItem->getItemExistByUrl($temp['url'])) {
-
-                                                $data = json_encode($temp);
-                                                echo $data;
-                                                
-                                                $article->setArticle($data);
-                                            }
-
-                                            //die('Scrap one article \n');
+                                        } else {
+                                            // 404 lors de la recherche par pagination
+                                            // Donc break de la boucle de pagination
+                                            break;
                                         }
                                     } else {
                                         // 404 lors de la recherche par pagination
                                         // Donc break de la boucle de pagination
                                         break;
                                     }
-                                } else {
-                                    // 404 lors de la recherche par pagination
-                                    // Donc break de la boucle de pagination
-                                    break;
                                 }
                             }
                         } else {
@@ -159,51 +199,75 @@
 
                             if(!is_null($html)) {
 
-                                $data = $html->find($config->container . ' ' . $config->item->container);
+                                $data = $html->find($config->container->html . ' ' . $config->container->item->html);
 
                                 if(!is_null($data)) {
-
                                     foreach ($data as $value) {
 
                                         $temp['website_category_id'] = $value_website_category->id;
                                         $temp['guid'] = substr(md5(microtime(TRUE) * 100000), 0, 5);
-                                        $temp['url'] = getElement($value->find($config->item->url->html, 0), $config->item->url->element);
+                                        $temp['url'] = getElement($value->find($config->container->item->url->html, $config->container->item->url->counter), $config->container->item->url->element);
                                         
-                                        if($temp['url'][0] == "/") {
+                                        if($temp['url'][0] == "/" && $temp['url'][1] != "/") {
                                             $temp['url'] = substr($temp['url'], 1);
                                             $temp['url'] = $value_website->url . $temp['url'];
                                         }
 
-                                        $temp['title'] = getElement($value->find($config->item->title->html, 0), $config->item->title->element);
-                                        $temp['width_image'] = getElement($value->find($config->item->width_image->html, 0), $config->item->width_image->element);
-                                        $temp['height_image'] = getElement($value->find($config->item->height_image->html, 0), $config->item->height_image->element);
-                                        $temp['image'] = getElement($value->find($config->item->image->html, 0), $config->item->image->element);
+                                        $temp['title'] = getElement($value->find($config->container->item->title->html, $config->container->item->title->counter), $config->container->item->title->element);
+                                        $temp['width_image'] = getElement($value->find($config->container->item->width_image->html, $config->container->item->width_image->counter), $config->container->item->width_image->element);
+                                        $temp['height_image'] = getElement($value->find($config->container->item->height_image->html, $config->container->item->height_image->counter), $config->container->item->height_image->element);
+                                        $temp['image'] = getElement($value->find($config->container->item->image->html, $config->container->item->image->counter), $config->container->item->image->element);
                                         
-                                        if($temp['image'][0] == "/") {
+                                        if($temp['image'][0] == "/" && $temp['image'][1] != "/") {
                                             $temp['image'] = substr($temp['image'], 1);
                                             $temp['image'] = $value_website->url . $temp['image'];
                                         }
 
-                                        $temp['alt_image'] = getElement($value->find($config->item->alt_image->html, 0), $config->item->alt_image->element);
-                                        $temp['description'] = getElement($value->find($config->item->description->html, 0), $config->item->description->element);
-                                        $temp['date_publication'] = getElement($value->find($config->item->date_publication->html, 0), $config->item->date_publication->element);
+                                        $temp['alt_image'] = getElement($value->find($config->container->item->alt_image->html, $config->container->item->alt_image->counter), $config->container->item->alt_image->element);
+                                        $temp['description'] = getElement($value->find($config->container->item->description->html, $config->container->item->description->counter), $config->container->item->description->element);
+                                        $temp['date_publication'] = getElement($value->find($config->container->item->date_publication->html, $config->container->item->date_publication->counter), $config->container->item->date_publication->element);
 
                                         if(empty($temp['date_publication']) || is_null($temp['date_publication'])) {
 
                                             $html_inner = file_get_html($temp['url']);
 
-                                            $html_find = $html_inner->find($config->item_inner->date_publication->html, 0);
+                                            $html_find = $html_inner->find($config->container->item_inner->date_publication->html, $config->container->item_inner->date_publication->counter);
 
                                             if(!empty($html_find) && !is_null($html_find)) {
 
-                                                $date_publication = getElement($html_find, $config->item_inner->date_publication->element);
+                                                $date_publication = getElement($html_find, $config->container->item_inner->date_publication->element);
                                                 
                                                 if(!empty($date_publication) && !is_null($date_publication)) {
 
-                                                    $date_publication = setFunction($date_publication, $config->item_inner->date_publication->function);
+                                                    error_log($date_publication);
 
-                                                    $dt = DateTime::createFromFormat($config->item_inner->date_publication->format, $date_publication);
-                                                    $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
+                                                    $date_publication = setFunction($date_publication, $config->container->item_inner->date_publication->function);
+
+                                                    error_log($date_publication);
+
+                                                    $date_publication = preFormatMonthDate($date_publication);
+
+                                                    error_log($date_publication);
+
+                                                    $date_publication = ltrim($date_publication, $config->container->item_inner->date_publication->prev);
+
+                                                    error_log($date_publication);
+
+                                                    $date_publication = rtrim($date_publication, $config->container->item_inner->date_publication->next);
+
+                                                    error_log($date_publication);
+
+                                                    $date_publication = trim($date_publication);
+
+                                                    error_log($date_publication);
+
+                                                    $dt = DateTime::createFromFormat($config->container->item_inner->date_publication->format, $date_publication);
+                                                    
+                                                    if(!is_null($dt) || !empty($dt)) {
+
+                                                        $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
+                                                        
+                                                    }
 
                                                 } else {
                                                     
@@ -215,7 +279,7 @@
                                                 $temp['date_publication'] = $dt->format('Y-m-d H:i:s');
                                             }
                                         }
-                                        $temp['author'] = getElement($value->find($config->item->author->html, 0), $config->item->author->element);
+                                        $temp['author'] = getElement($value->find($config->container->item->author->html, $config->container->item->author->counter), $config->container->item->author->element);
 
                                         if(!$objItem->getItemExistByUrl($temp['url'])) {
 
@@ -248,10 +312,190 @@
         else {
             echo "Websites Not Found \n";
         }
+
+        set_time_limit(300);
     }
     else {
         echo("BDD ERROR : " . json_encode($bdd) . "\n");
         echo("TABLES ERROR : " . json_encode($_TABLES) . "\n");
+    }
+
+    function preFormatMonthDate($data)
+    {
+        $temp = $data;
+
+        $temp = strtolower($temp);
+
+        // JANVIER
+
+        if (strpos($temp, 'janvier') !== false) {
+            $temp = str_replace('janvier', 'January', $temp);
+            return $temp;
+        }
+
+        if (strpos($temp, 'jan') !== false) {
+            $temp = str_replace('jan', 'Jan', $temp);
+            return $temp;
+        }
+
+        // FEVRIER
+
+        if (strpos($temp, 'fevrier') !== false) {
+            $temp = str_replace('fevrier', 'February', $temp);
+            return $temp;
+        }
+
+        if (strpos($temp, 'février') !== false) {
+            $temp = str_replace('février', 'February', $temp);
+            return $temp;
+        }
+
+        if (strpos($temp, 'fev') !== false) {
+            $temp = str_replace('fev', 'Feb', $temp);
+            return $temp;
+        }
+
+        if (strpos($temp, 'fév') !== false) {
+            $temp = str_replace('fév', 'Feb', $temp);
+            return $temp;
+        }
+
+        // MARS
+
+        if (strpos($temp, 'mars') !== false) {
+            $temp = str_replace('mars', 'March', $temp);
+            return $temp;
+        }
+
+        if (strpos($temp, 'mar') !== false) {
+            $temp = str_replace('mar', 'Mar', $temp);
+            return $temp;
+        }
+
+        // AVRIL
+
+        if (strpos($temp, 'avril') !== false) {
+            $temp = str_replace('avril', 'April', $temp);
+            return $temp;
+        }
+
+        if (strpos($temp, 'avr') !== false) {
+            $temp = str_replace('avr', 'Apr', $temp);
+            return $temp;
+        }
+
+        // MAI
+
+        if (strpos($temp, 'mai') !== false) {
+            $temp = str_replace('mai', 'May', $temp);
+            return $temp;
+        }
+
+        // JUIN
+
+        if (strpos($temp, 'juin') !== false) {
+            $temp = str_replace('juin', 'June', $temp);
+            return $temp;
+        }
+
+        if (strpos($temp, 'jun') !== false) {
+            $temp = str_replace('jun', 'Jun', $temp);
+            return $temp;
+        }
+
+        // JUILLET
+
+        if (strpos($temp, 'juillet') !== false) {
+            $temp = str_replace('juillet', 'July', $temp);
+            return $temp;
+        }
+
+        if (strpos($temp, 'jui') !== false) {
+            $temp = str_replace('jui', 'Jul', $temp);
+            return $temp;
+        }
+
+        // AOUT
+
+        if (strpos($temp, 'aout') !== false) {
+            $temp = str_replace('aout', 'August', $temp);
+            return $temp;
+        }
+
+        if (strpos($temp, 'août') !== false) {
+            $temp = str_replace('août', 'August', $temp);
+            return $temp;
+        }
+
+        if (strpos($temp, 'aou') !== false) {
+            $temp = str_replace('aou', 'Aug', $temp);
+            return $temp;
+        }
+
+        if (strpos($temp, 'aoû') !== false) {
+            $temp = str_replace('aoû', 'Aug', $temp);
+            return $temp;
+        }
+
+        // SEPTEMBRE
+
+        if (strpos($temp, 'septembre') !== false) {
+            $temp = str_replace('septembre', 'September', $temp);
+            return $temp;
+        }
+
+        if (strpos($temp, 'sep') !== false) {
+            $temp = str_replace('sep', 'Sep', $temp);
+            return $temp;
+        }
+
+        // OCTOBRE
+
+        if (strpos($temp, 'octobre') !== false) {
+            $temp = str_replace('octobre', 'October', $temp);
+            return $temp;
+        }
+
+        if (strpos($temp, 'oct') !== false) {
+            $temp = str_replace('oct', 'Oct', $temp);
+            return $temp;
+        }
+
+        // NOVEMBRE
+
+        if (strpos($temp, 'novembre') !== false) {
+            $temp = str_replace('novembre', 'November', $temp);
+            return $temp;
+        }
+
+        if (strpos($temp, 'nov') !== false) {
+            $temp = str_replace('nov', 'Nov', $temp);
+            return $temp;
+        }
+
+        // DECEMBER
+
+        if (strpos($temp, 'decembre') !== false) {
+            $temp = str_replace('decembre', 'December', $temp);
+            return $temp;
+        }
+
+        if (strpos($temp, 'décembre') !== false) {
+            $temp = str_replace('décembre', 'December', $temp);
+            return $temp;
+        }
+
+        if (strpos($temp, 'dec') !== false) {
+            $temp = str_replace('dec', 'Dec', $temp);
+            return $temp;
+        }
+
+        if (strpos($temp, 'déc') !== false) {
+            $temp = str_replace('déc', 'Dec', $temp);
+            return $temp;
+        }
+
+        return $data;
     }
 
     function getElement($data, $element) {
@@ -262,6 +506,18 @@
 
             case "text": {
                 return $data->innertext;
+            }
+
+            case "outertext": {
+                return $data->outertext;
+            }
+
+            case "innertext": {
+                return $data->innertext;
+            }
+
+            case "plaintext": {
+                return $data->plaintext;
             }
 
             case "src": {
@@ -287,11 +543,28 @@
     }
 
     function setFunction($data, $function) {
-        switch($function->type) {
-            case "explode": {
-                return (explode($function->separator, $data)[$function->counter]);
+
+        $temp = $data;
+
+        $actions = explode(',', $function->type);
+
+        foreach ($actions as $key => $action) {
+            
+            $type = explode('%', $action);
+
+            switch($type[0]) {
+                case "explode": {
+
+                    $aux = explode($type[1], $temp);
+
+                    if(count($aux) > 0) {
+                        $temp = $aux[$type[2]];
+                    }
+                }
             }
         }
+
+        return $temp;
     }
 
     function getConnection(){
