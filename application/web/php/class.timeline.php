@@ -21,6 +21,11 @@
 			// 
 			// Effectuer la requete des articles en fonction des category
 
+			// Desactivation de l'utilisation des categories et des préférences
+			unset($_COOKIE['category_preference']);
+			unset($_COOKIE['user_preference']);
+
+
 			if(isset($_COOKIE['category_preference'])) {
 
 				$category_preference = json_decode(stripcslashes($_COOKIE['category_preference']), true);

@@ -30,6 +30,12 @@ $app->get('/verification/:key', function ($key) {
     $page   = new Page('verification');
 });
 
+// 404
+$app->notFound(function () use ($app) {
+    //load page config and html content
+    $page   = new Page('404');
+});
+
 /////////////////
 // ADMIN PAGE  //
 /////////////////

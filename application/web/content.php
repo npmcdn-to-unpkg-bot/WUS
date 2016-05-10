@@ -43,13 +43,13 @@
 
 			}
 		?>
-		<div class="preferences">
+		<!--<div class="preferences">
 			<div class="title">
 				<label class="title">PREFERENCES</label>
 			</div>
 			<div class="data">
 				<?php 
-					if (session_status() == PHP_SESSION_NONE) {
+					/*if (session_status() == PHP_SESSION_NONE) {
 					    session_start();
 					}
 					
@@ -57,12 +57,12 @@
 						require('preferences.php');
 					} else {
 						require('categories.php');
-					}
+					}*/
 				?>
 			</div>
 
 			<?php 
-				if (session_status() == PHP_SESSION_NONE) {
+				/*if (session_status() == PHP_SESSION_NONE) {
 				    session_start();
 				}
 				
@@ -73,9 +73,9 @@
 							<div class="link">
 								<a href="#" id="preferences_enregistrer" class="preferences_enregistrer">Enregistrer mes préférences</a>
 							</div>');
-				}
+				}*/
 			?>
-		</div>
+		</div>-->
 
 		<?php 
 			if (session_status() == PHP_SESSION_NONE) {
@@ -176,7 +176,7 @@
 		
 		<?php
 
-			if(isset($_SESSION['user_auth']) && $_SESSION['user_auth'] == '1') {
+			/*if(isset($_SESSION['user_auth']) && $_SESSION['user_auth'] == '1') {
 
 				include_once('ajax/controller.system_preference.php');
 
@@ -191,7 +191,7 @@
 							echo('</div>
 						</div>');
 				}
-			}
+			}*/
 		?>
 		
 		<div class="legale">
