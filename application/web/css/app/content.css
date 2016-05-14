@@ -7,7 +7,7 @@ content
 
 @media screen
 {
-	content div.options, content div.articles, content div.informations
+	content div.options, content div.articles, content div.recherche, content div.informations
 	{
 		vertical-align: top;
 		margin: 5px;
@@ -16,24 +16,46 @@ content
 	content div.options
 	{
 		display: inline-block;
-		width: 15%;
+		width: 11%;
+		float: left;
 		//background-color: red;
 	}
 
 	content div.articles
 	{
+		display: none;
+	}
+
+	content div.articles.active
+	{
 		display: inline-block;
-		width: 60%;
+		width: 70%;
 		height: 950px;
 		//background-color: blue;
-		overflow-y:scroll;
-		overflow-x:hidden;
+		//overflow-y:scroll;
+		//overflow-x:hidden;
+	}
+
+	content div.recherche.active
+	{
+		display: inline-block;
+		width: 70%;
+		height: 950px;
+		//background-color: blue;
+		//overflow-y:scroll;
+		//overflow-x:hidden;
+	}
+
+	content div.recherche
+	{
+		display: none;
 	}
 
 	content div.informations
 	{
 		display: inline-block;
-		width: 15%;
+		width: 17%;
+		float: right;
 		//background-color: green;
 	}
 }

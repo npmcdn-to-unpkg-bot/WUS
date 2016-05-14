@@ -35,6 +35,7 @@
             "/application/web/js/app/newsletter.js",
             "/application/web/js/app/media.js",
             "/application/web/js/app/personnal-content.js",
+            "/application/web/js/app/functions.js",
             "/application/web/js/app/last-article.js"
         ]
     ,
@@ -62,6 +63,7 @@
             "/application/web/css/app/medias.css",
             "/application/web/css/app/personnal-content.css",
             "/application/web/css/app/last-article.css",
+            "/application/web/css/app/functions.css",
             "/application/web/css/app/subscriptions-list.css"
         ]
 }

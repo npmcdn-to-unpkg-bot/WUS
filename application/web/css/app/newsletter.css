@@ -11,10 +11,24 @@
 		margin-bottom: 5px;
 	}
 
+	content div.informations div.newsletter div.logo
+	{
+		display: block;
+	    margin: auto;
+	    width: 70px;
+	    height: 60px;
+	    background: url("../image/icone2.png") 0 0 no-repeat;
+	    background-position: -410px 0px;
+	}
+
 	content div.informations div.newsletter div.title
 	{
-		height: 20px;
+		//height: 20px;
 		font-weight: bold;
+		display: block;
+	    height: 28px;
+	    text-align: center;
+	    font-size: 14px;
 	}
 
 	content div.informations div.newsletter div.data
@@ -34,9 +48,10 @@
 	content div.informations div.newsletter div.data div.input
 	{
 		display: inline-block;
-	    width: 67%;
-	    height: 40px;
+	    width: 64%;
+	    height: 35px;
 	    vertical-align: middle;
+	    margin-left: 12px;
 	}
 
 	content div.informations div.newsletter div.data div.button
