@@ -14,7 +14,7 @@ $app->get('/rss', function () {
 
 $app->get('/rss.xml', function () {
     //load page config and html content
-    $page   = new Page('rss');
+    require(dirname(dirname(__FILE__)) . "/rss.xml");
 });
 
 //bar page

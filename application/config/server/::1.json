@@ -10,8 +10,9 @@
         "log"      : "false"
     },
     "rss" : {
+        "flux_rss" : "/rss",
         "title_site" : "What's Up",
-        "dscription_site" : "Site de news sur l'univers Pop Street Art"
+        "description_site" : "Site de news sur l'univers Pop Street Art"
     },
     "mysql": {
         "host"    : "localhost",

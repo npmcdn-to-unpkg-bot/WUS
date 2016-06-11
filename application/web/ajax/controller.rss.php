@@ -25,24 +25,27 @@ function getFluxRss() {
 
 
                 $flux_items .= $view_item->getView(array(
-                    "guid" => $value->guid,
+                    "guid" => 'http://' . $_SERVER['HTTP_HOST'] . '/to/' . $value->guid . '#' . $value->url,
                     "title" => $value->title,
                     "url" => 'http://' . $_SERVER['HTTP_HOST'] . '/to/' . $value->guid . '#' . $value->url,
                     "description" => $value->description,
-                    "date_publication" => (date("D, d M Y H:i:s", strtotime($value->date_publication)) . ' GMT'),
-                    "author" => $value->author
+                    "date_publication" => (date("D, d M Y H:i:s", strtotime($value->date_publication)) . ' +0200')
                     ));
             }
 
             $flux = $view_rss->getView(array(
+                    "flux_rss" => 'http://' . $_SERVER['HTTP_HOST'] . $ajax->env->flux_rss,
                     "title_site" => $ajax->env->title_site,
                     "url_site" => 'http://' . $_SERVER['HTTP_HOST'],
                     "description_site" => $ajax->env->description_site,
                     "items" => $flux_items,
-                    "date_publication_site" => (date("D, d M Y H:i:s", strtotime("now")) . ' GMT')
+                    "date_publication_site" => (date("D, d M Y H:i:s", strtotime("now")) . ' +0200')
                     ));
 
-            return $flux;
+            $fp = fopen(dirname(dirname(dirname(dirname(__FILE__)))) . "/rss.xml", 'w+');
+            fputs($fp, html_entity_decode(htmlspecialchars_decode($flux)));
+            fclose($fp);
+            return file_get_contents(dirname(dirname(dirname(dirname(__FILE__)))) . "/rss.xml");
         }
         else {
             // 404

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+<channel>
+<title>What's Up</title>
+<link>http://whatsup.agency</link>
+<description>Site de news sur l'univers Pop Street Art</description>
+<language>fr</language>
+<pubDate>Sat, 11 Jun 2016 20:40:00 +0200</pubDate>
+<atom:link rel="self" href="http://whatsup.agency/rss" type="application/rss+xml"></atom:link>
+<item>
+<guid>http://whatsup.agency/to/AZAZA#http://google.it</guid>
+<title><![CDATA[ Google.It ]]></title>
+<link>http://whatsup.agency/to/AZAZA#http://google.it</link>
+<description><![CDATA[ Google.It c'est de la caca. ]]></description>
+<pubDate>Sat, 11 Jun 2016 20:40:00 +0200</pubDate>
+</item>
+<item>
+<guid>http://whatsup.agency/to/totor#http://google.fr</guid>
+<title><![CDATA[ TOTO 3 ]]></title>
+<link>http://whatsup.agency/to/totor#http://google.fr</link>
+<description><![CDATA[ TEST TOTO 4 ]]></description>
+<pubDate>Sat, 11 Jun 2016 20:19:00 +0200</pubDate>
+</item>
+<item>
+<guid>http://whatsup.agency/to/fghij#http://www.be-street.com/fr/i-love-kanye-remixe-par-le-legendaire-dj-premier/</guid>
+<title><![CDATA[ Envoyer à un ami : “I Love Kanye” remixé par le légendaire DJ Premier ]]></title>
+<link>http://whatsup.agency/to/fghij#http://www.be-street.com/fr/i-love-kanye-remixe-par-le-legendaire-dj-premier/</link>
+<description><![CDATA[ TEST TOTO 2 ]]></description>
+<pubDate>Sat, 11 Jun 2016 20:08:00 +0200</pubDate>
+</item>
+<item>
+<guid>http://whatsup.agency/to/abcde#http://www.be-street.com/fr/i-love-kanye-remixe-par-le-legendaire-dj-premier/</guid>
+<title><![CDATA[ Envoyer à un ami : “I Love Kanye” remixé par le légendaire DJ Premier ]]></title>
+<link>http://whatsup.agency/to/68940#http://www.be-street.com/fr/i-love-kanye-remixe-par-le-legendaire-dj-premier/</link>
+<description><![CDATA[ TEST TOTO ]]></description>
+<pubDate>Sat, 11 Jun 2016 20:00:00 +0200</pubDate>
+</item>
+</channel>
+</rss>
