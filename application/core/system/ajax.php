@@ -6,6 +6,7 @@
 
 class Ajax {
 
+	public $env;
 	public $config;
 	public $connection;
 	public $rootPath = "../../../../";
@@ -14,6 +15,7 @@ class Ajax {
 	public function __construct() {
         
         //load configuration
+        $this->env = $this->getServerConfig()->rss;
         $this->config  = $this->getServerConfig()->mysql;
         $this->connect();
         // $this->isAjax();
