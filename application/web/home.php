@@ -10,7 +10,7 @@
         <meta property="og:image" content="<?php  echo $this->config->og->image; ?>" />
         <meta property="og:description" content="<?php  echo $this->config->og->description; ?>" />
         <meta property="og:site_name" content="<?php  echo $this->config->og->site_name; ?>" />
-        <meta name="viewport" content="width=device-width" />
+        <meta name=”viewport” content=”width=device-width, initial-scale=1”>
         <link rel="shortcut icon" title="shortcut icon" type="image/png" href=<?php  echo $this->config->favicon; ?> />
         <title><?php  echo $this->config->meta->title; ?></title>
         <?php $this->loadCSS(); ?>

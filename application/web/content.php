@@ -146,7 +146,7 @@
 				<input type="button" class='searching'></input>
 			</div>
 		</div>
-		<div class='resultat'></div>
+		<div class='result-searching'></div>
 
 	</div>
 	<div class="informations">

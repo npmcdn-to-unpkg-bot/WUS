@@ -1,0 +1,131 @@
+/* Searched */
+
+content div.recherche div.result-searching
+{
+	vertical-align: top;
+}
+
+content div.recherche div.result-searching article
+{
+	background-color: #FFFFFF;
+	display: inline-block;
+	vertical-align: top;
+	width: 260px;
+	margin: 10px;
+	border: 1px #D9D6D7 solid;
+}
+
+content div.recherche div.result-searching article div.site
+{
+	height: 30px;
+	text-align: left;
+	margin: 2px;
+}
+
+content div.recherche div.result-searching article div.site div.logo_site,
+content div.recherche div.result-searching article div.site div.informations_site,
+content div.recherche div.result-searching article div.site div.social
+{
+	height: 30px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+content div.recherche div.result-searching article div.site div.logo_site
+{
+	//width: 30px;
+}
+
+content div.recherche div.result-searching article div.site div.logo_site img
+{
+	max-height: 30px;
+}
+
+content div.recherche div.result-searching article div.site div.social
+{
+	width: 30px;
+	margin-left: 96px;
+}
+
+content div.recherche div.result-searching article div.site div.social a
+{
+	
+	display: block;
+    width: 30px;
+    height: 30px;
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: -204px -21px;
+}
+
+content div.recherche div.result-searching article div.site div.informations_site div.title,
+content div.recherche div.result-searching article div.site div.informations_site div.button
+{
+	display: block;
+	width: 100%;
+	vertical-align: middle;
+}
+
+content div.recherche div.result-searching article div.site div.informations_site div.title
+{
+	color: #000000;
+	font-weight: bold;
+	text-align: left;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+content div.recherche div.result-searching article div.site div.informations_site div.button div.subscription
+{
+	display: block;
+    width: 70px;
+    height: 21px;
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: -236px -26px;
+}
+
+content div.recherche div.result-searching article div.site div.informations_site div.button div.unsubscription
+{
+	display: block;
+    width: 70px;
+    height: 21px;
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: -308px -26px;
+}
+
+content div.recherche div.result-searching article div.image, article div.image a, article div.image a img
+{
+	max-height: 100%;
+	max-width: 100%;
+}
+
+content div.recherche div.result-searching article div.data h2.title
+{
+	text-align: center;
+	width: 80%;
+	margin: auto;
+	text-transform: uppercase;
+}
+
+content div.recherche div.result-searching article div.data h2.title a
+{
+	text-decoration: none;
+	font-weight: bold;
+	color: #000000;
+}
+
+content div.recherche div.result-searching article div.data p.description
+{
+	display: block
+	text-align: left;
+	font-size: 12px;
+	color: #000000;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+span.pagination-search
+{
+	color: purple;
+	text-decoration: underline;
+	cursor: pointer;
+}
