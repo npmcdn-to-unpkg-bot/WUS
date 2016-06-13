@@ -79,7 +79,13 @@ function search($searched = '%') {
             {
                 $pageCourante = $nombreDePages;
             }
-            
+
+            if($pageCourante < 1)
+            {
+                $pageCourante = 1;
+            }
+
+            $_SESSION['pageCourante'] = $pageCourante;            
         }
 
         $start = ($pageCourante - 1) * $articlesParPage;
@@ -128,7 +134,7 @@ function search($searched = '%') {
                  }  
                  else //Sinon...
                  {
-                      $content .= " <span class='pagination-search' data-page='$i'>$i</span> ";
+                      $content .= " <span class='pagination-search' nbpage='$i'>$i</span> ";
                  }
             }
             $content .= '</p>';

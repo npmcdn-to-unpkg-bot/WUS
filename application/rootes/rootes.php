@@ -21,7 +21,7 @@ $app->get('/rss.xml', function () {
 $app->get('/to/:to', function ($to) {
     //load page config and html content
     $page   = new Page('bar');
-});
+})->name('/to/');
 
 //legale page
 $app->get('/legale/:name', function ($name) {

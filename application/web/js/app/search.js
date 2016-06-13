@@ -6,10 +6,11 @@ $('.searching').on('click', function(e) {
 
 $('.pagination-search').off('click');
 $('.pagination-search').on('click', function(e) {
-    SetPage();
+    SetPage($(this));
 });
 
 function Search() {
+
     var searched = $('.searched').val();
 
     $.ajax({
@@ -21,13 +22,15 @@ function Search() {
         },
         success: function(data) {
 
+            ResetPage();
+
             if(data !== "") {
                 $('.result-searching').empty().html(data);
                 $('.result-searching').fadeIn(300);
 
                 $('.pagination-search').off('click');
                 $('.pagination-search').on('click', function(e) {
-                    SetPage();
+                    SetPage($(this));
                 });
             }
             else {
@@ -39,9 +42,9 @@ function Search() {
     });
 }
 
-function SetPage() {
+function SetPage(object) {
 
-    var page = $('.pagination-search').attr('data-page');
+    var page = $(object).attr('nbpage');
 
     $.ajax({
         url: "application/web/ajax/controller.search.php",
@@ -52,6 +55,22 @@ function SetPage() {
         },
         success: function(data) {
             Search();
+        }
+    }).done(function(data) {
+    }).fail(function( jqXHR, textStatus ) {
+    });
+}
+
+function ResetPage() {
+
+    $.ajax({
+        url: "application/web/ajax/controller.search.php",
+        type: "POST",        
+        data: { 
+            'action' : 'setPage',
+            'page' : 1
+        },
+        success: function(data) {
         }
     }).done(function(data) {
     }).fail(function( jqXHR, textStatus ) {

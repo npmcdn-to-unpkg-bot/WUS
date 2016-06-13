@@ -99,7 +99,7 @@ header.bar div.social div.link
 	vertical-align: middle;
 }
 
-header.bar div.social div.title a#share_text
+header.bar div.social div.title span#share_text
 {
 	display: inline-block;
 	vertical-align: middle;
@@ -108,9 +108,10 @@ header.bar div.social div.title a#share_text
 	text-transform: uppercase;
 	font-family: Arial;
 	font-size: 12px;
+	cursor: pointer;
 }
 
-header.bar div.social div.link a#share
+header.bar div.social div.link span#share
 {
 	display: inline-block;
 	vertical-align: middle;
@@ -118,6 +119,7 @@ header.bar div.social div.link a#share
     height: 46px;
     background: url("../image/icone.png") 0 0 no-repeat;
     background-position: -31px -14px;
+    cursor: pointer;
 }
 
 content div.div-iframe
