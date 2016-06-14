@@ -43,13 +43,13 @@
 
 			}
 		?>
-		<div class="preferences">
+		<!--<div class="preferences">
 			<div class="title">
 				<label class="title">MES PREFERENCES</label>
 			</div>
-			<div class="data">
+			<div class="data">-->
 				<?php 
-					if (session_status() == PHP_SESSION_NONE) {
+					/*if (session_status() == PHP_SESSION_NONE) {
 					    session_start();
 					}
 					
@@ -57,12 +57,12 @@
 						require('preferences.php');
 					} else {
 						require('categories.php');
-					}
+					}*/
 				?>
-			</div>
+			<!--</div>-->
 
 			<?php 
-				if (session_status() == PHP_SESSION_NONE) {
+				/*if (session_status() == PHP_SESSION_NONE) {
 				    session_start();
 				}
 				
@@ -73,9 +73,9 @@
 							<div class="link">
 								<a href="#" id="preferences_enregistrer" class="preferences_enregistrer">Enregistrer mes préférences</a>
 							</div>');
-				}
+				}*/
 			?>
-		</div>
+		<!--</div>-->
 	</div>
 	<div class="compte">
 		<div class="title">

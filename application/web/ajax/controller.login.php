@@ -41,6 +41,21 @@ if(isset($_POST['action']) && !empty($_POST['action'])) {
             echo lostPassword($email);
             break;
         }
+
+        case 'checkSessionAuth' : {
+
+            echo checkSessionAuth();
+            break;
+        }
+    }
+}
+
+function checkSessionAuth() {
+    if($_SESSION['user_auth'] === '1')
+    {
+        return true;
+    } else {
+        return false;
     }
 }
 

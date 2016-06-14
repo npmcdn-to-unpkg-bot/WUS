@@ -1,8 +1,54 @@
+$(document).ready(function() {
+    CheckSessionAuth();
+});
+
+function CheckSessionAuth()
+{
+    $.ajax({
+        url: "application/web/ajax/controller.login.php",
+        type: "POST",        
+        data: { 
+            'action' : 'checkSessionAuth'
+        },
+        success: function(data) {
+
+            if(data == false) {
+                $('#is_connect').val('0');
+                $(".login-close").hide();
+                OpenPopupLogin($("#connexion"));
+            } else {
+                $('#is_connect').val('1');
+                $(".login-close").show();
+            }
+        }
+    }).done(function(data) {
+    }).fail(function( jqXHR, textStatus ) {
+    });
+}
+
+$('body').off('click');
+$('body').on('click', function(e) {
+
+    var is_connect = $('#is_connect').val();
+
+    if(is_connect === '0') {
+        e.preventDefault();
+        $(".login-close").hide();
+        OpenPopupLogin($("#connexion"));
+    } else {
+        $(".login-close").show();
+    }
+});
+
 $("#connexion").off('click');
 $("#connexion").on('click', function() {
+    OpenPopupLogin($(this));
+});
 
+function OpenPopupLogin(object)
+{
     //Getting the variable's value from a link 
-    var loginBox = $(this).attr('href');
+    var loginBox = $(object).attr('href');
 
     //Fade in the Popup
     $(loginBox).fadeIn(300);
@@ -21,7 +67,7 @@ $("#connexion").on('click', function() {
     $('#mask').fadeIn(300);
     
     return false;
-});
+}
 
 $('.other-login').off('click');
 $('.other-login').on('click', function() {
@@ -111,7 +157,16 @@ $("#deconnexion").on('click', function() {
 
 // When clicking on the button close or the mask layer the popup closed
 $(".login-close").off('click');
-$(".login-close").on('click', function() {
+$(".login-close").on('click', function(e) {
+
+    e.preventDefault();
+
+    var is_connect = $('#is_connect').val();
+
+    if(is_connect === '0') {
+        return false;
+    }
+
     $('#mask, .login-popup').fadeOut(300 , function() {
         $('.lost-password-valid').fadeOut(0);
         $('.lost-password-error').fadeOut(0);

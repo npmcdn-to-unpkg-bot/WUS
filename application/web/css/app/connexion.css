@@ -18,6 +18,11 @@
 		color: #000000;
 		padding-left: 10px;
 	}
+
+	content div.options div.connexion div.link a#connexion
+	{
+		visibility: hidden;
+	}
 }
 
 @media handheld and (device-width: 320px)
@@ -30,5 +35,10 @@
 	content div.options div.connexion div.link a
 	{
 		display: none;
+	}
+
+	content div.options div.connexion div.link a#connexion
+	{
+		visibility: hidden;
 	}
 }

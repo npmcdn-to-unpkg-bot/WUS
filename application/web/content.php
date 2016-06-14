@@ -93,7 +93,7 @@
 			    session_start();
 			}
 			
-			if(!isset($_SESSION['user_auth']) || $_SESSION['user_auth'] == '0') {
+			//if(!isset($_SESSION['user_auth']) || $_SESSION['user_auth'] == '0') {
 				echo('<div class="medias">
 					<div class="title">
 						<label class="title">Mes abonnements</label>
@@ -106,7 +106,7 @@
 				echo('<div class="search-info">
 						<label class="info">Abonne-toi à tes médias préférés pour les voir s\'afficher dans ton d\'actualité en cliquant sur l\'icône <span>Home</span> rouge.</label>
 					</div>');
-			}
+			//}
 		?>
 	</div>
 	<div class="articles active">
@@ -116,7 +116,7 @@
 			    session_start();
 			}
 			
-			if(isset($_SESSION['user_auth']) && $_SESSION['user_auth'] == '1') {
+			/*if(isset($_SESSION['user_auth']) && $_SESSION['user_auth'] == '1') {
 
 				require('personnal-content.php');
 
@@ -133,7 +133,20 @@
 				echo('<div class="timeline">');
 				require('timeline.php');
 				echo('</div>');
+			}*/
+
+			include_once('ajax/controller.system_preference.php');
+
+			if(getSystemPreference('mod_carrousel')->mod_carrousel == 1) {
+
+				echo('<div class="caroussel">');
+				require('caroussel.php');
+				echo('</div>');
 			}
+
+			echo('<div class="timeline">');
+			require('timeline.php');
+			echo('</div>');
 		?>
 	</div>
 	<div class='recherche'>
