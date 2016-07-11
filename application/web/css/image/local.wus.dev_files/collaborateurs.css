@@ -1,0 +1,128 @@
+@media screen and (min-width: 1024px)
+{
+	.slick-prev {
+		left: -24%;
+	}
+
+	.slick-next {
+		right: 36%;
+	}
+
+	.slick-slider .slick-list {
+		width: 65%;
+    	right: 12%;
+	}
+
+	content div.informations div.collaborateurs
+	{
+		background-color: #FFFFFF;
+		color: #000000;
+		padding: 5px;
+		text-align: left;
+		border: 1px #D9D6D7 solid;
+		margin-bottom: 5px;
+	}
+
+	content div.informations div.collaborateurs div.title
+	{
+		height: 20px;
+		font-weight: bold;
+	}
+
+	content div.informations div.collaborateurs div.wrapper
+	{
+		//background-color: #EEEEEE;
+	}
+
+	content div.informations div.collaborateurs div.data
+	{
+		margin-left: 40px;
+		width: 160px;
+	}
+
+	content div.informations div.collaborateurs div.data div.collaborateur
+	{
+	    width: 160px;
+	    display: block;
+	    text-align: center;
+	}
+
+	content div.informations div.collaborateurs div.data div.collaborateur div.image a img
+	{
+		width: 100%;
+		margin: auto;
+	}
+
+	content div.informations div.collaborateurs div.data div.collaborateur div.data
+	{
+		margin-left: 0;
+		text-align: center;
+		width: 100%;
+	}
+
+	content div.informations div.collaborateurs div.data div.collaborateur div.data h2.title
+	{
+		
+	}
+
+	content div.informations div.collaborateurs div.data div.collaborateur div.data h2.title a
+	{
+		text-decoration: none;
+		color: #000000;
+	}
+
+	content div.informations div.collaborateurs div.link
+	{
+		//height: 20px;
+	}
+
+	content div.informations div.collaborateurs div.link a
+	{
+		text-decoration: none;
+		color: #000000;
+	}
+
+	/* Custom Thème Slick */
+	content div.informations div.collaborateurs div.data .slick-prev:before, content div.informations div.collaborateurs div.data .slick-next:before
+	{
+		color: black !important;
+	}
+}
+
+@media screen and (min-width: 1680px)
+{
+	.slick-next {
+		right: -24%;
+	}
+
+	.slick-slider .slick-list {
+		width: 120%;
+	}
+}
+
+@media handheld and (device-width: 320px)
+{
+    content div.informations div.collaborateurs
+	{
+		display: none;
+	}
+
+	content div.informations div.collaborateurs div.title
+	{
+		display: none;
+	}
+
+	content div.informations div.collaborateurs div.data
+	{
+	}
+
+	content div.informations div.collaborateurs div.link
+	{
+		display: none;
+	}
+
+	content div.informations div.collaborateurs div.link a
+	{
+		display: none;
+	}
+}

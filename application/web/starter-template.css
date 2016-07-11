@@ -1,0 +1,157 @@
+body {
+  padding-top: 50px;
+}
+
+.starter-template {
+  text-align: center;
+}
+
+#logo
+{
+    margin-left: 5px; 
+    margin-right: 5px; 
+    width: 180px;
+    height: 50px;
+    background: url("./css/image/icone.png") 0 0 no-repeat;
+    background-position: -420px -10px;
+}
+
+/** Articles **/
+
+div.articles div.timeline
+{
+	vertical-align: top;
+}
+
+div.articles div.timeline article
+{
+	padding: 0;
+	background-color: #FFFFFF;
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+	//margin: 10px;
+	margin-top: 10px;
+	border: 1px #D9D6D7 solid;
+}
+
+div.articles div.timeline article div.site
+{
+	height: 30px;
+	text-align: left;
+	margin: 2px;
+}
+
+div.articles div.timeline article div.site div.logo_site,
+div.articles div.timeline article div.site div.informations_site,
+div.articles div.timeline article div.site div.social
+{
+	height: 30px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+div.articles div.timeline article div.site div.logo_site
+{
+	width: 30px;
+}
+
+div.articles div.timeline article div.site div.logo_site img
+{
+	max-height: 30px;
+}
+
+div.articles div.timeline article div.site div.social
+{
+	width: 30px;
+	margin-left: 96px;
+}
+
+div.articles div.timeline article div.site div.social a
+{
+	display: block;
+    width: 30px;
+    height: 30px;
+    background: url("./css/image/icone.png") 0 0 no-repeat;
+    background-position: -204px -21px;
+}
+
+div.articles div.timeline article div.site div.informations_site div.title,
+div.articles div.timeline article div.site div.informations_site div.button
+{
+	display: block;
+	width: 100%;
+	vertical-align: middle;
+}
+
+div.articles div.timeline article div.site div.informations_site div.title
+{
+	color: #000000;
+	font-weight: bold;
+	text-align: left;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+div.articles div.timeline article div.site div.informations_site div.button div.subscription
+{
+	display: block;
+    width: 70px;
+    height: 21px;
+    background: url("./css/image/icone.png") 0 0 no-repeat;
+    background-position: -236px -26px;
+}
+
+div.articles div.timeline article div.site div.informations_site div.button div.unsubscription
+{
+	display: block;
+    width: 70px;
+    height: 21px;
+    background: url("./css/image/icone.png") 0 0 no-repeat;
+    background-position: -308px -26px;
+}
+
+div.articles div.timeline article div.image, article div.image a, article div.image a img
+{
+	max-height: 100%;
+	max-width: 100%;
+}
+
+div.articles div.timeline article div.data h2.title
+{
+	padding: 0;
+}
+
+div.articles div.timeline article div.data h1.title a
+{
+	text-decoration: none;
+	color: #000000;
+	font-size: 30px;
+	text-transform: uppercase;
+
+	/*width: 100%;
+	margin: auto;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: bold;
+	color: #000000;
+	font-size: small;
+	text-align: left;
+
+	display: block
+	text-align: left;
+	font-size: 12px;
+	color: #000000;
+	margin-top: 5px;
+	margin-bottom: 5px;*/
+}
+
+div.articles div.timeline article div.data p.description
+{
+	display: block
+	text-align: left;
+	font-size: 12px;
+	color: #000000;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}

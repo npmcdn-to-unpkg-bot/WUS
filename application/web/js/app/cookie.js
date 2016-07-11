@@ -16,7 +16,7 @@ $(document).ready(function(){
 		acceptAnyClick: false,
 		expireDays: 365,
 		renewOnVisit: true,
-		forceShow: true,
+		forceShow: false,
 		effect: 'slide',
 		element: 'footer',
 		append: false,

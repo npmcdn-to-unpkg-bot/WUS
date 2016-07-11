@@ -1,29 +1,15 @@
-@media screen
+content .container-copyright
 {
-	content div.informations div.copyright
-	{
-		background-color: #FFFFFF;
-		color: #000000;
-		padding: 5px;
-		text-align: left;
-		margin-top: 5px;
-	}
-
-	content div.informations div.copyright label
-	{
-		font-size: 10px;
-	}
+	background-color: #FFFFFF;
+	color: #5C5C5C;
+	padding: 5px;
+	text-align: left;
+	margin-top: 5px;
+	padding-left: 25px;
 }
 
-@media handheld and (device-width: 320px)
+content .container-copyright label
 {
-    content div.informations div.copyright
-	{
-		display: none;
-	}
-
-	content div.informations div.copyright label
-	{
-		display: none;
-	}
+	font-size: 10px;
+	font-weight: bold;
 }

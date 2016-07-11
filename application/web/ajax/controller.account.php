@@ -33,6 +33,7 @@ function updateAccount($first_name, $last_name, $birthday, $sex, $email, $passwo
 
     global $bdd;
     global $_TABLES;
+    global $config;
 
     if(isset($_SESSION['user_id'])) {
 
@@ -50,7 +51,7 @@ function updateAccount($first_name, $last_name, $birthday, $sex, $email, $passwo
         $objUser->updateAccount($_SESSION['user_id'], $email, $password, $first_name, $last_name, $birthday, $sex);
 
         // Ajout ou suppression de l'email de la personne dans la liste de la newsletter
-        $objUserNewsletter = new UserNewsletter($bdd, $_TABLES);
+        $objUserNewsletter = new UserNewsletter($bdd, $_TABLES, $config);
 
         if($newsletter) {
             $objUserNewsletter->createUserNewsletter($email);
@@ -68,7 +69,7 @@ function updateAccount($first_name, $last_name, $birthday, $sex, $email, $passwo
             $user_newsletter = $objUserNewsletter->getExist($email_delete);
 
             if($user_newsletter && !is_null($user_newsletter)) {
-                $objUserNewsletter->deleteUserNewsletter($user_newsletter->id);
+                $objUserNewsletter->deleteUserNewsletter($user_newsletter->id, $email_delete);
             }
         }
 

@@ -1,0 +1,81 @@
+.account-link {
+	background-color: #FFFFFF;
+    color: #000000;
+    padding: 5px;
+    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.account-link a {
+	display: block;
+    text-decoration: none;
+    font-size: 10px;
+}
+
+content div.compte
+{
+	display: inline-block;
+	width: 60%;
+	height: 950px;
+}
+
+.compte .title {
+	padding: 20px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.compte .data {
+    display: inline-block;
+    width: 100%;
+    margin: auto;
+    vertical-align: top;
+    padding: 20px;
+    text-align: left;
+    margin-left: 33%;
+}
+
+.compte .data label {
+	display: inline-block;
+	width: 150px;
+}
+
+.compte .data input {
+	display: inline-block;
+	margin: 5px;
+}
+
+.compte .data .input-text {
+    width: 150px;
+    height: 22px;
+    padding: 0px 5px 0px 5px;
+    border: solid 2px #000000;
+    transition: border 0.3s;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+.compte .button-validate {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: -378px -15px;
+    margin: auto;
+}
+
+.compte .message {
+	display: none;
+	width: 300px;
+	margin: auto;
+}
+
+.compte .valid {
+	color: green;
+}
+
+.compte .error {
+	color: red;
+}

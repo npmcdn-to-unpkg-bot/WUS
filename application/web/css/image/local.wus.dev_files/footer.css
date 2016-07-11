@@ -1,0 +1,50 @@
+@media screen
+{
+	footer
+	{
+		text-align: center;
+		height: 50px;
+		line-height: 46px;
+		background-color: #FFFFFF;
+	}
+
+	footer div
+	{
+		display: inline-block;
+		vertical-align: middle;
+		height: 50px;
+	}
+
+	footer div.copyright
+	{
+		width: 100%;
+	}
+
+	footer div.copyright *
+	{
+		height: 50px;
+	}
+}
+
+@media handheld and (device-width: 320px)
+{
+    footer
+	{
+		display: none;
+	}
+
+	footer div
+	{
+		display: none;
+	}
+
+	footer div.copyright
+	{
+		display: none;
+	}
+
+	footer div.copyright *
+	{
+		display: none;
+	}
+}

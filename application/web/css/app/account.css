@@ -1,33 +1,33 @@
-.account-link {
+content .container-account-link {
 	background-color: #FFFFFF;
     color: #000000;
-    padding: 5px;
     text-align: left;
     margin-top: 5px;
     margin-bottom: 5px;
+    padding-left: 25px;
 }
 
-.account-link a {
+content .container-account-link a {
 	display: block;
     text-decoration: none;
     font-size: 10px;
 }
 
-content div.compte
+content .compte
 {
 	display: inline-block;
 	width: 60%;
 	height: 950px;
 }
 
-.compte .title {
+content .compte .title {
 	padding: 20px;
 	text-align: center;
 	font-weight: bold;
 	font-size: 20px;
 }
 
-.compte .data {
+content .compte .data {
     display: inline-block;
     width: 100%;
     margin: auto;
@@ -37,17 +37,17 @@ content div.compte
     margin-left: 33%;
 }
 
-.compte .data label {
+content .compte .data label {
 	display: inline-block;
 	width: 150px;
 }
 
-.compte .data input {
+content .compte .data input {
 	display: inline-block;
 	margin: 5px;
 }
 
-.compte .data .input-text {
+content .compte .data .input-text {
     width: 150px;
     height: 22px;
     padding: 0px 5px 0px 5px;
@@ -57,7 +57,7 @@ content div.compte
     color: #000000;
 }
 
-.compte .button-validate {
+content .compte .button-validate {
     display: block;
     width: 40px;
     height: 40px;
@@ -66,16 +66,16 @@ content div.compte
     margin: auto;
 }
 
-.compte .message {
+content .compte .message {
 	display: none;
 	width: 300px;
 	margin: auto;
 }
 
-.compte .valid {
+content .compte .valid {
 	color: green;
 }
 
-.compte .error {
+content .compte .error {
 	color: red;
 }

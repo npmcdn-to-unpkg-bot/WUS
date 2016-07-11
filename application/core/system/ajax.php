@@ -6,6 +6,7 @@
 
 class Ajax {
 
+	public $ajaxConfig;
 	public $env;
 	public $config;
 	public $connection;
@@ -15,6 +16,7 @@ class Ajax {
 	public function __construct() {
         
         //load configuration
+        $this->ajaxConfig = $this->getServerConfig();
         $this->env = $this->getServerConfig()->rss;
         $this->config  = $this->getServerConfig()->mysql;
         $this->connect();
@@ -111,6 +113,7 @@ require_once 'template.php';
 // require_once 'class.error.handler.php';
 
 $ajax 	= new Ajax();
+$config = $ajax->ajaxConfig;
 $bdd 	= $ajax->connection;
 
 $_TABLES = [];

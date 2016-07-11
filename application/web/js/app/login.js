@@ -15,7 +15,7 @@ function CheckSessionAuth()
             if(data == false) {
                 $('#is_connect').val('0');
                 $(".login-close").hide();
-                OpenPopupLogin($("#connexion"));
+                OpenPopupLogin($("#login"));
             } else {
                 $('#is_connect').val('1');
                 $(".login-close").show();
@@ -32,23 +32,26 @@ $('body').on('click', function(e) {
     var is_connect = $('#is_connect').val();
 
     if(is_connect === '0') {
-        e.preventDefault();
+        //e.preventDefault();
         $(".login-close").hide();
-        OpenPopupLogin($("#connexion"));
+
+        if (!$('#mask').length) {
+            OpenPopupLogin($("#login"));
+        }
     } else {
         $(".login-close").show();
     }
 });
 
-$("#connexion").off('click');
+/*$("#connexion").off('click');
 $("#connexion").on('click', function() {
     OpenPopupLogin($(this));
-});
+});*/
 
 function OpenPopupLogin(object)
 {
     //Getting the variable's value from a link 
-    var loginBox = $(object).attr('href');
+    var loginBox = $(object);
 
     //Fade in the Popup
     $(loginBox).fadeIn(300);
@@ -134,8 +137,8 @@ $(".lost-password-validate").on('click', function() {
     });
 });
 
-$("#deconnexion").off('click');
-$("#deconnexion").on('click', function() {
+$(".logout").off('click');
+$(".logout").on('click', function() {
 
     $.ajax({
         url: "application/web/ajax/controller.login.php",

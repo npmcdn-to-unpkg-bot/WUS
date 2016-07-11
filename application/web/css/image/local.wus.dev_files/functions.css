@@ -1,0 +1,77 @@
+content .home
+{
+	display: inline-block;
+    margin: auto;
+    width: 90px;
+    height: 90px;
+    background: url("../image/icone2.png") 0 0 no-repeat;
+    background-position: -0px 0px;
+}
+
+content .home.active
+{
+	display: inline-block;
+    margin: auto;
+    width: 90px;
+    height: 90px;
+    background: url("../image/icone2.png") 0 0 no-repeat;
+    background-position: -94px 0px;
+}
+
+content .search
+{
+	display: inline-block;
+    margin: auto;
+    width: 90px;
+    height: 90px;
+    background: url("../image/icone2.png") 0 0 no-repeat;
+    background-position: -187px 0px;
+}
+
+content .search.active
+{
+	display: inline-block;
+    margin: auto;
+    width: 90px;
+    height: 90px;
+    background: url("../image/icone2.png") 0 0 no-repeat;
+    background-position: -280px 0px;
+}
+
+content .search-info
+{
+	display: none;
+} 
+
+content .search-info span
+{
+	color: red;
+	font-weight: bold;
+}
+
+content .recherche .barre .texte, content .recherche .barre .button
+{
+	display: inline-block;
+	vertical-align: middle;
+	height: 30px;
+	padding: 0;
+	margin: 0;
+}
+
+content .recherche .barre .searched
+{
+	border: 3px solid #000000;
+	height: 24px;
+	width: 500px;
+}
+
+content .recherche .barre .searching
+{
+	border: 0;
+    display: inline-block;
+    margin: auto;
+    width: 32px;
+    height: 32px;
+    background: url("../image/icone2.png") 0 0 no-repeat;
+    background-position: -373px 0px;
+}

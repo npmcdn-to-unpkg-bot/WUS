@@ -1,9 +1,104 @@
-content div.articles div.timeline
+content .articles
+{
+	position: relative;
+	vertical-align: top;
+}
+
+content .articles article
+{
+	background-color: #FFFFFF;
+	margin-top: 0.5%;
+	margin-bottom: 0.5%;
+	border: 1px #D9D6D7 solid;
+	//margin-left: px !important;
+}
+
+content .articles article .site
+{
+	margin-top: 5px;
+}
+
+content .articles article .site .logo_site,
+content .articles article .site .informations_site,
+content .articles article .site .social
+{
+}
+
+content .articles article .site .logo_site img
+{
+	max-height: 30px;
+}
+
+content .articles article .site .social
+{
+	width: 30px;
+	margin-left: 96px;
+}
+
+content .articles article .site .social a
+{
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: -204px -21px;
+}
+
+content .articles article .site .informations_site
+{
+	max-height: 30px;
+}
+
+content .articles article .site .informations_site .title
+{
+	color: #000000;
+	font-weight: bold;
+	text-align: left;
+	text-transform: uppercase;
+}
+
+content .articles article .site .informations_site .button .subscription
+{
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: -236px -26px;
+}
+
+content .articles article .site .informations_site .button .unsubscription
+{
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: -308px -26px;
+}
+
+content .articles article .data h1.title
+{
+	text-transform: uppercase;
+}
+
+content .articles article .data h1.title a
+{
+	text-decoration: none;
+	font-weight: bold;
+	color: #000000;
+}
+
+content .articles article .data p.description
+{
+	font-size: 12px;
+	color: #000000;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+span.pagination-search
+{
+	color: purple;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/*content .articles .timeline
 {
 	vertical-align: top;
 }
 
-content div.articles div.timeline article
+content .articles .timeline article
 {
 	background-color: #FFFFFF;
 	display: inline-block;
@@ -13,39 +108,39 @@ content div.articles div.timeline article
 	border: 1px #D9D6D7 solid;
 }
 
-content div.articles div.timeline article div.site
+content .articles .timeline article .site
 {
 	height: 30px;
 	text-align: left;
 	margin: 2px;
 }
 
-content div.articles div.timeline article div.site div.logo_site,
-content div.articles div.timeline article div.site div.informations_site,
-content div.articles div.timeline article div.site div.social
+content .articles .timeline article .site .logo_site,
+content .articles .timeline article .site .informations_site,
+content .articles .timeline article .site .social
 {
 	height: 30px;
 	display: inline-block;
 	vertical-align: middle;
 }
 
-content div.articles div.timeline article div.site div.logo_site
+content .articles .timeline article .site .logo_site
 {
 	//width: 30px;
 }
 
-content div.articles div.timeline article div.site div.logo_site img
+content .articles .timeline article .site .logo_site img
 {
 	max-height: 30px;
 }
 
-content div.articles div.timeline article div.site div.social
+content .articles .timeline article .site .social
 {
 	width: 30px;
 	margin-left: 96px;
 }
 
-content div.articles div.timeline article div.site div.social a
+content .articles .timeline article .site .social a
 {
 	
 	display: block;
@@ -55,15 +150,15 @@ content div.articles div.timeline article div.site div.social a
     background-position: -204px -21px;
 }
 
-content div.articles div.timeline article div.site div.informations_site div.title,
-content div.articles div.timeline article div.site div.informations_site div.button
+content .articles .timeline article .site .informations_site .title,
+content .articles .timeline article .site .informations_site .button
 {
 	display: block;
 	width: 100%;
 	vertical-align: middle;
 }
 
-content div.articles div.timeline article div.site div.informations_site div.title
+content .articles .timeline article .site .informations_site .title
 {
 	color: #000000;
 	font-weight: bold;
@@ -72,7 +167,7 @@ content div.articles div.timeline article div.site div.informations_site div.tit
 	font-size: 12px;
 }
 
-content div.articles div.timeline article div.site div.informations_site div.button div.subscription
+content .articles .timeline article .site .informations_site .button .subscription
 {
 	display: block;
     width: 70px;
@@ -81,7 +176,7 @@ content div.articles div.timeline article div.site div.informations_site div.but
     background-position: -236px -26px;
 }
 
-content div.articles div.timeline article div.site div.informations_site div.button div.unsubscription
+content .articles .timeline article .site .informations_site .button .unsubscription
 {
 	display: block;
     width: 70px;
@@ -90,13 +185,13 @@ content div.articles div.timeline article div.site div.informations_site div.but
     background-position: -308px -26px;
 }
 
-content div.articles div.timeline article div.image, article div.image a, article div.image a img
+content .articles .timeline article .image, article .image a, article .image a img
 {
 	max-height: 100%;
 	max-width: 100%;
 }
 
-content div.articles div.timeline article div.data h2.title
+content .articles .timeline article .data h2.title
 {
 	text-align: center;
 	width: 80%;
@@ -104,14 +199,14 @@ content div.articles div.timeline article div.data h2.title
 	text-transform: uppercase;
 }
 
-content div.articles div.timeline article div.data h2.title a
+content .articles .timeline article .data h2.title a
 {
 	text-decoration: none;
 	font-weight: bold;
 	color: #000000;
 }
 
-content div.articles div.timeline article div.data p.description
+content .articles .timeline article .data p.description
 {
 	display: block
 	text-align: left;
@@ -119,4 +214,4 @@ content div.articles div.timeline article div.data p.description
 	color: #000000;
 	margin-top: 5px;
 	margin-bottom: 5px;
-}
+}*/

@@ -1,4 +1,7 @@
 <?php
+
+	require_once(dirname(dirname(__FILE__)) . "/tools/Mailchimp.php");
+
 	/**
 	* 
 	*/
@@ -6,12 +9,15 @@
 		
 		private $bdd;
 		private $_TABLES;
+		private $config;
 
-		public function __construct($bdd, $_TABLES) {
+		public function __construct($bdd, $_TABLES, $config) {
 			//set connector
 			$this->bdd = $bdd;
 
 			$this->_TABLES = $_TABLES;
+
+			$this->config = $config;
 		}
 
 		// Custom
@@ -97,7 +103,7 @@
 			}
 		}
 
-		public function deleteUserNewsletter($id) {
+		public function deleteUserNewsletter($id, $email) {
 
 			try 
 			{
@@ -114,6 +120,19 @@
 			    error_log($e->getMessage());
 			    die();
 			}
+
+			$Mailchimp = new Mailchimp( $this->config->mailchimp->config->api_key );
+			$Mailchimp_Lists = new Mailchimp_Lists( $Mailchimp );
+			$subscriber = $Mailchimp_Lists->unsubscribe( $this->config->mailchimp->list->lid , array( 'email' => $email ), true, true, true );
+			 
+			if ( ! empty( $subscriber['complete'] ) ) {
+			   error_log("Unsubscribe Mailchimp success");
+			}
+			else
+			{
+			    error_log("Unsubscribe Mailchimp fail");
+			}
+			 
 		}
 
 		public function editUserNewsletter($id, $email) {
@@ -150,6 +169,18 @@
 			    error_log($sql);
 			    error_log($e->getMessage());
 			    die();
+			}
+
+			$Mailchimp = new Mailchimp( $this->config->mailchimp->config->api_key );
+			$Mailchimp_Lists = new Mailchimp_Lists( $Mailchimp );
+			$subscriber = $Mailchimp_Lists->subscribe( $this->config->mailchimp->list->lid , array( 'email' => $email ) );
+			 
+			if ( ! empty( $subscriber['leid'] ) ) {
+			   error_log("Subscribe Mailchimp success");
+			}
+			else
+			{
+			    error_log("Subscribe Mailchimp fail");
 			}
 		}
 	}

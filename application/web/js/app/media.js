@@ -6,7 +6,7 @@ $(".media_choice").on('click', function() {
     // fonction qui set les cookies.
     var medias_id = Array();
 
-    $.each($(this).parent().parent().find('website input[type=checkbox]:checked'), function(index, value) {
+    $.each($(this).parent().parent().find('li.container-subscription input[type=checkbox]:checked'), function(index, value) {
         medias_id.push($(value).attr('website_id'));
     });
 

@@ -24,6 +24,12 @@
             "/application/js/library/jquery-ui.min.js",
             "/application/js/library/slick/slick.min.js",
             "/application/js/library/jquery.cookiebar/jquery.cookiebar.js",
+
+            "/application/common/bootstrap/js/bootstrap.min.js",
+
+            "https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js",
+
+
             "/application/web/js/app/caroussel.js",
             "/application/web/js/app/category.js",
             "/application/web/js/app/timeline.js",
@@ -41,13 +47,24 @@
         ]
     ,
     "css": [
+
+            "/application/common/bootstrap/css/bootstrap.min.css",
+
             "/application/js/library/slick/slick.css",
             "/application/js/library/slick/slick-theme.css",
+
             "/application/js/library/jquery.cookiebar/jquery.cookiebar.css",
+            
             "/application/web/css/app/home.css",
+
             "/application/web/css/app/header.css",
             "/application/web/css/app/content.css",
+            "/application/web/css/app/footer.css",
+
             "/application/web/css/app/connexion.css",
+            "/application/web/css/app/login.css",
+
+            "/application/web/css/app/caroussel.css",
             "/application/web/css/app/recherche.css",
             "/application/web/css/app/search.css",
             "/application/web/css/app/preferences.css",
@@ -58,8 +75,6 @@
             "/application/web/css/app/legale.css",
             "/application/web/css/app/copyright.css",
             "/application/web/css/app/article.css",
-            "/application/web/css/app/footer.css",
-            "/application/web/css/app/login.css",
             "/application/web/css/app/timeline.css",
             "/application/web/css/app/account.css",
             "/application/web/css/app/medias.css",
@@ -67,5 +82,9 @@
             "/application/web/css/app/last-article.css",
             "/application/web/css/app/functions.css",
             "/application/web/css/app/subscriptions-list.css"
+        ]
+    ,
+    "css-save": [
+            
         ]
 }

@@ -1,95 +1,83 @@
-@media screen
+header
 {
-    header
-    {
-    	height: 50px;
-    	background-color: #000000;
-    }
-
-    header div.logo
-    {
-    	margin-left: 42%;
-    }
-
-    header div.social
-    {
-    	margin-left: 24%;
-    }
-
-    header div.logo, header div.social
-    {
-    	display: inline-block;
-    	vertical-align: middle;
-    	height: 50px;
-    }
-
-    header div.logo #logo
-    {
-    	display: block;
-        margin: auto;
-        width: 180px;
-        height: 50px;
-        background: url("../image/icone.png") 0 0 no-repeat;
-        background-position: -420px -10px;
-    }
-
-    header div.social div.facebook, header div.social div.instagram, header div.social div.twitter
-    {
-    	display: inline-block;
-    	vertical-align: middle;
-    	height: 50px;
-    }
-
-    header div.social div.facebook #facebook
-    {
-        display: block;
-        width: 50px;
-        height: 50px;
-        background: url("../image/icone.png") 0 0 no-repeat;
-        background-position: -656px -13px;
-    }
-
-    header div.social div.instagram #instagram
-    {
-        display: block;
-        width: 50px;
-        height: 50px;
-        background: url("../image/icone.png") 0 0 no-repeat;
-        background-position: -709px -13px;
-    }
-
-    header div.social div.twitter #twitter
-    {
-        display: block;
-        width: 50px;
-        height: 50px;
-        background: url("../image/icone.png") 0 0 no-repeat;
-        background-position: -604px -13px;
-    }
+    background-color: #000000;
+    margin-left: 0px !important;
 }
 
-@media handheld and (device-width: 320px)
+header .logo
 {
-    header
-    {
-        height: 50px;
-        width: 118%;
-        background-color: #000000;
-        margin: auto;
-    }
+    display: block;
+    margin-left: 0px !important;
+    width: 180px;
+    height: 50px;
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: -420px -10px;
+}
 
-    header div.logo #logo
-    {
-        display: block;
-        margin: auto;
-        width: 180px;
-        height: 50px;
-        background: url("../image/icone.png") 0 0 no-repeat;
-        background-position: -420px -10px;
-    }
+header .facebook
+{
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: -656px -13px;
+}
 
-    header div.social
-    {
-        visibility: hidden;
-    }
+header .facebook:hover
+{
+    background-color: #000000 !important;
+}
+
+header .instagram
+{
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: -709px -13px;
+}
+
+header .instagram:hover
+{
+    background-color: #000000 !important;
+}
+
+header .twitter
+{
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: -604px -13px;
+}
+
+header .twitter:hover
+{
+    background-color: #000000 !important;
+}
+
+.nav-link
+{
+    background-color: #000;
+    color: #FFF;
+    border: 1px solid #eee;
+}
+
+.nav-link:hover
+{
+    background-color: #FFF;
+    color: #000;
+}
+
+.dropdown-menu
+{
+    left: -110px !important;
+}
+
+.dropdown-item
+{
+    color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 3px;
 }

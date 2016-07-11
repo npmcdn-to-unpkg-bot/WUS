@@ -1,0 +1,29 @@
+@media screen
+{
+	content div.informations div.copyright
+	{
+		background-color: #FFFFFF;
+		color: #000000;
+		padding: 5px;
+		text-align: left;
+		margin-top: 5px;
+	}
+
+	content div.informations div.copyright label
+	{
+		font-size: 10px;
+	}
+}
+
+@media handheld and (device-width: 320px)
+{
+    content div.informations div.copyright
+	{
+		display: none;
+	}
+
+	content div.informations div.copyright label
+	{
+		display: none;
+	}
+}

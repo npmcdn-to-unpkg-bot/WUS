@@ -1,85 +1,81 @@
-@media screen and (min-width: 1024px)
+content .container-functions
 {
-	content div.options div.functions
-	{
-		display: block;
-	}
+	padding-left: 15px !important;
+}
 
-	content div.options div.functions div.home
-	{
-		display: inline-block;
-	    margin: auto;
-	    width: 90px;
-	    height: 90px;
-	    background: url("../image/icone2.png") 0 0 no-repeat;
-	    background-position: -0px 0px;
-	}
+content .home
+{
+    width: 90px;
+    height: 90px;
+    background: url("../image/icone2.png") 0 0 no-repeat;
+    background-position: -0px 0px;
+    margin-right: 5px;
+}
 
-	content div.options div.functions div.home.active
-	{
-		display: inline-block;
-	    margin: auto;
-	    width: 90px;
-	    height: 90px;
-	    background: url("../image/icone2.png") 0 0 no-repeat;
-	    background-position: -94px 0px;
-	}
+content .home.active
+{
+    width: 90px;
+    height: 90px;
+    background: url("../image/icone2.png") 0 0 no-repeat;
+    background-position: -94px 0px;
+    margin-right: 5px;
+}
 
-	content div.options div.functions div.search
-	{
-		display: inline-block;
-	    margin: auto;
-	    width: 90px;
-	    height: 90px;
-	    background: url("../image/icone2.png") 0 0 no-repeat;
-	    background-position: -187px 0px;
-	}
+content .search
+{
+    width: 90px;
+    height: 90px;
+    background: url("../image/icone2.png") 0 0 no-repeat;
+    background-position: -187px 0px;
+}
 
-	content div.options div.functions div.search.active
-	{
-		display: inline-block;
-	    margin: auto;
-	    width: 90px;
-	    height: 90px;
-	    background: url("../image/icone2.png") 0 0 no-repeat;
-	    background-position: -280px 0px;
-	}
+content .search.active
+{
+    width: 90px;
+    height: 90px;
+    background: url("../image/icone2.png") 0 0 no-repeat;
+    background-position: -280px 0px;
+}
 
-	content div.options div.search-info
-	{
-		display: none;
-	} 
+content .search-info
+{
+	display: none;
+} 
 
-	content div.options div.search-info span
-	{
-		color: red;
-		font-weight: bold;
-	}
+content .search-info span
+{
+	color: red;
+	font-weight: bold;
+}
 
-	content div.recherche div.barre div.texte, content div.recherche div.barre div.button
-	{
-		display: inline-block;
-		vertical-align: middle;
-		height: 30px;
-		padding: 0;
-		margin: 0;
-	}
+content .recherche
+{
+	display: none;
+}
 
-	content div.recherche div.barre input.searched
-	{
-		border: 3px solid #000000;
-		height: 24px;
-		width: 500px;
-	}
+content .recherche .barre .texte, content .recherche .barre .button
+{
+	display: inline-block;
+	vertical-align: middle;
+	height: 30px;
+	padding: 0;
+	margin: 0;
+}
 
-	content div.recherche div.barre input.searching
-	{
-		border: 0;
-	    display: inline-block;
-	    margin: auto;
-	    width: 32px;
-	    height: 32px;
-	    background: url("../image/icone2.png") 0 0 no-repeat;
-	    background-position: -373px 0px;
-	}   
+content .recherche .barre .searched
+{
+	border: 3px solid #000000;
+	height: 24px;
+	width: 500px;
+}
+
+content .recherche .barre .searching
+{
+	border: 0;
+    display: inline-block;
+    margin: auto;
+    width: 32px;
+    height: 32px;
+    background: url("../image/icone2.png") 0 0 no-repeat;
+    background-position: -373px 0px;
 }

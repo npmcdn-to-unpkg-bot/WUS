@@ -1,72 +1,51 @@
-@media screen and (min-width: 1024px)
+content .recherche
 {
-    content div.options div.recherche
-    {
-    	background-color: #FFFFFF;
-    	color: #000000;
-    	padding: 5px;
-    	text-align: left;
-    	border: 1px #D9D6D7 solid;
-    	margin-top: 5px;
-    	margin-bottom: 5px;
-    }
-
-    content div.options div.recherche div.link, content div.options div.recherche div.data
-    {
-    	display: inline-block;
-    	vertical-align: middle;
-    	height: 26px;
-    }
-    content div.options div.recherche div.link {
-        width: 20%;
-    }
-
-    content div.options div.recherche div.data {
-        width: 72%;
-    }
-
-    content div.options div.recherche div.link a
-    {
-        display: block;
-        width: 30px;
-        height: 30px;
-        background: url("../image/icone.png") 0 0 no-repeat;
-        background-position: 0px -23px;
-        margin: auto;
-    }
-
-    content div.options div.recherche div.data input[type=text]
-    {
-    	display: block;
-        width: 100%;
-        height: 22px;
-        padding: 0px 5px 0px 0px;
-        border: solid 2px #000000;
-        transition: border 0.3s;
-        background-color: #FFFFFF;
-        color: #000000;
-    }
+    padding-left: 25px;
 }
 
-@media handheld and (device-width: 320px)
+/*content div.options div.recherche
 {
-    content div.options div.recherche
-    {
-        display: none;
-    }
-
-    content div.options div.recherche div.link, content div.options div.recherche div.data
-    {
-        display: none;
-    }
-
-    content div.options div.recherche div.link a
-    {
-        display: none;
-    }
-
-    content div.options div.recherche div.data input[type=text]
-    {
-        display: none;
-    }
+    background-color: #FFFFFF;
+    color: #000000;
+    padding: 5px;
+    text-align: left;
+    border: 1px #D9D6D7 solid;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
+
+content div.options div.recherche div.link, content div.options div.recherche div.data
+{
+    display: inline-block;
+    vertical-align: middle;
+    height: 26px;
+}
+content div.options div.recherche div.link {
+    width: 20%;
+}
+
+content div.options div.recherche div.data {
+    width: 72%;
+}
+
+content div.options div.recherche div.link a
+{
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: 0px -23px;
+    margin: auto;
+}
+
+content div.options div.recherche div.data input[type=text]
+{
+    display: block;
+    width: 100%;
+    height: 22px;
+    padding: 0px 5px 0px 0px;
+    border: solid 2px #000000;
+    transition: border 0.3s;
+    background-color: #FFFFFF;
+    color: #000000;
+}*/

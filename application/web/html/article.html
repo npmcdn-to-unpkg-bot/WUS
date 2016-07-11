@@ -1,33 +1,34 @@
-<article>
-	<div class='site'>
-        <div class='logo_site'>
+<article class='col-xs-11 col-sm-5 col-md-5 col-lg-3 grid-item'>
+	<div class='row site'>
+        <div class='col-xs-2 logo_site'>
             <img src='%%logo_site%%' alt='%%alt_logo_site%%'>
         </div>
-        <div class='informations_site'>
+        <div class='col-xs-10 informations_site'>
             <div class='title'>
                 <label class='title'>%%title_site%%</label>
-            </div>
-            <div class='button'>
-                %%subscription%%
             </div>
         </div>
         <!--<div class='social'>
             <a href='#' id='share' data-href='%%url%%'></a>
         </div>-->
     </div>
-    <div class='image'>
-        <a href='%%url%%' title='%%title%%' target='_blank'>
-            <img width='%%width_image%%' height='%%height_image%%' src='%%image%%' alt='%%alt_image%%' />
-        </a>
+    <div class='row image'>
+        <div class="col-xs-12">
+            <a href='%%url%%' title='%%title%%' target='_blank'>
+                <img width='%%width_image%%' height='%%height_image%%' src='%%image%%' alt='%%alt_image%%' />
+            </a>
+        </div>
     </div>
-    <div class='data'>
-		<h2 class='title'>
+    <div class='row data'>
+		<h1 class='col-xs-12 title'>
 			<a href='%%url%%' title='%%title%%' target='_blank'>
 				%%title%%
 			</a>
-		</h2>
-		<p class='description'>
-			%%description%%
-		</p>
+		</h1>
 	</div>
+    <div class='row'>
+        <p class='col-xs-12 description'>
+            %%description%%
+        </p>
+    </div>
 </article>

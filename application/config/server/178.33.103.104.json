@@ -49,5 +49,13 @@
                 "word_wrap": "900"
             }
         }
+    },
+    "mailchimp": {
+        "config": {
+            "api_key" : "e5d1d4797a2c82813cc7cf1b1ca8e6b3-us13"
+        },
+        "list": {
+            "lid" : "5148a8524e"
+        }
     }
 }

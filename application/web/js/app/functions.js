@@ -1,21 +1,21 @@
-$(".functions .home").off('click');
-$(".functions .home").on('click', function() {
+$(".container-functions .home").off('click');
+$(".container-functions .home").on('click', function() {
 
     $(".medias").show();
     $(".search-info").hide();
-    $(".articles").addClass('active');
-    $(".recherche").removeClass('active');
+    $(".articles").show();
+    $(".recherche").hide();
     $(this).addClass('active');
-    $(".functions .search").removeClass('active');
+    $(".container-functions .search").removeClass('active');
 });
 
-$(".functions .search").off('click');
-$(".functions .search").on('click', function() {
+$(".container-functions .search").off('click');
+$(".container-functions .search").on('click', function() {
 
     $(".medias").hide();
     $(".search-info").show();
-    $(".recherche").addClass('active');
-    $(".articles").removeClass('active');
+    $(".recherche").show();
+    $(".articles").hide();
     $(this).addClass('active');
-    $(".functions .home").removeClass('active');
+    $(".container-functions .home").removeClass('active');
 });

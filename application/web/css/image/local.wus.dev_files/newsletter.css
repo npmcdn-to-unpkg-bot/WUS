@@ -1,0 +1,94 @@
+@media screen and (min-width: 1024px)
+{
+	content div.informations div.newsletter
+	{
+		background-color: #000000;
+		color: #FFFFFF;
+		padding: 5px;
+		text-align: left;
+		border: 1px #D9D6D7 solid;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+	content div.informations div.newsletter div.logo
+	{
+		display: block;
+	    margin: auto;
+	    width: 70px;
+	    height: 60px;
+	    background: url("../image/icone2.png") 0 0 no-repeat;
+	    background-position: -410px 0px;
+	}
+
+	content div.informations div.newsletter div.title
+	{
+		//height: 20px;
+		font-weight: bold;
+		display: block;
+	    height: 28px;
+	    text-align: center;
+	    font-size: 14px;
+	}
+
+	content div.informations div.newsletter div.data
+	{
+	}
+
+	content div.informations div.newsletter div.data div.input input[type=text]
+	{
+		width: 100%;
+		padding: 2px;
+		border: solid 1px #FFFFFF;
+		transition: border 0.3s;
+		background-color: #000000;
+		color: #FFFFFF;
+	}
+
+	content div.informations div.newsletter div.data div.input
+	{
+		display: inline-block;
+	    width: 64%;
+	    height: 35px;
+	    vertical-align: middle;
+	    margin-left: 12px;
+	}
+
+	content div.informations div.newsletter div.data div.button
+	{
+		display: inline-block;
+	    width: 28%;
+	    text-align: center;
+	}
+
+	content div.informations div.newsletter div.data div.button a
+	{
+		display: inline-block;
+	    width: 40px;
+	    height: 40px;
+	    background: url("../image/icone.png") 0 0 no-repeat;
+	    background-position: -378px -15px;
+	}	    
+}
+
+@media handheld and (device-width: 320px)
+{
+	content div.informations div.newsletter
+	{
+		display: none;
+	}
+
+	content div.informations div.newsletter div.title
+	{
+		display: none;
+	}
+
+	content div.informations div.newsletter div.data
+	{
+	}
+
+	content div.informations div.newsletter div.data input[type=text]
+	{
+		display: none;
+	}
+}

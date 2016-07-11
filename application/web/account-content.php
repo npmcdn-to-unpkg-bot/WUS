@@ -90,6 +90,7 @@
 
 			    global $bdd;
 			    global $_TABLES;
+			    global $config;
 
 			    $content_html = "<label for='last-name'>Nom : </label>
 								<input class='input-text' type='text' name='last-name' id='account-last-name' placeholder='Nom' value='%%last-name%%' />
@@ -139,7 +140,7 @@
 
 	                        $content_html = str_replace('%%email%%', $user->email, $content_html);
 
-	                        $objUserNewsletter = new UserNewsletter($bdd, $_TABLES);
+	                        $objUserNewsletter = new UserNewsletter($bdd, $_TABLES, $config);
 	                        $user_newsletter = $objUserNewsletter->getExist($user->email);
 
 	                        if($user_newsletter && !is_null($user_newsletter)) {

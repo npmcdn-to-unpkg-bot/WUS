@@ -22,9 +22,10 @@ function createNewsletter($email) {
 
     global $bdd;
     global $_TABLES;
+    global $config;
 
     // Ajout ou suppression de l'email de la personne dans la liste de la newsletter
-    $objUserNewsletter = new UserNewsletter($bdd, $_TABLES);
+    $objUserNewsletter = new UserNewsletter($bdd, $_TABLES, $config);
     $objUserNewsletter->createUserNewsletter($email);
 
     // Retour 0

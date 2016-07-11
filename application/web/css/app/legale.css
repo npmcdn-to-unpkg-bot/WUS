@@ -1,32 +1,17 @@
-@media screen
+content .container-legale
 {
-	content div.informations div.legale
-	{
-		background-color: #FFFFFF;
-		color: #000000;
-		padding: 5px;
-		text-align: left;
-		margin-top: 5px;
-		margin-bottom: 5px;
-	}
+	background-color: #FFFFFF;
+	color: #000000;
+	text-align: left;
+	margin-top: 5px;
+	margin-bottom: 5px;
 
-	content div.informations div.legale a
-	{
-		display: block;
-		text-decoration: none;
-		font-size: 10px;
-	}
+	padding-left: 25px;
 }
 
-@media handheld and (device-width: 320px)
+content .container-legale a
 {
-	content div.informations div.legale
-	{
-		display: none;
-	}
-
-	content div.informations div.legale a
-	{
-		display: none;
-	}
+	display: block;
+	text-decoration: none;
+	font-size: 10px;
 }

@@ -1,102 +1,30 @@
-@media screen and (min-width: 1024px)
+content .container-subscription
 {
-	content div.options div.medias
-	{
-		background-color: #FFFFFF;
-		color: #000000;
-		padding: 5px;
-		text-align: left;
-		border: 1px #D9D6D7 solid;
-		margin-bottom: 5px;
-	}
-
-	content div.options div.medias div.title
-	{
-		height: 20px;
-		font-weight: bold;
-	}
-
-	content div.options div.medias div.data
-	{
-	}
-
-	content div.options div.medias div.data website input.media_choice
-	{
-		display: inline-block;
-		width: 6%;
-		vertical-align: top;
-	}
-
-	content div.options div.medias div.data website label
-	{
-		display: inline-block;
-		width: 80%;
-	}
-
-	content div.options div.medias div.button
-	{
-		height: 40px;
-		width: 40px;
-		margin: auto;
-	}
-
-	content div.options div.medias div.button a
-	{
-		display: block;
-	    width: 40px;
-	    height: 40px;
-	    background: url("../image/icone.png") 0 0 no-repeat;
-	    background-position: -378px -15px;
-	}
-
-	content div.options div.medias div.link
-	{
-		height: 20px;
-		font-size: 10px;
-		text-align: center;
-	}
-
-	content div.options div.medias div.link a
-	{
-		text-decoration: none;
-		color: #000000;
-		text-transform:uppercase;
-	}
+	padding-left: 15px !important;
 }
 
-@media handheld and (device-width: 320px)
+content .medias
 {
-	content div.options div.medias
-	{
-		display: none;
-	}
+	background-color: #FFFFFF;
+	color: #000000;
+	padding: 5px;
+	text-align: left;
+	border: 1px #D9D6D7 solid;
+	margin-bottom: 5px;
+}
 
-	content div.options div.medias div.title
-	{
-		display: none;
-	}
+content .medias .title
+{
+	height: 20px;
+	font-weight: bold;
+}
 
-	content div.options div.medias div.data
-	{
-	}
-
-	content div.options div.medias div.button
-	{
-		display: none;
-	}
-
-	content div.options div.medias div.button a
-	{
-		display: none;
-	}
-
-	content div.options div.medias div.link
-	{
-		display: none;
-	}
-
-	content div.options div.medias div.link a
-	{
-		display: none;
-	}
+content .search-info
+{
+	background-color: #FFFFFF;
+	color: #000000;
+	padding: 5px;
+	text-align: left;
+	border: 1px #D9D6D7 solid;
+	margin-bottom: 5px;
 }

@@ -1,11 +1,105 @@
 /* Searched */
 
-content div.recherche div.result-searching
+content .result-searching
+{
+	position: relative;
+	vertical-align: top;
+}
+
+content .result-searching article
+{
+	background-color: #FFFFFF;
+	margin: 0.5%;
+	margin-bottom: 0.5%;
+	border: 1px #D9D6D7 solid;
+}
+
+content .result-searching article .site
+{
+	margin-top: 5px;
+}
+
+content .result-searching article .site .logo_site,
+content .result-searching article .site .informations_site,
+content .result-searching article .site .social
+{
+}
+
+content .result-searching article .site .logo_site img
+{
+	max-height: 30px;
+}
+
+content .result-searching article .site .social
+{
+	width: 30px;
+	margin-left: 96px;
+}
+
+content .result-searching article .site .social a
+{
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: -204px -21px;
+}
+
+content .result-searching article .site .informations_site
+{
+	max-height: 30px;
+}
+
+content .result-searching article .site .informations_site .title
+{
+	color: #000000;
+	font-weight: bold;
+	text-align: left;
+	text-transform: uppercase;
+}
+
+content .result-searching article .site .informations_site .button .subscription
+{
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: -236px -26px;
+}
+
+content .result-searching article .site .informations_site .button .unsubscription
+{
+    background: url("../image/icone.png") 0 0 no-repeat;
+    background-position: -308px -26px;
+}
+
+content .result-searching article .data h1.title
+{
+	text-transform: uppercase;
+}
+
+content .result-searching article .data h1.title a
+{
+	text-decoration: none;
+	font-weight: bold;
+	color: #000000;
+}
+
+content .result-searching article .data p.description
+{
+	font-size: 12px;
+	color: #000000;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+span.pagination-search
+{
+	color: purple;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/*content .result-searching
 {
 	vertical-align: top;
 }
 
-content div.recherche div.result-searching article
+content .result-searching article
 {
 	background-color: #FFFFFF;
 	display: inline-block;
@@ -15,39 +109,29 @@ content div.recherche div.result-searching article
 	border: 1px #D9D6D7 solid;
 }
 
-content div.recherche div.result-searching article div.site
+content .result-searching article .site
 {
-	height: 30px;
-	text-align: left;
-	margin: 2px;
+	margin-top: 5px;
 }
 
-content div.recherche div.result-searching article div.site div.logo_site,
-content div.recherche div.result-searching article div.site div.informations_site,
-content div.recherche div.result-searching article div.site div.social
+content .result-searching article .site .logo_site,
+content .result-searching article .site .informations_site,
+content .result-searching article .site .social
 {
-	height: 30px;
-	display: inline-block;
-	vertical-align: middle;
 }
 
-content div.recherche div.result-searching article div.site div.logo_site
-{
-	//width: 30px;
-}
-
-content div.recherche div.result-searching article div.site div.logo_site img
+content .result-searching article .site .logo_site img
 {
 	max-height: 30px;
 }
 
-content div.recherche div.result-searching article div.site div.social
+content .result-searching article .site .social
 {
 	width: 30px;
 	margin-left: 96px;
 }
 
-content div.recherche div.result-searching article div.site div.social a
+content .result-searching article .site .social a
 {
 	
 	display: block;
@@ -57,24 +141,29 @@ content div.recherche div.result-searching article div.site div.social a
     background-position: -204px -21px;
 }
 
-content div.recherche div.result-searching article div.site div.informations_site div.title,
-content div.recherche div.result-searching article div.site div.informations_site div.button
+content .result-searching article .site .informations_site
+{
+	max-height: 30px;
+}
+
+content .result-searching article .site .informations_site .title,
+content .result-searching article .site .informations_site .button
 {
 	display: block;
 	width: 100%;
 	vertical-align: middle;
 }
 
-content div.recherche div.result-searching article div.site div.informations_site div.title
+content .result-searching article .site .informations_site .title
 {
 	color: #000000;
 	font-weight: bold;
 	text-align: left;
 	text-transform: uppercase;
-	font-size: 12px;
+	//font-size: 12px;
 }
 
-content div.recherche div.result-searching article div.site div.informations_site div.button div.subscription
+content .result-searching article .site .informations_site .button .subscription
 {
 	display: block;
     width: 70px;
@@ -83,7 +172,7 @@ content div.recherche div.result-searching article div.site div.informations_sit
     background-position: -236px -26px;
 }
 
-content div.recherche div.result-searching article div.site div.informations_site div.button div.unsubscription
+content .result-searching article .site .informations_site .button .unsubscription
 {
 	display: block;
     width: 70px;
@@ -92,13 +181,13 @@ content div.recherche div.result-searching article div.site div.informations_sit
     background-position: -308px -26px;
 }
 
-content div.recherche div.result-searching article div.image, article div.image a, article div.image a img
+content .result-searching article .image, .result-searching article .image a, .result-searching article .image a img
 {
 	max-height: 100%;
 	max-width: 100%;
 }
 
-content div.recherche div.result-searching article div.data h2.title
+content .result-searching article .data h2.title
 {
 	text-align: center;
 	width: 80%;
@@ -106,14 +195,14 @@ content div.recherche div.result-searching article div.data h2.title
 	text-transform: uppercase;
 }
 
-content div.recherche div.result-searching article div.data h2.title a
+content .result-searching article .data h2.title a
 {
 	text-decoration: none;
 	font-weight: bold;
 	color: #000000;
 }
 
-content div.recherche div.result-searching article div.data p.description
+content .result-searching article .data p.description
 {
 	display: block
 	text-align: left;
@@ -128,4 +217,4 @@ span.pagination-search
 	color: purple;
 	text-decoration: underline;
 	cursor: pointer;
-}
+}*/

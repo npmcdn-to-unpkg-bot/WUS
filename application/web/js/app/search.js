@@ -26,7 +26,7 @@ function Search() {
 
             if(data !== "") {
                 $('.result-searching').empty().html(data);
-                $('.result-searching').fadeIn(300);
+                //$('.result-searching').fadeIn(300);
 
                 $('.pagination-search').off('click');
                 $('.pagination-search').on('click', function(e) {

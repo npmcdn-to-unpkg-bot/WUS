@@ -6,6 +6,7 @@ $app->get('/', function () {
     $page   = new Page('home');
 });
 
+
 //flux rss
 $app->get('/rss', function () {
     //load page config and html content

@@ -124,7 +124,7 @@ function search($searched = '%') {
                     ));
             }
 
-            $content .= '<br/><br/><p align="center">Page : '; //Pour l'affichage, on centre la liste des pages
+            $content .= '<br/><br/><div class="row"><p class="col-xs-12" align="center">Page : '; //Pour l'affichage, on centre la liste des pages
             for($i=1; $i<=$nombreDePages; $i++) //On fait notre boucle
             {
                  //On va faire notre condition
@@ -137,7 +137,7 @@ function search($searched = '%') {
                       $content .= " <span class='pagination-search' nbpage='$i'>$i</span> ";
                  }
             }
-            $content .= '</p>';
+            $content .= '</p></div>';
 
             return $content;
         }

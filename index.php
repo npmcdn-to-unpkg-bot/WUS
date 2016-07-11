@@ -23,6 +23,7 @@ $api    = new API();
 //data base connection 
 $bdd = $api->bdd;
 $_TABLES = $api->_TABLES;
+$config = $api->config;
 
 //load rootes
 require "application/rootes/rootes.php";
