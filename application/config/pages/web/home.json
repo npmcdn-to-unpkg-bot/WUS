@@ -27,7 +27,7 @@
 
             "/application/common/bootstrap/js/bootstrap.min.js",
 
-            "https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js",
+            "https://unpkg.com/masonry-layout@4.0/dist/masonry.pkgd.min.js",
 
 
             "/application/web/js/app/caroussel.js",
